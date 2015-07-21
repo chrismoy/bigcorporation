@@ -5,7 +5,7 @@ $nav-mobile-height: 6rem;
 
 nav {
   border-bottom: 1px solid $nav-font-hover-color;
-  background-color: $body-bg;
+  background-color: rgba(255,255,255,0.8);
   height: $nav-mobile-height;
   padding: 0 0.5rem;
   position: relative;

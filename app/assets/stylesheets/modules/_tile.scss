@@ -1,17 +1,19 @@
-$tile-border-width: 6rem;
-
-main {
-  position: fixed;
+.background {
+  background-image: image-url('chicagoSkyline.jpg');
+  background-position: 50% 70%;
+  background-size: cover;
+  filter: grayscale(60%);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.content {
+  height: 100%;
   left: 20%;
+  position: absolute;
   top: 0;
   width: 80%;
-  height: 100%;
-  padding: $tile-border-width $tile-border-width 0 $tile-border-width;
-  .inner {
-    background-image: image-url('chicagoSkyline.jpg');
-    background-size: cover;
-    background-position: 50% 90%;
-    height: 100%;
-    width: 100%;
-  }
 }

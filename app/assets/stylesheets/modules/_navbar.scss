@@ -3,6 +3,7 @@ $nav-font-active-color: $body-font-color;
 $nav-font-hover-color: $body-font-ternary-color;
 $nav-mobile-height: 6rem;
 $nav-padding: 3rem;
+$nav-offset-padding: 2rem;
 
 nav {
   border-bottom: 1px solid $nav-font-hover-color;
@@ -47,7 +48,7 @@ nav {
     border-bottom: 0;
     border-right: 1px solid $nav-font-color;
     height: 100%;
-    padding: $nav-padding;
+    padding: $nav-offset-padding $nav-padding;
     width: 20%;
     .logo {
       display: block;
@@ -62,7 +63,7 @@ nav {
       li { text-align: right; }
      }
     .address {
-      bottom: $nav-padding;
+      bottom: $nav-offset-padding;
       display: block;
       font-size: 1.4rem;
       left: $nav-padding;

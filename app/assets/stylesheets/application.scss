@@ -1,0 +1,26 @@
+// Globals
+
+@import "global/variables";
+@import "global/foundation_and_overrides";
+@import "global/foundation";
+
+// Modules
+
+// Components
+
+// Pages
+
+@import "pages/main_pages/home";
+
+// Debug Box
+
+.debug_dump {
+  clear: both;
+  float: left;
+  margin: 45px;
+  padding: 10px;
+  background: $smoke;
+  border: 1px solid $oil;
+  @include box_sizing;
+  @include radius;
+}

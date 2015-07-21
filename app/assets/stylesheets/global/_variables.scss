@@ -4,3 +4,17 @@ body {
   position: relative;
   width: 100%;
 }
+
+@font-face {
+  font-family: 'Panton Light';
+  src: url('fonts/panton/panton.light.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Panton Light';
+  src: url('fonts/panton/panton.light-italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}

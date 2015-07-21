@@ -1,15 +1,33 @@
+$nav-font-color: $body-font-secondary-color;
+$nav-font-active-color: $body-font-color;
+$nav-font-hover-color: $body-font-ternary-color;
+
 nav {
   background-color: $body-bg;
   border-right: 1px solid $body-font-color;
   height: 10%;
-  position: fixed;
+  padding: 1rem;
+  position: relative;
   width: 100%;
   .logo {
-    display: block;
-    text-align: center;
   }
   .directory {
-
+    list-style-type: none;
+    margin: 0;
+    position: absolute;
+    right: -1000rem;
+    top: 0;
+    width: 100%;
+    li {
+      display: block;
+      text-align: center;
+      a {
+        color: $nav-font-color;
+        font-size: 2rem;
+        &:hover { color: $body-font-ternary-color; }
+        &.active { color: $nav-font-active-color; }
+      }
+    }
   }
   .address {
 
@@ -21,13 +39,20 @@ nav {
     height: 100%;
     width: 20%;
     .logo {
-
+      display: block;
+      font-size: 8rem;
+      margin: 0rem auto 10rem auto;
+      text-align: center;
     }
     .directory {
-
+      position: static;
     }
     .address {
-
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      text-align: center;
+      width: 100%;
     }
   }
 }

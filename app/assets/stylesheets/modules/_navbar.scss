@@ -1,0 +1,33 @@
+nav {
+  background-color: $body-bg;
+  border-right: 1px solid $body-font-color;
+  height: 10%;
+  position: fixed;
+  width: 100%;
+  .logo {
+    display: block;
+    text-align: center;
+  }
+  .directory {
+
+  }
+  .address {
+
+  }
+}
+
+@media #{$large-up} {
+  nav {
+    height: 100%;
+    width: 20%;
+    .logo {
+
+    }
+    .directory {
+
+    }
+    .address {
+
+    }
+  }
+}

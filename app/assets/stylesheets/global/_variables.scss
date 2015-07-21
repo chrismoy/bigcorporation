@@ -7,14 +7,14 @@ body {
 
 @font-face {
   font-family: 'Panton Light';
-  src: url('fonts/panton/panton.light.otf') format('opentype');
+  src: font-url('fonts/panton/panton.light.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Panton Light';
-  src: url('fonts/panton/panton.light-italic.otf') format('opentype');
+  src: font-url('fonts/panton/panton.light-italic.otf') format('opentype');
   font-weight: normal;
   font-style: italic;
 }

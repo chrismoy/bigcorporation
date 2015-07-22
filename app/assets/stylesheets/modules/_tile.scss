@@ -5,14 +5,25 @@
   height: 100%;
   left: 0;
   position: absolute;
-  top: 0;
+  top: $base-page-spacing;
   width: 100%;
   z-index: -1;
 }
 .content {
   height: 100%;
-  left: 20%;
+  left: 0%;
   position: absolute;
-  top: 0;
-  width: 80%;
+  top: $base-page-spacing;
+  width: 100%;
+}
+
+@media #{$large-up} {
+  .background {
+    top: 0;
+  }
+  .content {
+    left: 20%;
+    top: 0;
+    width: 80%;
+  }
 }

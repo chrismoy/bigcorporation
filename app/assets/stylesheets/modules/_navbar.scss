@@ -2,13 +2,13 @@ $nav-font-color: $body-font-secondary-color;
 $nav-font-active-color: $body-font-color;
 $nav-font-passive-color: $body-font-ternary-color;
 $nav-font-hover-color: $primary-color;
-$nav-mobile-height: 6rem;
+$nav-mobile-height: $base-page-spacing;
 $nav-padding: 3rem;
 $nav-offset-padding: 2rem;
 
 nav {
   border-bottom: 1px solid $nav-font-passive-color;
-  background-color: rgba(255,255,255,0.95);
+  background-color: rgba(255,255,255,0.97);
   height: $nav-mobile-height;
   padding: 0 0.5rem;
   position: relative;

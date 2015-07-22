@@ -1,0 +1,27 @@
+.company-heading {
+  height: 18rem;
+  margin-top: -9rem;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  width: 100%;
+  .logo {
+    display: inline-block;
+    font-size: 12rem;
+    line-height: 1;
+    margin: 0;
+    vertical-align: top;
+  }
+  .name {
+    display: inline-block;
+    line-height: 1;
+    margin: 0;
+    .large-text { font-size: 7rem; }
+    .small-text { font-size: 5rem; }
+  }
+  .agency {
+    font-size: 6rem;
+    line-height: 1;
+    margin-left: 4rem;
+  }
+}

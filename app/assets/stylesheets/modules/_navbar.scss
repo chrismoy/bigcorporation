@@ -1,13 +1,13 @@
 $nav-font-color: $body-font-secondary-color;
 $nav-font-active-color: $body-font-color;
-$nav-font-hover-color: $body-font-ternary-color;
+$nav-font-hover-color: $primary-color;
 $nav-mobile-height: 6rem;
 $nav-padding: 3rem;
 $nav-offset-padding: 2rem;
 
 nav {
   border-bottom: 1px solid $nav-font-hover-color;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.95);
   height: $nav-mobile-height;
   padding: 0 0.5rem;
   position: relative;
@@ -34,7 +34,7 @@ nav {
       a {
         color: $nav-font-color;
         font-size: 2rem;
-        &:hover { color: $body-font-ternary-color; }
+        &:hover { color: $nav-font-hover-color; }
         &.active { color: $nav-font-active-color; }
       }
     }

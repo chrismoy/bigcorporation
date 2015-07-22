@@ -1,12 +1,13 @@
 $nav-font-color: $body-font-secondary-color;
 $nav-font-active-color: $body-font-color;
+$nav-font-passive-color: $body-font-ternary-color;
 $nav-font-hover-color: $primary-color;
 $nav-mobile-height: 6rem;
 $nav-padding: 3rem;
 $nav-offset-padding: 2rem;
 
 nav {
-  border-bottom: 1px solid $nav-font-hover-color;
+  border-bottom: 1px solid $nav-font-passive-color;
   background-color: rgba(255,255,255,0.95);
   height: $nav-mobile-height;
   padding: 0 0.5rem;
@@ -14,9 +15,10 @@ nav {
   width: 100%;
   .logo {
     display: inline-block;
-    font-size: $nav-mobile-height;
+    font-size: 0.8 * $nav-mobile-height;
     line-height: 1;
-    vertical-align: top;
+    padding-top: 0.5rem;
+    vertical-align: 0.1 * $nav-mobile-height;
   }
   .menu-button {
     float: right;
@@ -47,7 +49,7 @@ nav {
 @media #{$large-up} {
   nav {
     border-bottom: 0;
-    border-right: 1px solid $nav-font-color;
+    border-right: 1px solid $nav-font-passive-color;
     height: 100%;
     padding: $nav-offset-padding $nav-padding;
     width: 20%;

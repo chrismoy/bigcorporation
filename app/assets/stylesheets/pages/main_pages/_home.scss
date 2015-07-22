@@ -24,4 +24,41 @@
     line-height: 1;
     margin-left: 4rem;
   }
+  .btn-services {
+    font-size: 4rem;
+    margin-top: 4rem;
+    position: relative;
+    .bookstop {
+      border: 3px solid $primary-color;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transition: all 0.5s;
+      width: 1rem;
+      &.left {
+        border-right-width: 0;
+        float: left;
+        left: 0;
+      }
+      &.right {
+        border-left-width: 0;
+        float: right;
+        right: 0;
+      }
+    }
+    .content-btn {
+      margin: 1rem 1rem;
+      transition: all 0.5s;
+    }
+    &:hover {
+      .bookstop {
+        width: 50%;
+        background-color: $primary-color;
+        z-index: -1;
+      }
+      .content-btn {
+        color: $white;
+      }
+    }
+  }
 }

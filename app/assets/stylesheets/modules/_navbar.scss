@@ -51,17 +51,18 @@ nav {
     border-bottom: 0;
     border-right: 1px solid $nav-font-passive-color;
     height: 100%;
-    padding: $nav-offset-padding $nav-padding;
+    padding: $nav-offset-padding 0;
     width: 20%;
     .logo {
       display: block;
       font-size: 8rem;
-      margin: 0rem auto 15rem auto;
+      margin: 0rem auto 10rem auto;
       text-align: center;
     }
     .menu-button { display: none; }
     .directory {
       margin-bottom: 6rem;
+      padding-right: $nav-padding;
       position: static;
       li { text-align: right; }
      }

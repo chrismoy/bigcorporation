@@ -70,14 +70,12 @@ nav {
     width: 20%;
     .logo-container {
       display: block;
-      margin-bottom: 10rem;
+      margin-bottom: 15rem;
       text-align: center;
-      .logo {
-        @include btn-bracket-side($nav-font-active-color, $nav-font-hover-color, 4rem, 2px, 0.3s);
-        display: inline-block;
-        line-height: 1.2
+      .logo-mobile {
+        display: block;
+        margin: 0 auto;
       }
-      .logo-mobile { display: none; }
     }
     .menu-button { display: none; }
     .directory {

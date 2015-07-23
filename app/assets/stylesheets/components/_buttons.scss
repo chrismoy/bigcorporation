@@ -1,0 +1,36 @@
+@mixin btn-bracket-side($passive-color, $active-color, $font-size, $border-width, $speed) {
+  font-size: $font-size;
+  line-height: 1;
+  opacity: 0.99;
+  padding: 0 1rem;
+  position: relative;
+  transition: all 0.5s;
+  &:before, &:after {
+    border: $border-width solid $passive-color;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all $speed;
+    width: 1rem;
+    z-index: -1;
+  }
+  &:before {
+    border-right-width: 0;
+    content: "";
+    float: left;
+    left: 0;
+  }
+  &:after {
+    border-left-width: 0;
+    content: "";
+    float: right;
+    right: 0;
+  }
+  &:hover {
+    color: $active-color;
+    &:before, &:after {
+      width: 50%;
+      background-color: $passive-color;
+    }
+  }
+}

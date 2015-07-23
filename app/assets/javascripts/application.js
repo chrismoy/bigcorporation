@@ -15,4 +15,9 @@
 //= require foundation
 //= require turbolinks
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
+  $('.menu-button').click(function() {
+    $('.directory').toggle();
+  });
+});

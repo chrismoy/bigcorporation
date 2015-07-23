@@ -3,7 +3,7 @@
   background-position: center 25%;
   background-size: cover;
   filter: brightness(0.8);
-  height: 100%;
+  height: 80%;
   left: 0;
   position: absolute;
   top: $base-page-spacing;
@@ -11,7 +11,7 @@
   z-index: -1;
 }
 .content {
-  height: 100%;
+  height: 80%;
   left: 0%;
   position: absolute;
   top: $base-page-spacing;
@@ -20,9 +20,11 @@
 
 @media #{$large-up} {
   .background {
+    height: 100%;
     top: 0;
   }
   .content {
+    height: 100%;
     left: 20%;
     top: 0;
     width: 80%;

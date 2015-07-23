@@ -81,6 +81,7 @@ nav {
     }
     .menu-button { display: none; }
     .directory {
+      display: block;
       margin-bottom: 6rem;
       padding-right: $nav-padding;
       position: static;

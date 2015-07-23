@@ -26,7 +26,7 @@
   }
   .btn-services {
     @include btn-bracket-side($primary-color, $white, 2.5rem, 2px, 0.5s);
-    margin-top: 2.5rem;
+    display: none;
   }
 }
 

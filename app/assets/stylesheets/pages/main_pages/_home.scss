@@ -30,30 +30,6 @@
   }
 }
 
-@media #{$medium-up} {
-  .company-heading {
-    height: 18rem;
-    margin-top: -9rem;
-    top: 40%;
-    .logo {
-      font-size: 12rem;
-    }
-    .name {
-      display: inline-block;
-      .large-text { font-size: 7rem; }
-      .small-text { font-size: 5rem; }
-    }
-    .agency {
-      font-size: 6rem;
-      margin-left: 4rem;
-    }
-    .btn-services {
-      @include btn-bracket-side($primary-color, $white, 4rem, 2px, 0.5s);
-      margin-top: 4rem;
-    }
-  }
-}
-
 @media #{$large-up} {
   .company-heading {
     height: 18rem;

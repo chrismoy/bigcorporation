@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   get     'main_pages/team'
   get     'main_pages/about'
   get     'main_pages/contact'
+  get     'allstaff/home'
+  get     'allstaff/select'
+  get     'allstaff/portal'
+  get     'allstaff/capabilities'
 end

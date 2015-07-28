@@ -3,6 +3,6 @@
 //= require foundation
 //= require turbolinks
 
-$(function(){
-  $(document).foundation();
-});
+$ ->
+  $.foundation();
+

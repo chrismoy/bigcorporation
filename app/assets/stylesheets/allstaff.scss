@@ -1,3 +1,28 @@
-// Place all the styles related to the allstaff controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Globals
+
+@import "allstaff/global/variables";
+@import "global/foundation_and_overrides";
+@import "global/foundation";
+
+@import "fonts/weather/weather";
+
+// Modules
+
+@import "allstaff/modules/header";
+
+// Pages
+
+@import "allstaff/pages/home";
+
+// Debug Box
+
+.debug_dump {
+  clear: both;
+  float: left;
+  margin: 45px;
+  padding: 10px;
+  background: $smoke;
+  border: 1px solid $oil;
+  @include box_sizing;
+  @include radius;
+}

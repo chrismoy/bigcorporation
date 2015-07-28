@@ -1,2 +1,3 @@
-<h1>Allstaff#home</h1>
-<p>Find me in app/views/allstaff/home.html.erb</p>
+<% @staffers.each do |staffer| %>
+  <%= render partial: "company_tile", locals: { staffer: staffer[0] } %>
+<% end %>

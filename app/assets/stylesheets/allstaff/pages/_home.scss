@@ -1,0 +1,20 @@
+#container-companies {
+  .layer {
+    @include grid-row();
+    .company {
+      border: 1px solid black;
+      height: 100px;
+      img {
+        display: block;
+        margin: 5rem auto 0 auto;
+        max-width: 90%;
+      }
+      &.minor {
+        @include grid-column(3);
+      }
+      &.major {
+        @include grid-column(9);
+      }
+    }
+  }
+}

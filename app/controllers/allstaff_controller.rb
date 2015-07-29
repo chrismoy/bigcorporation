@@ -5,9 +5,9 @@ class AllstaffController < ApplicationController
     @companies = [
       ["Select Staffing", "#1B4C26"],
       ["Fellows Staffing", "#022284"],
-      ["Jeane Thorne Staffing", "#1B4C26"],
+      ["Jeane Thorne Staffing", "#000000"],
       ["Select Advantage", "#2F5EA7"],
-      ["Allstaff", ""],
+      ["Allstaff", "white"],
       ["Digital Staffing", "#000000"],
       ["Andrews Staffing", "#2F5EA7"],
       ["Behavioral Staffing", "#4D318D"],

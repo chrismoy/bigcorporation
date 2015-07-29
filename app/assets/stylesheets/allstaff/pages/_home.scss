@@ -15,8 +15,11 @@
       }
       img {
         display: block;
-        margin: 5rem auto 0 auto;
+        left: 50%;
+        margin: 0;
         max-width: 90%;
+        position: absolute;
+        top: 50%;
       }
       &.minor {
         @include grid-column(3);

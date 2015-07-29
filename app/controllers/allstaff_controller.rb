@@ -7,7 +7,7 @@ class AllstaffController < ApplicationController
       ["Fellows Staffing", "#022284"],
       ["Jeane Thorne Staffing", "#000000"],
       ["Select Advantage", "#2F5EA7"],
-      ["Allstaff", "white"],
+      ["Allstaff", "#F3EDDD"],
       ["Digital Staffing", "#000000"],
       ["Andrews Staffing", "#2F5EA7"],
       ["Behavioral Staffing", "#4D318D"],

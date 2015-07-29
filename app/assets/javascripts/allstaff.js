@@ -12,5 +12,4 @@ $(window).resize(resizing);
 
 function ready() {
   setCompanyHeights();
-  initialLogoPositions();
 }

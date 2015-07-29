@@ -1,15 +1,11 @@
 function resizing() {
   setCompanyHeights();
-  setLogoPositions();
 }
 
 function setCompanyHeights() {
   var width = $('.company').first().width();
-  var highlightRatio = 0.1;
 
-  $('.company').height(width);
-  $('.highlight').height(highlightRatio * width);
-  $('.highlight').width(highlightRatio * width);
+  $('.company').height(width * 0.5);
 }
 
 function initialLogoPositions() {

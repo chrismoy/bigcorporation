@@ -1,5 +1,8 @@
-<div class="company <%= index == 4 ? 'major' : 'minor' %>" style="border-color: <%= company[1] %>;">
-  <%= image_tag "logos/#{company[0].gsub " ", ""}.png" %>
+<div class="company">
+  <div class="image">
+    <%= image_tag "checkerboard/test#{index}.jpg" %>
+  </div>
   <div class="description">
+    <%= company[1] %>
   </div>
 </div>

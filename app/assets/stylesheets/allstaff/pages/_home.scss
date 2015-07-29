@@ -1,48 +1,76 @@
 #container-companies {
   .layer {
     @include grid-row();
-    .company {
-      background-color: white;
-      border: 20px solid transparent;
+    .logo, .company {
+      @include grid-column(6);
+
+      border: 5px solid $gainsboro;
+      border-collapse: collapse;
       overflow: hidden;
       position: relative;
-      img {
-        display: block;
-        left: 50%;
-        margin: 0;
-        max-width: 90%;
-        position: absolute;
-        top: 50%;
-      }
-      .description {
-        background-color: $gainsboro;
-        color: white;
-        cursor: pointer;
+    }
+    .company {
+      .image, .description {
         height: 100%;
-        left: 0;
-        overflow: hidden;
         position: absolute;
-        transition: all 0.5s;
-        top: -100%;
-        width: 100%;
+        top: 0;
+        width: 50%;
+      }
+      .image {
+        filter: grayscale(0.5);
+        left: 50%;
+        width: 50%;
         img {
           display: block;
-          margin: 0 auto;
-          width: 60%;
-        }
-      }
-      &:hover {
-        .description {
+          left: 0;
+          margin: 0;
+          position: absolute;
           top: 0;
+          width: 100%;
         }
       }
-      &.minor {
-        @include grid-column(3);
-      }
-      &.major {
-        @include grid-column(9);
-        .description { display: none; }
+      .description {
+        font-size: 1.5rem;
+        left: 0;
+        line-height: 1.2;
+        padding: 2rem;
+        &:after{
+          content: '';
+          position: absolute;
+          left: 100%;
+          top: 10%;
+          width: 0;
+          height: 0;
+          border-left: 20px solid white;
+          border-bottom: 20px solid transparent;
+          border-top: 20px solid transparent;
+          clear: both;
+        }
       }
     }
+    &:nth-child(odd) {
+      .company {
+        .image {
+          left: 0;
+        }
+        .description {
+          left: 50%;
+          &:after{
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 10%;
+            width: 0;
+            height: 0;
+            border-right: 20px solid white;
+            border-left: transparent;
+            border-bottom: 20px solid transparent;
+            border-top: 20px solid transparent;
+            clear: both;
+          }
+        }
+      }
+    }
+
   }
 }

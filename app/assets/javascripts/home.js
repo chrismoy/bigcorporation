@@ -1,5 +1,6 @@
 function resizing() {
   setCompanyHeights();
+  setLogoPositions()
 }
 
 function setCompanyHeights() {
@@ -9,7 +10,7 @@ function setCompanyHeights() {
 }
 
 function initialLogoPositions() {
-  $( '.company img' ).each(function() {
+  $( '.company .description img' ).each(function() {
     $(this).on('load', function() {
       $(this).css('margin-top', $(this).height() * -0.5);
       $(this).css('margin-left', $(this).width() * -0.5);
@@ -19,7 +20,7 @@ function initialLogoPositions() {
 }
 
 function setLogoPositions() {
-  $( '.company img' ).each(function() {
+  $( '.company .description img' ).each(function() {
     $(this).css('margin-top', $(this).height() * -0.5);
     $(this).css('margin-left', $(this).width() * -0.5);
   });

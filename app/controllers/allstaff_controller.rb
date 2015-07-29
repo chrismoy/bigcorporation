@@ -3,16 +3,16 @@ class AllstaffController < ApplicationController
 
   def home
     @companies = [
-      ["Select Staffing"],
-      ["Fellows Staffing"],
-      ["Jeane Thorne Staffing"],
-      ["Select Advantage"],
-      ["Allstaff"],
-      ["Digital Staffing"],
-      ["Andrews Staffing"],
-      ["Behavioral Staffing"],
-      ["Fellows Financial"],
-      ["All Calls"]
+      ["Select Staffing", "#1B4C26"],
+      ["Fellows Staffing", "#022284"],
+      ["Jeane Thorne Staffing", "#1B4C26"],
+      ["Select Advantage", "#2F5EA7"],
+      ["Allstaff", ""],
+      ["Digital Staffing", "#000000"],
+      ["Andrews Staffing", "#2F5EA7"],
+      ["Behavioral Staffing", "#4D318D"],
+      ["Fellows Financial", "#B32229"],
+      ["All Calls", "#26357A"]
     ]
   end
 

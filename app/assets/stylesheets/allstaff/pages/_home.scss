@@ -2,8 +2,17 @@
   .layer {
     @include grid-row();
     .company {
-      border: 1px solid black;
+      background-color: $gainsboro;
+      border: 1px solid white;
+      position: relative;
       height: 100px;
+      .highlight {
+        height: 3rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 3rem;
+      }
       img {
         display: block;
         margin: 5rem auto 0 auto;
@@ -14,6 +23,8 @@
       }
       &.major {
         @include grid-column(9);
+
+        background-color: red;
       }
     }
   }

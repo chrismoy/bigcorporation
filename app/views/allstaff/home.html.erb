@@ -1,17 +1,17 @@
 <main class="content" id="container-companies">
   <div class="layer">
     <% for i in 0..3 do %>
-      <%= render partial: "company_tile", locals: { company: @companies[i][0], index: i } %>
+      <%= render partial: "company_tile", locals: { company: @companies[i], index: i } %>
     <% end %>
   </div>
   <div class="layer">
     <% for i in 4..5 do %>
-      <%= render partial: "company_tile", locals: { company: @companies[i][0], index: i } %>
+      <%= render partial: "company_tile", locals: { company: @companies[i], index: i } %>
     <% end %>
   </div>
   <div class="layer">
     <% for i in 6..9 do %>
-      <%= render partial: "company_tile", locals: { company: @companies[i][0], index: i } %>
+      <%= render partial: "company_tile", locals: { company: @companies[i], index: i } %>
     <% end %>
   </div>
 </main>

@@ -1,3 +1,4 @@
 <div class="company <%= index == 4 ? 'major' : 'minor' %>">
-  <%= image_tag "logos/#{company.gsub " ", ""}.png" %>
+  <span class="highlight" style="background-color: <%= company[1] %>;"></span>
+  <%= image_tag "logos/#{company[0].gsub " ", ""}.png" %>
 </div>

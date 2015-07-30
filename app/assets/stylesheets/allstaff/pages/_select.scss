@@ -22,9 +22,18 @@
     .board {
       background-color: white;
       box-shadow: inset 0 0 10px $iron;
-      height: 60%;
+      font-size: 1.5rem;
+      font-weight: lighter;
+      height: 90%;
+      overflow-y: auto;
+      padding: 10rem;
       position: relative;
       width: 100%;
+      vertical-align: bottom;
+      h3, h4 {
+        font-weight: 300;
+        font-size: 2rem;
+      }
     }
   }
   .jobs {

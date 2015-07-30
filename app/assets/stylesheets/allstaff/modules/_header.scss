@@ -4,4 +4,15 @@ nav {
     margin-top: 1rem;
     vertical-align: top;
   }
+  section {
+    ul {
+      li {
+        a {
+          &:hover {
+            color: $iron;
+          }
+        }
+      }
+    }
+  }
 }

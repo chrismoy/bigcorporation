@@ -24,15 +24,14 @@ class AllstaffController < ApplicationController
 
     count = 0
 
-    # @companies.each do |company|
-    #   # company.insert(1, @colors[count])
-    #   company.insert(1, @colors[count])
-    #   if company[0] == "Allstaff"
-    #     company[1] = "FFFFFF"
-    #   else
-    #     count += 1
-    #   end
-    # end
+    @companies.each do |company|
+      company.insert(2, @colors[count])
+      if company[0] == "Allstaff"
+        company[1] = "FFFFFF"
+      else
+        count += 1
+      end
+    end
   end
 
   def select

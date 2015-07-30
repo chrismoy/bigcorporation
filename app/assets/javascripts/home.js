@@ -10,17 +10,18 @@ function setCompanyHeights() {
 }
 
 function initialLogoPositions() {
-  $( '.company .description img' ).each(function() {
+  $( '.company .brand img' ).each(function() {
     $(this).on('load', function() {
       $(this).css('margin-top', $(this).height() * -0.5);
       $(this).css('margin-left', $(this).width() * -0.5);
     });
-
   });
+  $( '.company.main img' ).css('margin-top', $(this).height() * -0.5);
+  $( '.company.main img' ).css('margin-left', $(this).width() * -0.5);
 }
 
 function setLogoPositions() {
-  $( '.company .description img' ).each(function() {
+  $( '.company .brand img' ).each(function() {
     $(this).css('margin-top', $(this).height() * -0.5);
     $(this).css('margin-left', $(this).width() * -0.5);
   });

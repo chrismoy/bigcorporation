@@ -152,10 +152,10 @@ $body-font-style: normal;
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $small-breakpoint:  em-calc(640);
-// $medium-breakpoint: em-calc(1024);
-// $large-breakpoint:  em-calc(1440);
-// $xlarge-breakpoint: em-calc(1920);
+$small-breakpoint:  64em;
+$medium-breakpoint: 102.4em;
+$large-breakpoint:  144em;
+$xlarge-breakpoint: 192em;
 
 // $small-range:   (0, $small-breakpoint);
 // $medium-range:  ($small-breakpoint  + em-calc(1), $medium-breakpoint);
@@ -1401,27 +1401,27 @@ $body-font-style: normal;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: $white;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: rem-calc(45);
+$topbar-height: 8rem;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
-// $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-weight: lighter;
+$topbar-title-font-size: 3rem;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: $white;
-// $topbar-link-color-hover: $white;
-// $topbar-link-color-active: $white;
-// $topbar-link-color-active-hover: $white;
-// $topbar-link-weight: $font-weight-normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-color: $oil;
+$topbar-link-color-hover: $oil;
+$topbar-link-color-active: $oil;
+$topbar-link-color-active-hover: $oil;
+$topbar-link-weight: lighter;
+$topbar-link-font-size: 2rem;
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-hover: $jet;
+$topbar-link-bg: $topbar-bg;
+$topbar-link-bg-hover: $silver;
 // $topbar-link-bg-color-hover: $charcoal;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
@@ -1434,10 +1434,10 @@ $body-font-style: normal;
 // $topbar-button-top: 7px;
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: $oil;
+$topbar-dropdown-bg: white;
 // $topbar-dropdown-link-color: $white;
 // $topbar-dropdown-link-color-hover: $topbar-link-color-hover;
-// $topbar-dropdown-link-bg: $oil;
+$topbar-dropdown-link-bg: white;
 // $topbar-dropdown-link-bg-hover: $jet;
 // $topbar-dropdown-link-weight: $font-weight-normal;
 // $topbar-dropdown-toggle-size: 5px;
@@ -1452,10 +1452,10 @@ $body-font-style: normal;
 
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;
-// $topbar-menu-link-font-size: rem-calc(13);
+$topbar-menu-link-font-size: 4rem;
 // $topbar-menu-link-weight: $font-weight-bold;
-// $topbar-menu-link-color: $white;
-// $topbar-menu-icon-color: $white;
+$topbar-menu-link-color: $oil;
+$topbar-menu-icon-color: $oil;
 // $topbar-menu-link-color-toggled: $jumbo;
 // $topbar-menu-icon-color-toggled: $jumbo;
 // $topbar-menu-icon-position: $opposite-direction; // Change to $default-float for a left menu icon

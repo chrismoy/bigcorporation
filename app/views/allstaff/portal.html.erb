@@ -3,21 +3,25 @@
 <main class="content" id="content-portal">
   <section class="filters">
     <div class="filter-container">
-      <h3>Categories</h3>
+      <h3>Filter:</h3>
       <ul>
         <li>Salary Range</li>
+        <li class="text-box"><%= icon('caret-down') %></li>
         <li>Location</li>
+        <li class="text-box"><%= icon('caret-down') %></li>
         <li>Industry</li>
+        <li class="text-box"><%= icon('caret-down') %></li>
         <li>Key Words</li>
+        <li class="text-box"><%= icon('caret-down') %></li>
       </ul>
     </div>
   </section>
   <section class="application">
     <div class="prompt">
-      Are you looking for jobs? Sign up with us and recieve a weekly personalized
+      Are you looking for jobs? <span class="sign-up">Sign up with us</span> and recieve a weekly personalized
       email full of employment opportunities
     </div>
-    <button>Submit Your Resume Now!</button>
+    <button id="modal-button">Submit Your Resume Now!</button>
     <div class="jobs">
       <h2>Featured Jobs</h2>
       <ul class="board">
@@ -66,3 +70,5 @@
 </main>
 
 <%= render partial: "allstaff/shared/footer" %>
+
+<%= render partial: "allstaff/shared/modal" %>

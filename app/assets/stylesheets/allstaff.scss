@@ -1,5 +1,7 @@
 // Globals
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "allstaff/global/variables";
 @import "global/foundation_and_overrides";
 @import "global/foundation";
@@ -8,6 +10,7 @@
 
 @import "allstaff/modules/header";
 @import "allstaff/modules/footer";
+@import "allstaff/modules/modal";
 
 // Pages
 

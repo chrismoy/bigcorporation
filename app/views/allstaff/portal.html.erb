@@ -1,7 +1,68 @@
 <%= render partial: "allstaff/shared/header" %>
 
 <main class="content" id="content-portal">
-
+  <section class="filters">
+    <div class="filter-container">
+      <h3>Categories</h3>
+      <ul>
+        <li>Salary Range</li>
+        <li>Location</li>
+        <li>Industry</li>
+        <li>Key Words</li>
+      </ul>
+    </div>
+  </section>
+  <section class="application">
+    <div class="prompt">
+      Are you looking for jobs? Sign up with us and recieve a weekly personalized
+      email full of employment opportunities
+    </div>
+    <button>Submit Your Resume Now!</button>
+    <div class="jobs">
+      <h2>Featured Jobs</h2>
+      <ul class="board">
+        <li>
+          <%= link_to "" do %>
+            <h3>Accountant/Bookkeeping Para-professional</h3>
+          <% end %>
+          <div class="description">
+            <div class="time">
+              Full-Time/Part-Time<br>Up to $40k
+            </div>
+            <div class="info">
+              Rosemont<br>1 Day Ago
+            </div>
+          </div>
+        </li>
+        <li>
+          <%= link_to "" do %>
+            <h3>Field Engineer</h3>
+          <% end %>
+          <div class="description">
+            <div class="time">
+              Full-Time<br>$60k
+            </div>
+            <div class="info">
+              Elk Grove Village<br>1 Day Ago
+            </div>
+          </div>
+        </li>
+        <li>
+          <%= link_to "" do %>
+            <h3>Data Entry Clerk</h3>
+          <% end %>
+          <div class="description">
+            <div class="time">
+              Full-Time<br>$14/hr
+            </div>
+            <div class="info">
+              Bensenville<br>1 Day Ago
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 </main>
 
 <%= render partial: "allstaff/shared/footer" %>

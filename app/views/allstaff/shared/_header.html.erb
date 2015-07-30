@@ -1,7 +1,11 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#"><%= image_tag "logos/SelectStaffingMenu.png" %></a></h1>
+      <h1>
+        <%= link_to allstaff_home_path do %>
+          <%= image_tag "logos/SelectStaffingMenu.png" %>
+        <% end %>
+      </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
@@ -10,7 +14,7 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li>
-        <a href="#">Looking For Work?</a>
+        <%= link_to "Looking For Work?", allstaff_portal_path %>
       </li>
       <li>
         <a href="#">Looking To Hire?</a>

@@ -26,6 +26,7 @@ nav {
     float: right;
     height: $button-dimension;
     margin-top: 0.5rem;
+    transition: all 0.2s;
     width: $button-dimension;
     &:hover { .bar { background-color: $primary-color; } }
   }
@@ -46,7 +47,11 @@ nav {
       a {
         color: $nav-font-color;
         font-size: 2rem;
-        &:hover { color: $nav-font-hover-color; }
+        transition: all 0.2s;
+        &:hover {
+          color: $nav-font-hover-color;
+          margin-right: 1rem;
+        }
         &.active { color: $nav-font-active-color; }
       }
     }
@@ -56,7 +61,7 @@ nav {
   }
 }
 
-@media #{$large-up} {
+@media #{$medium-up} {
   nav {
     border-bottom: 0;
     border-right: 1px solid $nav-font-passive-color;

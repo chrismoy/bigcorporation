@@ -61,7 +61,7 @@ nav {
   }
 }
 
-@media #{$medium-up} {
+@media #{$large-up} {
   nav {
     border-bottom: 0;
     border-right: 1px solid $nav-font-passive-color;

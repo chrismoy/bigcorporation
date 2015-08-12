@@ -13,9 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require scrollReveal.min
 //= require turbolinks
 
 $(function(){
+  new scrollReveal;
   $(document).foundation();
   $('.menu-button').click(function() {
     $('.directory').toggle();

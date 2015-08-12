@@ -1,7 +1,7 @@
 class MainPagesController < ApplicationController
   def home
     @fadeTime = "1.0s"
-    @fadeDistance = "10rem"
+    @fadeDistance = "5rem"
   end
 
   def stuff

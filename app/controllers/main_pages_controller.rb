@@ -1,7 +1,7 @@
 class MainPagesController < ApplicationController
+  before_action :set_fade
+
   def home
-    @fadeTime = "1.0s"
-    @fadeDistance = "5rem"
   end
 
   def stuff
@@ -15,4 +15,11 @@ class MainPagesController < ApplicationController
 
   def contact
   end
+
+  private
+
+    def set_fade
+      @fadeTime = "1.0s"
+      @fadeDistance = "5rem"
+    end
 end

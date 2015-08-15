@@ -30,6 +30,20 @@
   }
 }
 
+@media #{$medium-up} {
+  .company-heading {
+    .logo { font-size: 9rem; }
+    .name {
+      .large-text { font-size: 5rem; }
+      .small-text { font-size: 4rem; }
+    }
+    .agency {
+      font-size: 4.5rem;
+      margin-left: 3.5rem;
+    }
+  }
+}
+
 @media #{$large-up} {
   .company-heading {
     height: 18rem;

@@ -16,13 +16,17 @@
     display: inline-block;
     line-height: 1;
     margin: 0;
-    .large-text { font-size: 3.5rem; }
-    .small-text { font-size: 2.5rem; }
+    text-align: left;
+    // .large-text { font-size: 3.5rem; }
+    // .small-text { font-size: 2.5rem; }
+    .slogan { font-size: 3rem; }
   }
   .agency {
+    color: $primary-color;
     font-size: 3rem;
     line-height: 1;
     margin-left: 2rem;
+    // text-align: left;
   }
   .btn-services {
     @include btn-bracket-side($primary-color, $white, 2.5rem, 2px, 0.5s);
@@ -48,14 +52,15 @@
   .company-heading {
     height: 18rem;
     margin-top: -9rem;
-    top: 40%;
+    top: 30%;
     .logo {
       font-size: 12rem;
     }
     .name {
       display: inline-block;
-      .large-text { font-size: 7rem; }
-      .small-text { font-size: 5rem; }
+      // .large-text { font-size: 7rem; }
+      // .small-text { font-size: 5rem; }
+      .slogan { font-size: 6rem; }
     }
     .agency {
       font-size: 6rem;

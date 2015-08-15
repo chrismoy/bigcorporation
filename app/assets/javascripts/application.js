@@ -15,6 +15,7 @@
 //= require foundation
 //= require scrollReveal.min
 //= require turbolinks
+//= require menu
 
 $(function(){
   new scrollReveal;

@@ -8,23 +8,25 @@ body {
   width: 100%;
 }
 
-@font-face {
-  font-family: 'Weather Icons';
-  src: font-url('fonts/weather/WeatherIcons-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500);
 
-@font-face {
-  font-family: 'Panton Light';
-  src: font-url('fonts/panton/panton.light.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Weather Icons';
+//   src: font-url('fonts/weather/WeatherIcons-Regular.otf') format('opentype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 
-@font-face {
-  font-family: 'Panton Light';
-  src: font-url('fonts/panton/panton.light-italic.otf') format('opentype');
-  font-weight: normal;
-  font-style: italic;
-}
+// @font-face {
+//   font-family: 'Panton Light';
+//   src: font-url('fonts/panton/panton.light.otf') format('opentype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'Panton Light';
+//   src: font-url('fonts/panton/panton.light-italic.otf') format('opentype');
+//   font-weight: normal;
+//   font-style: italic;
+// }

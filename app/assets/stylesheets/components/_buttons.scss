@@ -1,10 +1,10 @@
-@mixin btn-three-bars {
+@mixin btn-three-bars($bar-color: gray, $border-radius: 2px ) {
   background-color: transparent;
   outline: 0;
   position: relative;
   .bar {
-    background-color: $body-font-secondary-color;
-    border-radius: 1px;
+    background-color: $bar-color;
+    border-radius: $border-radius;
     height: 0.6rem;
     left: 0;
     position: absolute;
@@ -21,7 +21,7 @@
 @mixin btn-bracket-side($passive-color, $active-color, $font-size, $border-width, $speed) {
   border-radius: 1px;
   font-size: $font-size;
-  line-height: 1;
+  line-height: 0.9;
   opacity: 0.99;
   outline: 0;
   padding: 0 1rem;
@@ -51,7 +51,7 @@
   &:hover {
     color: $active-color;
     &:before, &:after {
-      width: 50%;
+      width: 51%;
       background-color: $passive-color;
     }
   }

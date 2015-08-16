@@ -8,7 +8,8 @@
   .logo {
     display: inline-block;
     font-size: 6rem;
-    line-height: 1;
+    font-weight: 300;
+    line-height: 0.9;
     margin: 0;
     vertical-align: top;
   }
@@ -19,11 +20,15 @@
     text-align: left;
     // .large-text { font-size: 3.5rem; }
     // .small-text { font-size: 2.5rem; }
-    .slogan { font-size: 3rem; }
+    .slogan {
+      font-size: 3rem;
+      font-weight: 100;
+    }
   }
   .agency {
     color: $primary-color;
     font-size: 3rem;
+    font-weight: 100;
     line-height: 1;
     margin-left: 2rem;
     // text-align: left;

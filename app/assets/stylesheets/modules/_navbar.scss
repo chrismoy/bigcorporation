@@ -7,8 +7,8 @@ $nav-padding: 3rem;
 $nav-offset-padding: 2rem;
 
 nav {
-  border-bottom: 1px solid $nav-font-passive-color;
-  background-color: rgba(255,255,255,0.97);
+  // border-bottom: 1px solid $nav-font-passive-color;
+  background-color: transparent;
   height: $nav-mobile-height;
   padding: 0.4rem 0.8rem;
   position: relative;
@@ -18,10 +18,11 @@ nav {
     .logo {
       @include btn-bracket-side($nav-font-active-color, $nav-font-hover-color, 0.8 * $nav-mobile-height, 2px, 0.3s);
       display: inline-block;
+      font-weight: 300;
     }
   }
   .menu-button {
-    @include btn-three-bars;
+    @include btn-three-bars($primary-color);
     $button-dimension: $nav-mobile-height - 2rem;
     float: right;
     height: $button-dimension;
@@ -33,6 +34,7 @@ nav {
   .directory {
     background-color: $white;
     display: none;
+    font-weight: 100;
     left: 0;
     list-style-type: none;
     margin: 0;
@@ -46,7 +48,7 @@ nav {
       text-align: center;
       a {
         color: $nav-font-color;
-        font-size: 2rem;
+        font-size: 2.5rem;
         transition: all 0.2s;
         &:hover {
           color: $nav-font-hover-color;
@@ -58,11 +60,13 @@ nav {
   }
   .address {
     display: none;
+    font-weight: 300;
   }
 }
 
 @media #{$large-up} {
   nav {
+    background-color: rgba(255,255,255,0.97);
     border-bottom: 0;
     border-right: 1px solid $nav-font-passive-color;
     height: 100%;

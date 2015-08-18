@@ -23,4 +23,12 @@ $(function(){
   $('.menu-button').click(function() {
     $('.directory').toggle();
   });
+
+  var BV = new $.BigVideo();
+  BV.init();
+  if (Modernizr.touch) {
+      BV.show('SkylineBlack2.jpg');
+  } else {
+      BV.show('slowBoat.mp4',{ambient:true});
+  }
 });

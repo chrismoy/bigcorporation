@@ -5,50 +5,40 @@
   text-align: center;
   top: 30%;
   width: 100%;
-  .logo {
-    display: inline-block;
-    font-size: 6rem;
-    font-weight: 300;
+  .name {
+    display: block;
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: -3px;
     line-height: 0.9;
     margin: 0;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
     vertical-align: top;
   }
-  .name {
+  .tenets {
     display: inline-block;
-    line-height: 1;
-    margin: 0;
-    text-align: left;
-    // .large-text { font-size: 3.5rem; }
-    // .small-text { font-size: 2.5rem; }
-    .slogan {
-      font-size: 3rem;
-      font-weight: 100;
-    }
-  }
-  .agency {
-    color: $primary-color;
     font-size: 3rem;
     font-weight: 100;
     line-height: 1;
-    margin-left: 2rem;
-    // text-align: left;
+    margin: 0;
+    text-align: left;
   }
-  .btn-services {
-    @include btn-bracket-side($primary-color, $white, 2.5rem, 2px, 0.5s);
-    display: none;
+  .slogan {
+    color: $primary-color;
+    font-size: 3rem;
+    font-weight: 200;
+    line-height: 1;
+    margin-bottom: 3rem;
   }
 }
 
 @media #{$medium-up} {
   .company-heading {
-    .logo { font-size: 9rem; }
-    .name {
-      .large-text { font-size: 5rem; }
-      .small-text { font-size: 4rem; }
-    }
-    .agency {
+    .name { font-size: 9rem; }
+    .tenets { font-size: 4.5rem; }
+    .slogan {
       font-size: 4.5rem;
-      margin-left: 3.5rem;
     }
   }
 }
@@ -58,22 +48,15 @@
     height: 18rem;
     margin-top: -9rem;
     top: 30%;
-    .logo {
-      font-size: 12rem;
-    }
     .name {
+      font-size: 10rem;
+    }
+    .tenets {
       display: inline-block;
-      // .large-text { font-size: 7rem; }
-      // .small-text { font-size: 5rem; }
-      .slogan { font-size: 6rem; }
-    }
-    .agency {
       font-size: 6rem;
-      margin-left: 4rem;
     }
-    .btn-services {
-      @include btn-bracket-side($primary-color, $white, 4rem, 2px, 0.5s);
-      margin-top: 4rem;
+    .slogan {
+      font-size: 4rem;
     }
   }
 }

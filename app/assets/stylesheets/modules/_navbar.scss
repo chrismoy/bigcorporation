@@ -29,38 +29,40 @@ nav {
     margin-top: 0.5rem;
     transition: all 0.2s;
     width: $button-dimension;
+    z-index: 100;
     &:hover { .bar { background-color: $primary-color; } }
-  }
-  .directory {
-    background-color: $white;
-    display: none;
-    font-weight: 100;
-    left: 0;
-    list-style-type: none;
-    margin: 0;
-    padding: 10rem 0;
-    position: absolute;
-    top: $nav-mobile-height;
-    width: 100%;
-    z-index: 50;
-    li {
-      display: block;
-      text-align: center;
-      a {
-        color: $nav-font-color;
-        font-size: 2.5rem;
-        transition: all 0.2s;
-        &:hover {
-          color: $nav-font-hover-color;
-          margin-right: 1rem;
-        }
-        &.active { color: $nav-font-active-color; }
-      }
-    }
   }
   .address {
     display: none;
     font-weight: 300;
+  }
+}
+
+.directory {
+  background-color: $white;
+  display: none;
+  font-weight: 100;
+  height: 100%;
+  left: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 10rem 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  li {
+    display: block;
+    text-align: center;
+    a {
+      color: $nav-font-color;
+      font-size: 2.5rem;
+      transition: all 0.2s;
+      &:hover {
+        color: $nav-font-hover-color;
+      }
+      &.active { color: $nav-font-active-color; }
+    }
   }
 }
 
@@ -85,12 +87,20 @@ nav {
     }
     .menu-button { display: none; }
     .directory {
+      background-color: transparent;
       display: block;
+      // height: auto;
       margin-bottom: 6rem;
       padding: 0;
       padding-right: $nav-padding;
       position: static;
-      li { text-align: right; }
+      li {
+        text-align: right;
+        a {
+          &:hover { margin-right: 1rem; }
+        }
+      }
+      &.mobile { display: none; }
      }
     .address {
       bottom: $nav-offset-padding;

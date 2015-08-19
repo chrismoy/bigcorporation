@@ -12,23 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require turbolinks
 //= require foundation
 //= require scrollReveal.min
-//= require turbolinks
+//= require imagesLoaded.min
+//= require video
+//= require bigvideo
 //= require menu
 
-$(function(){
+var ready = function() {
   new scrollReveal;
   $(document).foundation();
-  $('.menu-button').click(function() {
-    $('.directory').toggle();
-  });
+  menuButton();
+};
 
-  var BV = new $.BigVideo();
-  BV.init();
-  if (Modernizr.touch) {
-      BV.show('SkylineBlack2.jpg');
-  } else {
-      BV.show('slowBoat.mp4',{ambient:true});
-  }
-});
+$(document).ready(ready)
+$(document).on('page:load', ready)

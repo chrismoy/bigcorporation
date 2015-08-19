@@ -1,3 +1,10 @@
+<ul class="directory mobile">
+  <li><%= link_to "Home", "#", class: "active" %></li>
+  <li><%= link_to "About", "#" %></li>
+  <li><%= link_to "Services", "#" %></li>
+  <li><%= link_to "Contact", "#" %></li>
+  <li><%= link_to "Thoughts", "#" %></li>
+</ul>
 <nav>
   <div class="logo-container" data-sr="enter left move 0 over <%= @fadeTime %>">
     <%= link_to "#" do %>
@@ -9,7 +16,7 @@
     <span class="bar middle"></span>
     <span class="bar bottom"></span>
   </button>
-  <ul class="directory">
+  <ul class="directory desktop">
     <li><%= link_to "Home", "#", class: "active" %></li>
     <li><%= link_to "About", "#" %></li>
     <li><%= link_to "Services", "#" %></li>

@@ -86,7 +86,7 @@ $column-gutter: 0; // Default rem-calc(30)
 
 // We use these to define default font stacks
 $font-family-sans-serif: "Roboto", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-$font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+$font-family-serif: "Roboto Slab", Georgia, Cambria, "Times New Roman", Times, serif;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
 // We use these to define default font weights
@@ -116,6 +116,7 @@ $black       : #000000;
 // We use these as default colors throughout
 // $primary-color: #008CBA;
 $primary-color: #35D6CE;
+// $primary-color: #ED158C;
 $secondary-color: #e7e7e7;
 $alert-color: #f04124;
 $success-color: #43AC6A;

@@ -7,7 +7,6 @@ $nav-padding: 3rem;
 $nav-offset-padding: 2rem;
 
 nav {
-  // border-bottom: 1px solid $nav-font-passive-color;
   background-color: transparent;
   height: $nav-mobile-height;
   padding: 1.5rem 1.5rem;
@@ -16,9 +15,22 @@ nav {
   .logo-container {
     display: inline-block;
     .logo {
-      @include btn-bracket-side($nav-font-active-color, $nav-font-hover-color, 0.8 * $nav-mobile-height, 2px, 0.3s);
+      background-color: $primary-color;
+      border: 3px solid white;
+      border-radius: 1px;
+      box-shadow: 0 0 0 3px $primary-color;
       display: inline-block;
-      font-weight: 300;
+      font-family: $font-family-sans-serif;
+      font-size: 5rem;
+      font-weight: 600;
+      height: 4rem;
+      line-height: 1;
+      padding: 0.3rem 0.5rem 0 0.5rem;
+      transition: all 0.2s;
+      width: 4rem;
+      &:hover {
+        border-width: 6px;
+      }
     }
   }
   .menu-button {
@@ -28,7 +40,7 @@ nav {
     height: $button-dimension;
     margin-top: 0.5rem;
     transition: all 0.2s;
-    width: $button-dimension;
+    width: 4rem;
     z-index: 100;
     &:hover { .bar { background-color: $primary-color; } }
   }
@@ -58,10 +70,7 @@ nav {
       color: $nav-font-color;
       font-size: 2.5rem;
       transition: all 0.2s;
-      &:hover {
-        color: $nav-font-hover-color;
-      }
-      &.active { color: $nav-font-active-color; }
+      &:not(.active):hover { color: $nav-font-hover-color; }
     }
   }
 }
@@ -79,9 +88,8 @@ nav {
       margin-bottom: 15rem;
       text-align: center;
       .logo {
-        @include btn-bracket-side($nav-font-active-color, $nav-font-hover-color, 4rem, 2px, 0.3s);
-        display: inline-block;
-        line-height: 1.2
+        &.desktop { display: inline-block; }
+        &.mobile { display: none; }
       }
       .logo-mobile { display: none; }
     }
@@ -97,7 +105,7 @@ nav {
       li {
         text-align: right;
         a {
-          &:hover { margin-right: 1rem; }
+          &:not(.active):hover { margin-right: 1rem; }
         }
       }
       &.mobile { display: none; }

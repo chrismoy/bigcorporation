@@ -1,6 +1,7 @@
 @mixin btn-three-bars($bar-color: gray, $border-radius: 2px ) {
   background-color: transparent;
   outline: 0;
+  padding: 0;
   position: relative;
   .bar {
     background-color: $bar-color;
@@ -15,6 +16,14 @@
       top: 50%;
     }
     &.bottom { bottom: 0; }
+  }
+  &.active {
+    .bar {
+      transform-origin: 0 0;
+      &.top { transform: rotateZ(45deg); }
+      &.middle { display: none; }
+      &.bottom { transform: rotateZ(-45deg); }
+    }
   }
 }
 

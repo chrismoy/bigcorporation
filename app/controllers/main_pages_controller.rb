@@ -16,6 +16,9 @@ class MainPagesController < ApplicationController
   def contact
   end
 
+  def blog
+  end
+
   private
 
     def set_fade

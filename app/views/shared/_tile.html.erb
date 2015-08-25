@@ -1,6 +1,12 @@
+<% if action = "home" %>
+  <div class="main intro">
+  </div>
+  <%= render 'shared/navbar' %>
+<% end %>
 <main>
   <div class="background" data-video="/assets/slowBoat.mp4"></div>
   <div class="content">
     <%= yield %>
   </div>
 </main>
+

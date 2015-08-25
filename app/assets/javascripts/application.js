@@ -19,11 +19,13 @@
 //= require imagesLoaded.min
 //= require video
 //= require bigvideo
+//= require jquery.fullPage.min
 //= require menu
 
 var ready = function() {
   new scrollReveal;
   $(document).foundation();
+  $('#fullpage').fullpage();
   menuButton();
 };
 

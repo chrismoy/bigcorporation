@@ -11,9 +11,15 @@
 
 @import "fonts/weather/weather";
 
+// Vendor
+
+@import "bigvideo";
+@import "jquery.fullPage";
+
 // Components
 
 @import "components/buttons";
+@import "components/logo";
 
 // Modules
 
@@ -23,6 +29,7 @@
 // Pages
 
 @import "pages/main_pages/home";
+@import "pages/main_pages/about";
 
 // Debug Box
 

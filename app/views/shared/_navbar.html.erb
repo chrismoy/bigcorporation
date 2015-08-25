@@ -8,7 +8,7 @@
 <nav>
   <div class="logo-container">
     <%= link_to "#" do %>
-      <h1 class="logo"></h1>
+      <h1 class="logo"><div class="box"></div></h1>
     <% end %>
   </div>
   <button class="menu-button">
@@ -17,11 +17,11 @@
     <span class="bar bottom"></span>
   </button>
   <ul class="directory desktop">
-    <li><%= link_to "Home", "#", class: "active" %></li>
-    <li><%= link_to "About", "#" %></li>
-    <li><%= link_to "Services", "#" %></li>
-    <li><%= link_to "Contact", "#" %></li>
-    <li><%= link_to "Thoughts", "#" %></li>
+    <li><%= link_to "Home", home_path, class: "active" %></li>
+    <li><%= link_to "About", about_path %></li>
+    <li><%= link_to "Services", stuff_path %></li>
+    <li><%= link_to "Contact", contact_path %></li>
+    <li><%= link_to "Thoughts", blog_path %></li>
   </ul>
   <p class="address">
     Crook & Baker Digital</br>

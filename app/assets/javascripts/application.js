@@ -25,8 +25,20 @@
 var ready = function() {
   new scrollReveal;
   $(document).foundation();
-  $('#fullpage').fullpage();
   menuButton();
+  $('#scrollContainer').fullpage({
+    sectionSelector: '.tile',
+    onLeave(index, nextIndex, direction) {
+      if(nextIndex == 1 && direction == "up") {
+        $('nav').hide('slide', { direction:'left' }, 700);
+      }
+    },
+    afterLoad(anchorLink, index) {
+      if(index == 2) {
+        $('nav').show('slide', { direction:'left' }, 700);
+      }
+    }
+  });
 };
 
 $(document).ready(ready)

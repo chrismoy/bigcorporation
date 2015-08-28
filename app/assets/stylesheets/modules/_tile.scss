@@ -1,22 +1,10 @@
-main {
+.tile {
+  background-image: image-url('SkylineBlack2.jpg');
+  background-position: 50% 20%;
+  background-size: cover;
   height: 100%;
-  left: 0;
-  // overflow: hidden;
-  position: absolute;
-  top: 0;
   width: 100%;
-  z-index: -1;
-  .background {
-    background-image: image-url('SkylineBlack2.jpg');
-    background-position: center 25%;
-    background-size: cover;
-    filter: brightness(0.8);
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
+  z-index: 50;
   .content {
     height: 100%;
     left: 0;
@@ -27,12 +15,7 @@ main {
 }
 
 @media #{$large-up} {
-  main {
-    top: 0;
-    .background {
-      height: 100%;
-      top: 0;
-    }
+  .tile {
     .content {
       left: 20%;
       width: 80%;

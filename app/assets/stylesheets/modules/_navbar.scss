@@ -8,10 +8,12 @@ $nav-offset-padding: 2rem;
 
 nav {
   background-color: transparent;
+  display: none;
   height: $nav-mobile-height;
   padding: 1.5rem 1.5rem;
   position: relative;
   width: 100%;
+  z-index: 100;
   .logo-container {
     display: inline-block;
     text-align: center;
@@ -44,7 +46,7 @@ nav {
     margin-top: 0.5rem;
     transition: all 0.2s;
     width: 4rem;
-    z-index: 100;
+    z-index: 150;
     &:hover { .bar { background-color: $primary-color; } }
   }
   .address {

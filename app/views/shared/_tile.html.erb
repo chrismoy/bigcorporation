@@ -1,12 +1,10 @@
-<% if action = "home" %>
-  <div class="main intro">
+<section class="tile" style="background-image: url(<%= image_path(@picture) %>);">
+  <div class="content">
   </div>
-  <%= render 'shared/navbar' %>
-<% end %>
-<main>
-  <div class="background" data-video="/assets/slowBoat.mp4"></div>
+</section>
+<section class="tile" style="background-image: url(<%= image_path('SkylineBlack2.jpg') %>);">
   <div class="content">
     <%= yield %>
   </div>
-</main>
+</section>
 

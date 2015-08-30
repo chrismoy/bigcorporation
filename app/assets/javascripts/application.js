@@ -26,9 +26,9 @@
 var ready = function() {
   new scrollReveal;
   $(document).foundation();
-  menuButton();
-  toggleMenu();
-  initVideo();
+  // menuButton();
+  // toggleMenu();
+  // // initVideo();
 };
 
 $(document).ready(ready);

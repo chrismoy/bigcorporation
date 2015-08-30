@@ -21,14 +21,13 @@
 //= require bigvideo
 //= require jquery.fullPage.min
 //= require menu
-//= require videoPlayer
 
 var ready = function() {
   new scrollReveal;
   $(document).foundation();
-  // menuButton();
-  // toggleMenu();
-  // // initVideo();
+  menuButton();
+  toggleMenu();
+  initVideo();
 };
 
 $(document).ready(ready);

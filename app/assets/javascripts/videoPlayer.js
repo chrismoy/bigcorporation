@@ -4,5 +4,9 @@ function initVideo() {
     container:$('.content.home')
   });
   BV.init();
-  BV.show('http://vjs.zencdn.net/v/oceans.mp4',{ambient:true});
+  if (Modernizr.touch) {
+      BV.show('SkylineBlack.jpg');
+  } else {
+      BV.show('http://vjs.zencdn.net/v/oceans.mp4',{ambient:true});
+  }
 }

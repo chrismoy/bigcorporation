@@ -1,7 +1,6 @@
 function menuButton() {
   $('.menu-button').click(function() {
-    $('.directory.mobile').fadeToggle();
-    $(this).toggleClass("active");
+    $('.directory').toggleClass("active");
   });
 }
 
@@ -12,16 +11,12 @@ function toggleMenu() {
     sectionSelector: '.tile',
     onLeave(index, nextIndex, direction) {
       if(nextIndex == 1 && direction == "up") {
-        $('nav').animate({
-          left: "-20%"
-        }, toggleTime );
+        $('nav').toggleClass("active");
       }
     },
     afterLoad(anchorLink, index) {
       if(index == 2) {
-        $('nav').animate({
-          left: "0"
-        }, toggleTime );
+        $('nav').toggleClass("active");
       }
     }
   });

@@ -1,0 +1,13 @@
+function initVideo() {
+  var BV = new $.BigVideo({
+    container:$('.tile.intro'),
+    controls:false,
+    doLoop:true
+  });
+  BV.init();
+  if (Modernizr.touch) {
+    BV.show(image-url('SkylineBlack.jpg'));
+  } else {
+    BV.show('http://vjs.zencdn.net/v/oceans.mp4',{ambient:true});
+  }
+}

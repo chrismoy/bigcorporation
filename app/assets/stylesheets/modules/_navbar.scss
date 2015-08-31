@@ -7,35 +7,26 @@ $nav-padding: 3rem;
 $nav-offset-padding: 2rem;
 
 nav {
-  background-color: transparent;
+  background-color: white;
   height: $nav-mobile-height;
-  left: -20%;
+  left: 0;
   padding: 1.5rem 1.5rem;
-  position: relative;
+  transition: all 0.7s;
+  top: -$nav-mobile-height;
   width: 100%;
   z-index: 100;
   .logo-container {
     display: inline-block;
+    opacity: 0.99;
     text-align: center;
+    z-index: 150;
     .logo {
       @include three-box-logo($dimension: 4rem, $color: $primary-color);
-      // background-color: $primary-color;
-      // border: 3px solid white;
-      // border-radius: 1px;
-      // box-shadow: 0 0 0 3px $primary-color;
-      // border-color: black;
       display: inline-block;
-      // font-family: $font-family-sans-serif;
-      // font-size: 5rem;
-      // font-weight: 600;
-      // height: 4rem;
-      // line-height: 1;
-      // padding: 0.3rem 0.5rem 0 0.5rem;
-      // width: 4rem;
-      // &:hover {
-      //   border-width: 6px;
-      // }
     }
+  }
+  &.active {
+    top: 0;
   }
   .menu-button {
     @include btn-three-bars($primary-color);
@@ -49,23 +40,23 @@ nav {
   }
   .address {
     display: none;
-    font-weight: 300;
   }
 }
 
 .directory {
-  background-color: $white;
-  display: none;
+  background-color: inherit;
   font-weight: 100;
   height: 100%;
-  left: 0;
   list-style-type: none;
   margin: 0;
-  padding: 10rem 0;
+  opacity: 0;
+  padding-top: 10rem;
   position: absolute;
+  right: -100%;
   top: 0;
+  transition: opacity 0.5s;
   width: 100%;
-  z-index: 50;
+  z-index: 150;
   li {
     display: block;
     text-align: center;
@@ -73,55 +64,64 @@ nav {
       color: $nav-font-color;
       font-size: 2.5rem;
       transition: 0.3s all;
+      &.active {
+        color: $nav-font-active-color;
+        font-weight: 300;
+      }
       &:not(.active):hover { color: $nav-font-hover-color; }
     }
+  }
+  &.active {
+    opacity: 1;
+    right: 0;
   }
 }
 
 @media #{$large-up} {
   nav {
-    background-color: rgba(255,255,255,0.97);
+    background-color: white;
     border-bottom: 0;
     border-right: 1px solid $nav-font-passive-color;
     height: 100%;
-    padding: $nav-offset-padding 0;
+    left: -20%;
+    opacity: 0.99;
+    // padding: $nav-offset-padding 0;
     width: 20%;
+    z-index: 150;
     .logo-container {
       display: block;
       margin-bottom: 15rem;
       text-align: center;
-      .logo {
-        &.desktop { display: inline-block; }
-        &.mobile { display: none; }
-      }
-      .logo-mobile { display: none; }
+    }
+    &.active {
+      left: 0;
     }
     .menu-button { display: none; }
-    .directory {
-      background-color: transparent;
-      display: block;
-      height: auto;
-      margin-bottom: 6rem;
-      padding: 0;
-      padding-right: $nav-padding;
-      position: static;
-      li {
-        text-align: right;
-        a {
-          &:not(.active):hover { margin-right: 1rem; }
-        }
-      }
-      &.mobile { display: none; }
-     }
     .address {
       bottom: $nav-offset-padding;
       display: block;
       font-size: 1.2rem;
+      font-weight: 300;
       left: $nav-padding;
       margin: 0;
       position: absolute;
       text-align: left;
       width: 80%;
+    }
+  }
+  .directory {
+    background-color: transparent;
+    display: block;
+    height: auto;
+    margin-bottom: 6rem;
+    padding: 0;
+    padding-right: $nav-padding;
+    position: static;
+    li {
+      text-align: right;
+      a {
+        &:not(.active):hover { margin-right: 1rem; }
+      }
     }
   }
 }

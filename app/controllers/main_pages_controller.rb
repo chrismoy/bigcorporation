@@ -3,22 +3,6 @@ class MainPagesController < ApplicationController
   before_action :set_background
 
   def home
-    @picture = "SkylineBlack.jpg"
-  end
-
-  def stuff
-  end
-
-  def team
-  end
-
-  def about
-  end
-
-  def contact
-  end
-
-  def blog
   end
 
   private

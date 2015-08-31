@@ -1,3 +1,19 @@
+.tile.intro {
+  filter: grayscale(50%);
+  .content {
+    left: 0;
+    width: 100%;
+    .title {
+      color: white;
+      display: block;
+      font-family: $font-family-serif;
+      font-size: 10rem;
+      line-height: 50rem;
+      text-align: center;
+    }
+  }
+}
+
 .company-heading {
   height: 13rem;
   margin-top: -6.5rem;

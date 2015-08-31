@@ -31,7 +31,6 @@ nav {
       // height: 4rem;
       // line-height: 1;
       // padding: 0.3rem 0.5rem 0 0.5rem;
-      // transition: all 0.2s;
       // width: 4rem;
       // &:hover {
       //   border-width: 6px;
@@ -44,7 +43,6 @@ nav {
     float: right;
     height: $button-dimension;
     margin-top: 0.5rem;
-    transition: all 0.2s;
     width: 4rem;
     z-index: 150;
     &:hover { .bar { background-color: $primary-color; } }
@@ -74,7 +72,7 @@ nav {
     a {
       color: $nav-font-color;
       font-size: 2.5rem;
-      transition: all 0.2s;
+      transition: 0.3s all;
       &:not(.active):hover { color: $nav-font-hover-color; }
     }
   }

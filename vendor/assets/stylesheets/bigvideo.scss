@@ -1,0 +1,21 @@
+/*	BigVideo Styles
+	You may need to adjust these styles to get this working right in your design.
+*/
+#big-video-wrap{overflow:hidden;position:fixed;height:100%;width:100%;top:0;left:0;}
+#big-video-vid,#big-video-image{height:100%;width:100%;}
+#big-video-control-container{display: none;}
+#big-video-control{display: none;}
+#big-video-control-middle{margin: 0; }
+#big-video-control-bar{display: none;}
+#big-video-control-progress{display: none;}
+#big-video-control-track{display: none;}
+#big-video-control-bound-left{display: none;}
+#big-video-control-bound-right{display: none;}
+#big-video-control-track .ui-slider-handle {display: none;}
+#big-video-control-playhead{left:30%;}
+#big-video-control-play{display: none;}
+#big-video-control-timer{display: none;}
+#big-video-control-playhead,#big-video-control-bound-left,#big-video-control-bound-right{display: none;}
+#big-video-control .ui-slider-handle{display: none;}
+.transparent{-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity:0;opacity:0;}
+#big-video-wrap .vjs-big-play-button{display:none !important;}

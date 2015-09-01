@@ -52,7 +52,10 @@
 
 @media #{$medium-up} {
   .company-heading {
-    .name { font-size: 9rem; }
+    .name {
+      font-size: 5rem;
+      padding: 0 5rem;
+    }
     .tenets { font-size: 4.5rem; }
     .slogan {
       font-size: 4.5rem;

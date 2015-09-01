@@ -8,14 +8,11 @@ function toggleMenu() {
   var toggleTime = 700;
 
   $('#scrollContainer').fullpage({
-    sectionSelector: '.tile',
+    sectionSelector:'.tile',
+    anchors:['intro', 'home', 'services', 'about', 'contact'],
+    menu:'#mainMenu',
     onLeave(index, nextIndex, direction) {
-      if(nextIndex == 1 && direction == "up") {
-        $('nav').toggleClass("active");
-      }
-    },
-    afterLoad(anchorLink, index) {
-      if(index == 2) {
+      if((nextIndex == 1 && direction == "up") || (nextIndex == 2 && direction == "down")) {
         $('nav').toggleClass("active");
       }
     }

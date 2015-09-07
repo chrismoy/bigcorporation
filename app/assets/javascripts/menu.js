@@ -18,3 +18,10 @@ function toggleMenu() {
     }
   });
 }
+
+function centerDirectory() {
+  var $directory = $('.directory');
+  directoryHeight = $directory.height();
+  directoryMargin = directoryHeight * -0.5;
+  $directory.css("margin-top", directoryMargin );
+}

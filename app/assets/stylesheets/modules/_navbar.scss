@@ -90,7 +90,6 @@ nav {
     width: 20%;
     .logo-container {
       display: block;
-      margin-bottom: 15rem;
       text-align: center;
     }
     &.active {
@@ -112,12 +111,13 @@ nav {
   .directory {
     background-color: transparent;
     display: block;
-    height: auto;
-    margin-bottom: 6rem;
+    height: 200px;
+    margin-top: -100px;
     opacity: 1;
     padding: 0;
     padding-right: $nav-padding;
-    position: static;
+    left: 0;
+    top: 50%;
     li {
       text-align: right;
       a {

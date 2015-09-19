@@ -1,0 +1,19 @@
+#fp-nav {
+  ul {
+    li {
+      margin: 1.5rem;
+      a {
+        span {
+          background-color: $primary-color;
+        }
+        &.active {
+          span {
+            background-color: transparent;
+            border: 2px solid $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+}

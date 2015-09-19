@@ -16,7 +16,6 @@ var ready = function() {
   $(document).foundation();
   menuButton();
   toggleMenu();
-  // centerDirectory();
   initVideo();
 };
 

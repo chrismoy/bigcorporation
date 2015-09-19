@@ -12,8 +12,11 @@ function toggleMenu() {
     anchors:['intro', 'home', 'services', 'about', 'contact'],
     menu:'#mainMenu',
     onLeave(index, nextIndex, direction) {
-      if((nextIndex == 1 && direction == "up") || (nextIndex == 2 && direction == "down")) {
-        $('nav').toggleClass("active");
+      if(nextIndex == 1 && direction == "up") {
+        $('nav').removeClass("active");
+      }
+      if(nextIndex > 1 && direction == "down") {
+        $('nav').addClass("active");
       }
     }
   });

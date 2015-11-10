@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= content_for?(:title) ? "#{yield(:title)} | C&B Digital" : "C&B Digital" %></title>
-    <%= stylesheet_link_tag    "https://fonts.googleapis.com/css?family=Roboto:400,100,300,700|Roboto+Slab:400,100,300" %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -12,13 +11,5 @@
   </head>
 
   <body>
-
-    <%= render 'shared/navbar' %>
-    <main>
-      <div id="scrollContainer">
-        <%= yield %>
-      </div>
-    </main>
-
   </body>
 </html>

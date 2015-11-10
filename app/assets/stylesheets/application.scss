@@ -1,8 +1,3 @@
-/*
- *= require jquery-ui
- *= require_self
-*/
-
 // Globals
 
 @import "global/variables";
@@ -13,26 +8,19 @@
 
 // Vendor
 
-@import "bigvideo";
 @import "jquery.fullPage";
 
 // Components
 
 @import "components/buttons";
-@import "components/logo";
 
 // Modules
 
-@import "modules/main";
 @import "modules/navbar";
-@import "modules/fp_nav";
-@import "modules/tile";
 
 // Pages
 
 @import "pages/main_pages/home";
-@import "pages/main_pages/about";
-@import "pages/main_pages/services";
 
 // Debug Box
 

@@ -6,13 +6,4 @@ class MainPagesController < ApplicationController
   end
 
   private
-
-    def set_fade
-      @fadeTime = "1.0s"
-      @fadeDistance = "5rem"
-    end
-
-    def set_background
-      @background = "url(<%= image_path('SkylineBlack.jpg') %>)"
-    end
 end

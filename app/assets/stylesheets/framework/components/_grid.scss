@@ -1,0 +1,175 @@
+// GRID //
+// Framework by Chris Moy
+// This grid is an edited version of Toast Grid by Daniel Eden
+
+.#{$grid-namespace} {
+  list-style: none;
+  margin-left: -$column-gutter-width;
+}
+
+%span-all       { width: percentage(1/1); }
+
+%one-half       { width: percentage(1/2); }
+
+%one-third      { width: percentage(1/3); }
+%two-thirds     { width: percentage(2/3); }
+
+%one-quarter    { width: percentage(1/4); }
+%two-quarters   { width: percentage(2/4); }
+%three-quarters { width: percentage(3/4); }
+
+// For each of our column groups...
+
+@each $group in $column-groups {
+
+  // For each column width from 1 to the column group...
+
+  @for $i from 1 through $group {
+    .#{$column-namespace}-#{$i}Of#{$group} {
+      @if percentage($i/$group) == percentage(1/1) {
+        @extend %span-all;
+      } @else if percentage($i/$group) == percentage(1/2) {
+        @extend %one-half;
+      } @else if percentage($i/$group) == percentage(1/3) {
+        @extend %one-third;
+      } @else if percentage($i/$group) == percentage(2/3) {
+        @extend %two-thirds;
+      } @else if percentage($i/$group) == percentage(1/4) {
+        @extend %one-quarter;
+      } @else if percentage($i/$group) == percentage(2/4) {
+        @extend %two-quarters;
+      } @else if percentage($i/$group) == percentage(3/4) {
+        @extend %three-quarters;
+      } @else {
+
+        width: percentage($i/$group);
+
+      }
+    }
+  } // end @for each column
+
+} // end @each group of columns
+
+// All direct descendents of .grid get treated the same way.
+// This might be overkill for some, but it's a time-saver for me.
+
+.#{$column-namespace} {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: -.25em;
+  min-height: 1px;
+  padding-left: $column-gutter-width;
+  vertical-align: top;
+
+  @media (max-width: $view-breakpoint-medium) {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+
+  @media (max-width: $view-breakpoint-medium) and (min-width: $view-breakpoint-small) {
+    &[class*="#{$column-namespace}-m"] {
+      display: inline-block;
+      margin-right: -.24em;
+    }
+
+    &.#{$column-namespace}-m1Of2 {
+      width: percentage(1/2);
+    }
+
+    &.#{$column-namespace}-m1Of3 {
+      width: percentage(1/3);
+    }
+
+    &.#{$column-namespace}-m2Of3 {
+      width: percentage(2/3);
+    }
+
+    &.#{$column-namespace}-m1Of4 {
+      width: percentage(1/4);
+    }
+
+    &.#{$column-namespace}-m2Of4 {
+      @extend .#{$column-namespace}-m1Of2;
+    }
+
+    &.#{$column-namespace}-m3Of4 {
+      width: percentage(3/4);
+    }
+  }
+
+  @media (max-width: $view-breakpoint-small) {
+    &[class*="#{$column-namespace}-s"] {
+      display: inline-block;
+      margin-right: -.24em;
+    }
+
+    &.#{$column-namespace}-s1Of2 {
+      width: percentage(1/2);
+    }
+
+    &.#{$column-namespace}-s1Of3 {
+      width: percentage(1/3);
+    }
+
+    &.#{$column-namespace}-s2Of3 {
+      width: percentage(2/3);
+    }
+
+    &.#{$column-namespace}-s1Of4 {
+      width: percentage(1/4);
+    }
+
+    &.#{$column-namespace}-s2Of4 {
+      @extend .#{$column-namespace}-s1Of2;
+    }
+
+    &.#{$column-namespace}-s3Of4 {
+      width: percentage(3/4);
+    }
+  }
+}
+
+// Centers the column in the grid and clears the row of all other columns
+.#{$column-namespace}-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// Displays the column as the first in its row
+.#{$column-namespace}-dFirst {
+  float: left;
+}
+
+// Displays the column as the last in its row
+.#{$column-namespace}-dLast {
+  float: right;
+}
+
+// Removes gutters from the columns
+.#{$grid-namespace}-noGutter {
+  margin-left: 0;
+  width: 100%;
+
+  .#{$column-namespace} {
+    padding-left: 0;
+  }
+
+  .#{$column-namespace}-spanAll {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+// Align column to the bottom.
+.#{$column-namespace}-ab {
+  vertical-align: bottom;
+}
+
+// Align column to the middle.
+.#{$column-namespace}-am {
+  vertical-align: middle;
+}

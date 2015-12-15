@@ -1,13 +1,96 @@
-$base-page-spacing: 6rem;
+// BASE VARIABLES //
+// Framework by Chris Moy //
 
-$light-green: #24C2AF;
-$dark-green: #1C9C8D;
+/*
 
-body {
-  background-color: black;
-  box-sizing: border-box;
-  height: 100%;
-  position: relative;
-  width: 100%;
-}
+///////////////////
+//// DIRECTORY ////
+///////////////////
+
+Base Units
+
+Colors
+  customs
+  grayscale
+
+Grid
+  $col-groups
+  breakpoints
+  gutter-width
+  namespaces
+
+Global Variables
+
+Transitions
+
+*/
+
+///////////////////////
+//// END DIRECTORY ////
+///////////////////////
+
+// BASE UNITS //
+
+$base-unit: 1rem;
+$base-font: 1.8rem;
+$base-margin: 20px;
+$base-radius: 0.3rem;
+$base-transition: 0.2s;
+
+// Colors //
+
+  // Customs //
+
+  $light-green: #24C2AF;
+  $dark-green: #1C9C8D;
+
+  // Grayscale //
+
+  $transparent : transparent;
+  $white       : #FFFFFF;
+  $pearl       : #ecf0f1;
+  $ghost       : #FAFAFA;
+  $snow        : #F9F9F9;
+  $vapor       : #F6F6F6;
+  $white-smoke : #F5F5F5;
+  $silver      : #EFEFEF;
+  $smoke       : #EEEEEE;
+  $gainsboro   : #DDDDDD;
+  $iron        : #CCCCCC;
+  $base        : #AAAAAA;
+  $aluminum    : #999999;
+  $jumbo       : #888888;
+  $monsoon     : #777777;
+  $steel       : #666666;
+  $charcoal    : #555555;
+  $tuatara     : #444444;
+  $oil         : #333333;
+  $jet         : #222222;
+  $black       : #000000;
+
+// GRID //
+
+  // $col-groups are the column groups you want
+  // For example, $col-groups: (3, 4, 5) will output:
+  // .col--n-of-3, .col--n-of-4, [...]
+  $column-groups: (12) !default;
+
+  // Breakpoints
+  $view-breakpoint-medium: 960px !default;
+  $view-breakpoint-small: 320px !default;
+
+  // Gutter-Width
+  $column-gutter-width: $base-margin !default;
+
+  // Namespaces
+  $grid-namespace: "row" !default;
+  $column-namespace: "col" !default;
+
+// GLOBALS //
+
+$golden-ratio: 1.61803398875;
+$golden-inverse: 0.61803398875;
+$color-primary: black;
+$color-secondary: black;
+$color-tertiary: black;
 

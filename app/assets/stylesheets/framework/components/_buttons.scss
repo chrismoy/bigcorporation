@@ -1,0 +1,147 @@
+// BUTTONS //
+// Framework by Chris Moy
+
+/// Padding inside buttons.
+
+$btn-padding: 0.5rem 1rem !default;
+
+/// Margin around buttons.
+
+$btn-margin: $base-margin !default;
+
+.btn {
+  // BASE STYLES //
+
+  border: none;
+  @include rem(border-radius, $base-radius);
+  @include rem(height, $base-unit);
+  line-height: 1;
+  outline: 0;
+  position: relative;
+
+  // COLOR //
+
+  &-colorPrimary {
+    color: $color-primary;
+  }
+
+  &-colorSecondary {
+    color: $color-secondary;
+  }
+
+  &-colorTertiary {
+    color: $color-tertiary;
+  }
+
+  // ORIENTATION //
+
+  &-right {
+    float: right;
+  }
+
+  // POSITION //
+
+  &-margin {
+    @include rem(margin, $base-margin);
+  }
+
+  // SIZE //
+
+  &-xs {
+    @include btn-base(2rem);
+  }
+
+  &-sm {
+    @include btn-base(3rem);
+  }
+
+  &-md {
+    @include btn-base(4rem);
+  }
+
+  &-lg {
+    @include btn-base(5rem);
+  }
+
+  &-xl {
+    @include btn-base(6rem);
+  }
+
+  // STATE //
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  // TYPE //
+
+  &-hamburger {
+    $bar-width: 10%;
+    $bar-spacing: (1 - $golden-inverse) * 0.5 * 100%;
+    $transition-duration: $base-transition;
+    $transition-delay: $base-transition;
+
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+
+    &_prompt {
+      $prompt-size: 2.2rem;
+
+      @include rem(font-size, $prompt-size);
+      line-height: 1;
+      margin-top: -0.5 * $prompt-size;
+      position: absolute;
+      right: 125%;
+      top: 50%;
+      transition: all $transition-duration linear $transition-delay;
+
+      &-active {
+        opacity: 0;
+      }
+    }
+
+    &_bar {
+      @include hamburger-bar($bar-width, black);
+
+      margin-top: -0.5 * $bar-width;
+      top: 50%;
+      transition: all $transition-duration linear $transition-delay;
+    }
+
+    &:before, &:after {
+      @include hamburger-bar($bar-width, black);
+
+      content: "";
+      transition: transform $transition-duration ease-in 0s, top $transition-duration ease-out $transition-delay;
+    }
+
+    &:before { top: $bar-spacing; }
+    &:after { top: 50% + $bar-spacing; }
+
+    &-active {
+
+      .btn-hamburger_prompt {
+        opacity: 0;
+
+        &-active {
+          opacity: 1;
+        }
+      }
+
+      .btn-hamburger_bar {
+        opacity: 0;
+        transition: all $transition-duration linear 0s;
+      }
+
+      &:before, &:after {
+        margin-top: -0.5 * $bar-width;
+        top: 50%;
+        transition: top $transition-duration ease-out 0s, transform $transition-duration ease-in $transition-delay;
+      }
+
+      &:before { transform: rotate(-45deg); }
+      &:after { transform: rotate(-135deg); }
+    }
+  }
+}

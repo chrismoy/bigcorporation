@@ -1,18 +1,28 @@
 // Globals
 
 @import "global/variables";
-@import "global/foundation_and_overrides";
-@import "global/foundation";
+@import "global/root";
+
+// Fonts
 
 @import "fonts/weather/weather";
 
 // Vendor
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "jquery.fullPage";
 
-// Components
+// Framework
 
-@import "components/buttons";
+  // Mixins
+
+  @import "framework/mixins/framework";
+  @import "framework/mixins/buttons";
+
+  // Components
+
+  @import "framework/components/buttons";
 
 // Modules
 
@@ -21,16 +31,3 @@
 // Pages
 
 @import "pages/main_pages/home";
-
-// Debug Box
-
-.debug_dump {
-  clear: both;
-  float: left;
-  margin: 45px;
-  padding: 10px;
-  background: $smoke;
-  border: 1px solid #000;
-  @include box_sizing;
-  @include radius;
-}

@@ -1,0 +1,47 @@
+// Provides unitless value of given number
+
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+// Provides rem values with a backup pixel value for legacy browser support
+
+
+@mixin rem(
+  $property: null,
+  $values: null
+) {
+
+  $px : ();
+  $rem: ();
+
+  @each $value in $values {
+
+    @if $value == 0 or type-of($value) != "number" {
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+
+    @else {
+      $unit: unit($value);
+      $val: parseInt($value);
+
+      @if $unit == "px" {
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / 10 + 0rem));
+      }
+
+      @if $unit == "rem" {
+        $px : append($px,  ($val * 10 + 0px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  @if $px == $rem {
+    #{$property}: $px;
+  } @else {
+    #{$property}: $px;
+    #{$property}: $rem;
+  }
+}

@@ -1,0 +1,6 @@
+%header
+  = button_tag(class: "btn btn-square btn-md btn-colorPrimary btn-hamburger btn-right btn-margin", data: { behavior: "toggle-menu" }) do
+    = content_tag(:span, "", class: "btn-hamburger_bar")
+    = content_tag(:span, "MENU", class: "btn-hamburger_prompt")
+    = content_tag(:span, "CLOSE", class: "btn-hamburger_prompt btn-hamburger_prompt-active")
+

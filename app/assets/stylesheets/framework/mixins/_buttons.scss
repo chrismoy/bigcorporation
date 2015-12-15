@@ -1,0 +1,31 @@
+// BUTTONS ***MIXINS*** //
+
+// Sets base properties of a button
+
+@mixin btn-base(
+  $dimension: null
+) {
+  $font-size: $golden-inverse * $dimension;
+  $padding-horizontal: 0.5 * ($dimension - $font-size);
+  $padding-vertical: $padding-horizontal;
+
+  @include rem(font-size, $font-size);
+  @include rem(height, $dimension);
+  @include rem(padding, $padding-vertical $padding-horizontal);
+
+  &.btn-square { @include rem(width, $dimension); }
+}
+
+// Hamburger button bar
+
+@mixin hamburger-bar(
+  $width: 10%,
+  $color: $white
+) {
+  background-color: $color;
+  border-radius: $base-radius;
+  height: $width;
+  right: 0;
+  position: absolute;
+  width: 100%;
+}

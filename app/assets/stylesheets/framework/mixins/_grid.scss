@@ -1,0 +1,42 @@
+/// Returns a set of column classes for a list of column group sizes for a given screen size identifier
+///
+/// @param {List} $column-groups [12]
+/// List of integers signifying column amounts to allow. Ex: (1,2,6) would allow: .col-sm-1of1, .col-sm-1of2, and .col-sm-1of6
+///
+/// @param {String} $column-namespace ["col"]
+/// Sets the name of the column class (default: .col .col-sm-1of12)
+///
+/// @param {String} $column-namespace [null]
+/// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
+///
+
+@mixin columnify(
+  $column-groups: (12),
+  $column-namespace: "col",
+  $modifier: null
+) {
+
+  $class-base: #{$column-namespace}#{preDash($modifier)};
+
+  &[class*="#{$class-base}"] {
+
+    @if $align-right == true {
+      float: right;
+    } @else {
+      float: left;
+    }
+
+  }
+
+  @each $group in $column-groups {
+
+    @for $i from 1 through $group {
+
+      $class-name: #{$class-base}#{preDash($i + 'of' + $group)};
+
+      &.#{$class-name} {
+        width: percentage($i/$group);
+      }
+    } // end @for each column
+  } // end @each group of columns
+}

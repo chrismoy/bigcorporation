@@ -1,11 +1,11 @@
-// Provides unitless value of given number
-
-@function parseInt($n) {
-  @return $n / ($n * 0 + 1);
-}
-
-// Provides rem values with a backup pixel value for legacy browser support
-
+/// Returns a CSS setting that includes a backup value for REMs in pixels if applicable
+///
+/// @param {String} $property [null]
+/// CSS Property to be changed. Example inputs "font-size", "width", "margin"
+///
+/// @param {List} $values [null]
+/// A list of values to be updated. Can be single or plural. Ex: 10px 20px is valid for work with padding or the like
+///
 
 @mixin rem(
   $property: null,

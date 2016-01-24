@@ -1,0 +1,21 @@
+.navbar {
+
+  // BACKGROUND //
+
+  @include stdBg();
+
+  // SIZE //
+
+  @media #{$sm-up} {
+    @include rem(height, $navbar-sm-height);
+  }
+
+  @media #{$md-up} {
+    @include rem(height, $navbar-md-height);
+  }
+
+  @media #{$lg-up} {
+    @include rem(height, $navbar-lg-height);
+  }
+
+}

@@ -7,17 +7,11 @@
 //// DIRECTORY ////
 ///////////////////
 
-Base Units
+Units
 
 Colors
   customs
   grayscale
-
-Grid
-  $col-groups
-  breakpoints
-  gutter-width
-  namespaces
 
 Global Variables
 
@@ -34,6 +28,7 @@ Transitions
 $base-unit: 1rem;
 $base-font: 1.8rem;
 $base-margin: 20px;
+$base-padding: 20px;
 $base-radius: 0.3rem;
 $base-transition: 0.2s;
 
@@ -67,24 +62,6 @@ $base-transition: 0.2s;
   $oil         : #333333;
   $jet         : #222222;
   $black       : #000000;
-
-// GRID //
-
-  // $col-groups are the column groups you want
-  // For example, $col-groups: (3, 4, 5) will output:
-  // .col--n-of-3, .col--n-of-4, [...]
-  $column-groups: (12) !default;
-
-  // Breakpoints
-  $view-breakpoint-medium: 960px !default;
-  $view-breakpoint-small: 320px !default;
-
-  // Gutter-Width
-  $column-gutter-width: $base-margin !default;
-
-  // Namespaces
-  $grid-namespace: "row" !default;
-  $column-namespace: "col" !default;
 
 // GLOBALS //
 

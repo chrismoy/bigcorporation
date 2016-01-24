@@ -1,0 +1,43 @@
+/// Returns a standardized set of background color classes for a given parent class
+///
+
+@mixin stdBg (
+) {
+  &-bgTransparent {
+    background-color: transparent;
+  }
+
+  &-bgPrimary {
+    background-color: $color-primary;
+  }
+
+  &-bgSecondary {
+    background-color: $color-secondary;
+  }
+
+  &-bgTertiary {
+    background-color: $color-tertiary;
+  }
+}
+
+/// Returns a standardized set of color classes for a given parent class
+///
+
+@mixin stdColor(
+) {
+  &-colorTransparent {
+    color: transparent;
+  }
+
+  &-colorPrimary {
+    color: $color-primary;
+  }
+
+  &-colorSecondary {
+    color: $color-secondary;
+  }
+
+  &-colorTertiary {
+    color: $color-tertiary;
+  }
+}

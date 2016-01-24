@@ -1,6 +1,8 @@
-// BUTTONS ***MIXINS*** //
-
-// Sets base properties of a button
+/// Returns the base sizing attributes for a button
+///
+/// @param {Number} $dimension [null]
+/// Size of the button. Example: 40px, 4rem
+///
 
 @mixin btn-base(
   $dimension: null
@@ -9,6 +11,7 @@
   $padding-horizontal: 0.5 * ($dimension - $font-size);
   $padding-vertical: $padding-horizontal;
 
+  @include rem(border-radius, $base-radius);
   @include rem(font-size, $font-size);
   @include rem(height, $dimension);
   @include rem(padding, $padding-vertical $padding-horizontal);
@@ -16,16 +19,24 @@
   &.btn-square { @include rem(width, $dimension); }
 }
 
-// Hamburger button bar
+/// Returns the CSS stylings for one bar of a hamburger button
+///
+/// @param {Number} $width [null]
+/// Thickness of the bar (may be thought of as height be some). Example: 3px, 3rem
+///
+/// @param {Color} $color [null]
+/// Color of the bar. Example: rgba(255,255,255,1), #FFF, white
+///
 
 @mixin hamburger-bar(
-  $width: 10%,
+  $width: 3px,
   $color: $white
 ) {
   background-color: $color;
   border-radius: $base-radius;
-  height: $width;
-  right: 0;
+  display: inline-block;
+  @include rem(height, $width);
   position: absolute;
+  right: 0;
   width: 100%;
 }

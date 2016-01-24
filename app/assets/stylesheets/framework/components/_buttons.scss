@@ -10,61 +10,35 @@ $btn-padding: 0.5rem 1rem !default;
 $btn-margin: $base-margin !default;
 
 .btn {
-  // BASE STYLES //
+  @include btn-base($navbar-sm-btn);
+
+  /// BASE STYLES ///
 
   border: none;
-  @include rem(border-radius, $base-radius);
-  @include rem(height, $base-unit);
   line-height: 1;
   outline: 0;
   position: relative;
 
+  // BACKGROUND //
+
+  @include stdBg();
+
   // COLOR //
 
-  &-colorPrimary {
-    color: $color-primary;
-  }
-
-  &-colorSecondary {
-    color: $color-secondary;
-  }
-
-  &-colorTertiary {
-    color: $color-tertiary;
-  }
-
-  // ORIENTATION //
-
-  &-right {
-    float: right;
-  }
+  @include stdColor();
 
   // POSITION //
 
   &-margin {
-    @include rem(margin, $base-margin);
+    @include rem(margin, $navbar-sm-padding);
   }
 
-  // SIZE //
-
-  &-xs {
-    @include btn-base(2rem);
+  &-padding {
+    @include rem(padding, $navbar-sm-padding);
   }
 
-  &-sm {
-    @include btn-base(3rem);
-  }
-
-  &-md {
-    @include btn-base(4rem);
-  }
-
-  &-lg {
-    @include btn-base(5rem);
-  }
-
-  &-xl {
-    @include btn-base(6rem);
+  &-right {
+    float: right;
   }
 
   // STATE //
@@ -84,15 +58,16 @@ $btn-margin: $base-margin !default;
     background-color: transparent;
     border-radius: 0;
     padding: 0;
+    position: relative;
 
     &_prompt {
-      $prompt-size: 2.2rem;
+      $prompt-size: $navbar-sm-height * $golden-inverse * 0.5;
 
       @include rem(font-size, $prompt-size);
       line-height: 1;
-      margin-top: -0.5 * $prompt-size;
+      @include rem(margin-top, $prompt-size / -2);
       position: absolute;
-      right: 125%;
+      right: 120%;
       top: 50%;
       transition: all $transition-duration linear $transition-delay;
 
@@ -102,22 +77,22 @@ $btn-margin: $base-margin !default;
     }
 
     &_bar {
-      @include hamburger-bar($bar-width, black);
+      @include hamburger-bar($navbar-sm-hambar, $navbar-color);
 
-      margin-top: -0.5 * $bar-width;
+      margin-top: -0.5 * $navbar-sm-hambar;
       top: 50%;
-      transition: all $transition-duration linear $transition-delay;
+      transition: opacity $transition-duration linear $transition-delay;
     }
 
     &:before, &:after {
-      @include hamburger-bar($bar-width, black);
+      @include hamburger-bar($navbar-sm-hambar, $navbar-color);
 
       content: "";
       transition: transform $transition-duration ease-in 0s, top $transition-duration ease-out $transition-delay;
     }
 
     &:before { top: $bar-spacing; }
-    &:after { top: 50% + $bar-spacing; }
+    &:after { bottom: $bar-spacing; }
 
     &-active {
 
@@ -142,6 +117,55 @@ $btn-margin: $base-margin !default;
 
       &:before { transform: rotate(-45deg); }
       &:after { transform: rotate(-135deg); }
+    }
+  }
+
+  @media #{$md-up} {
+    @include btn-base($navbar-md-btn);
+
+    &.btn-margin {
+      margin: $navbar-md-padding;
+    }
+
+    &-hamburger {
+      &_prompt {
+        $prompt-size: $navbar-md-height * $golden-inverse * 0.5;
+
+        @include rem(font-size, $prompt-size);
+        @include rem(margin-top, $prompt-size / -2);
+      }
+
+      &_bar {
+        height: $navbar-md-hambar;
+        margin-top: -0.5 * $navbar-md-hambar;
+      }
+      &:before, &:after {
+        height: $navbar-md-hambar;
+      }
+    }
+  }
+
+  @media #{$lg-up} {
+    @include btn-base($navbar-lg-btn);
+
+    &.btn-margin {
+      margin: $navbar-lg-padding;
+    }
+
+    &-hamburger {
+      &_prompt {
+        $prompt-size: $navbar-lg-height * $golden-inverse * 0.5;
+
+        @include rem(font-size, $prompt-size);
+        @include rem(margin-top, $prompt-size / -2);
+      }
+      &_bar {
+        height: $navbar-lg-hambar;
+        margin-top: -0.5 * $navbar-lg-hambar;
+      }
+      &:before, &:after {
+        height: $navbar-lg-hambar;
+      }
     }
   }
 }

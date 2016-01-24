@@ -1,0 +1,133 @@
+// Framework by Chris Moy
+// Big Corporation Digital Collective
+
+//
+
+// Table of Contents
+// Framework Settings
+
+// a. Base
+// b. Media Queries
+// c. Grid
+// d. Typography
+//  . Main
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// a. Base
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Units
+$base-unit: 1rem;
+$base-spacing: 2rem;
+$golden-ratio: 1.61803398875;
+$golden-inverse: 0.61803398875;
+
+// Border
+$base-radius: 0.3rem !default;
+
+// Colors
+$color-primary: black !default;
+$color-secondary: black !default;
+$color-tertiary: black !default;
+
+// Spacing
+$base-margin: $base-spacing !default;
+$base-padding: $base-spacing !default;
+
+// Transitions
+$base-transition: 0.2s !default;
+
+// b. Media Queries
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Breakpoints
+$view-breakpoint-xl: 999999999px !default;
+$view-breakpoint-lg: 1200px !default;
+$view-breakpoint-md: 1024px !default;
+$view-breakpoint-sm: 640px !default;
+
+// Ranges
+
+$sm-range: (0px, $view-breakpoint-sm);
+$md-range: ($view-breakpoint-sm + 1px, $view-breakpoint-md);
+$lg-range: ($view-breakpoint-md + 1px, $view-breakpoint-lg);
+$xl-range: ($view-breakpoint-lg + 1px, $view-breakpoint-xl);
+
+// Screen Options
+
+$screen: "only screen";
+
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+
+// Screen Ranges
+
+$sm-up: $screen;
+$sm-only: "#{$screen} and (max-width: #{$view-breakpoint-sm})";
+
+$md-up: "#{$screen} and (min-width:#{$view-breakpoint-sm + 1})";
+$md-only: "#{$screen} and (min-width:#{lower-bound($md-range)}) and (max-width:#{upper-bound($md-range)})";
+
+$lg-up: "#{$screen} and (min-width:#{$view-breakpoint-md})";
+$lg-only: "#{$screen} and (min-width:#{lower-bound($lg-range)}) and (max-width:#{upper-bound($lg-range)})";
+
+$xl-up: "#{$screen} and (min-width:#{$view-breakpoint-lg})";
+$xl-only: "#{$screen} and (min-width:#{lower-bound($xl-range)}) and (max-width:#{upper-bound($xl-range)})";
+
+// c. Grid
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// $col-groups are the column groups you want
+// For example, $col-groups: (3, 4, 5) will output:
+// .col-Nof3, .col-Nof4, .col-Nof5
+
+$column-groups: (12) !default;
+
+// Gutter-Width
+
+$horiz-gutter-width: $base-margin / 2;
+$vert-gutter-width: $base-margin / 2;
+
+$horiz-grid-gutter-width: $horiz-gutter-width !default;
+$vert-grid-gutter-width: $vert-gutter-width !default;
+$horiz-column-gutter-width: $horiz-gutter-width !default;
+$vert-column-gutter-width: $vert-gutter-width !default;
+
+// Namespaces
+
+$grid-namespace: "row" !default;
+$column-namespace: "col" !default;
+
+// Column alignment. Defaults to left (columns rendered in order from left to
+// right). Set $align-right: true to align to the right.
+
+$align-right: false;
+
+// d. Typography
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$body-font-size: $base-font !default;
+
+// . Main
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// . Navbar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$navbar-color: black;
+
+$navbar-sm-height: 5rem;
+$navbar-md-height: 6rem;
+$navbar-lg-height: 7rem;
+
+$navbar-sm-btn: $golden-inverse * $navbar-sm-height;
+$navbar-md-btn: $golden-inverse * $navbar-md-height;
+$navbar-lg-btn: $golden-inverse * $navbar-lg-height;
+
+$navbar-sm-hambar: 0.2rem;
+$navbar-md-hambar: 0.4rem;
+$navbar-lg-hambar: 0.4rem;
+
+$navbar-sm-padding: $navbar-sm-height * (1 - $golden-inverse) / 2;
+$navbar-md-padding: $navbar-md-height * (1 - $golden-inverse) / 2;
+$navbar-lg-padding: $navbar-lg-height * (1 - $golden-inverse) / 2;

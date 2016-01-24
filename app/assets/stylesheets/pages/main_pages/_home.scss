@@ -1,0 +1,8 @@
+.heightz {
+  background-color: $smoke;
+  height: 600px;
+
+  &:nth-child(odd) {
+    background-color: $iron;
+  }
+}

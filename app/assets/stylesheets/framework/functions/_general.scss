@@ -1,0 +1,90 @@
+/// Returns the lower bound of a given range of integers
+///
+/// @param {List} $range [null]
+/// List of integers showing a range. Ex: (1, 2) or (342, 9999999)
+/// *** NEEDS VALIDATION FOR GREATER LENGTH GREATER THAN 2 AND DATATYPE ***
+///
+
+@function lower-bound(
+  $range: null
+){
+  @if type-of($range) != "list" {
+    @error "Invalid type, expected list for #{type-of($range)}";
+  } @else if length($range) == 2 {
+    @return nth($range, 1);
+  } @else {
+    @error "Invalid range, expected length 2 for #{length($range)}";
+  }
+}
+
+/// Returns the unitless numeric-value of a given input
+///
+/// @param {Number} $n [null]
+/// CSS value to be parsed. Ex: 43px, 4.3rem
+///
+
+@function parseInt(
+  $n: false
+) {
+  @if type-of($n) != "number" {
+    @error "Invalid type, expected list for #{type-of($range)}";
+  } @else if $n {
+    @return $n / ($n * 0 + 1);
+  } @else {
+    @return null
+  }
+}
+
+/// Appends a dash to a string or returns an empty string for an empty input
+///
+/// @param {String} $n ['']
+/// String to be appended with a dash
+///
+
+@function postDash(
+  $string: ''
+) {
+  @if type-of($string) != "string" {
+    @error "Invalid type, expected list for #{type-of($range)}";
+  } @else if ($string == '') {
+    @return '';
+  } @else {
+    @return $string + '-';
+  }
+}
+
+/// Prepends a dash to a string or returns an empty string for an empty input
+///
+/// @param {String} $n ['']
+/// String to be prepended with a dash
+///
+
+@function preDash(
+  $string: ''
+) {
+  @if type-of($string) != "string" {
+    @error "Invalid type, expected list for #{type-of($range)}";
+  } @else if ($string == '') {
+    @return '';
+  } @else {
+    @return '-' + $string;
+  }
+}
+
+/// Returns the upper bound of a given range of integers
+///
+/// @param {List} $range [null]
+/// List of integers showing a range. Ex: (1, 2) or (342, 9999999)
+///
+
+@function upper-bound(
+  $range: null
+) {
+  @if type-of($range) != "list" {
+    @error "Invalid type, expected list for #{type-of($range)}";
+  } @else if length($range) == 2 {
+    @return nth($range, 1);
+  } @else {
+    @error "Invalid range, expected length 2 for #{length($range)}";
+  }
+}

@@ -5,7 +5,10 @@
 
 // Functions
 
-@import "framework/functions/general";
+@import "framework/functions/errors";
+@import "framework/functions/math";
+@import "framework/functions/strings";
+@import "framework/functions/units";
 
 // Mixins
 

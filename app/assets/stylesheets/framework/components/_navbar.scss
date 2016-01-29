@@ -1,21 +1,43 @@
 .navbar {
 
+  display: block;
+  position: absolute;
+
   // BACKGROUND //
 
   @include stdBg();
 
-  // SIZE //
+  // POSITION //
 
-  @media #{$sm-up} {
-    @include rem(height, $navbar-sm-height);
+  &-bottom, &-top {
+    @include rem(height, map-get-z($navbar-type, horizontal, height, sm));
+    left: 0;
+    width: 100%;
   }
 
+  &-left, &-right {
+    height: 100%;
+    top: 0;
+    width: $navbar-side-width;
+  }
+
+  &-bottom { bottom: 0; }
+  &-left { left: 0; }
+  &-right { right: 0; }
+  &-top { top: 0; }
+
+  // SIZE //
+
   @media #{$md-up} {
-    @include rem(height, $navbar-md-height);
+    &-bottom, &-top {
+      @include rem(height, map-get($navbar-height, md));
+    }
   }
 
   @media #{$lg-up} {
-    @include rem(height, $navbar-lg-height);
+    &-bottom, &-top {
+      @include rem(height, map-get($navbar-height, lg));
+    }
   }
 
 }

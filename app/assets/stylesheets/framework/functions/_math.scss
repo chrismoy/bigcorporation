@@ -1,0 +1,88 @@
+/// Returns the lower bound of a given range of integers
+///
+/// @param {List} $range [null]
+/// List of integers showing a range. Ex: (1, 2) or (342, 9999999)
+///
+
+@function lower-bound(
+  $range: null
+){
+  @if type-of($range) != list {
+    @error list-error($range);
+  } @else if length($range) == 2 {
+    @return nth($range, 1);
+  } @else {
+    @error range-error($range);
+  }
+}
+
+/// Returns the result of the function x!
+///
+/// @param {Number} $x [0]
+/// The exponent of the function
+///
+
+@function factorial(
+  $x: 0
+){
+  @if type-of($x) != number { @error number-error($x); }
+  $val: 1;
+
+  @if $x > 0 {
+    @while $x > 0 {
+      $ret: $val * $x;
+      $x: $x - 1;
+    }
+  }
+
+  @return $val;
+}
+
+/// Returns the result of the function b^x (includes 0 & negative powers)
+///
+/// @param {Number} $b [0]
+/// The base of the function
+///
+/// @param {Number} $x [0]
+/// The exponent of the function
+///
+
+@function power(
+  $b: 0,
+  $x: 0
+){
+  @if type-of($b) != number { @error number-error($b); }
+  @if type-of($x) != number { @error number-error($x); }
+
+  $val: 1;
+
+  @if $x >= 0 {
+    @for $i from 1 through $x {
+      $val: $val * $b;
+    }
+  } @else {
+    @for $i from $x to 0 {
+      $val: $val / $b;
+    }
+  }
+
+  @return $val;
+}
+
+/// Returns the upper bound of a given range of integers
+///
+/// @param {List} $range [null]
+/// List of integers showing a range. Ex: (1, 2) or (342, 9999999)
+///
+
+@function upper-bound(
+  $range: null
+) {
+  @if type-of($range) != list {
+    @error list-error($range);
+  } @else if length($range) == 2 {
+    @return nth($range, 1);
+  } @else {
+    @error range-error($range);
+  }
+}

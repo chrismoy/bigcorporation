@@ -1,0 +1,15 @@
+/// Returns the unitless numeric-value of a given input
+///
+/// @param {Number} $n [null]
+/// CSS value to be parsed. Ex: 43px, 4.3rem
+///
+
+@function parseInt(
+  $n: null
+) {
+  @if type-of($n) != number {
+    @error number-error($n)
+  } @else {
+    @return $n / ($n * 0 + 1);
+  }
+}

@@ -1,3 +1,22 @@
+/// Returns a set of classes to set the correct window area based on navbar position
+///
+/// @param {String} $modifier [null]
+/// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
+///
+
+@mixin clear-nav(
+  $modifier: null
+) {
+  @if type-of($modifier) != "string" { @error string-error($modifier); }
+
+  &-clearNav {
+    &Bottom { @include rem(padding-top, map-get($navbar-height, $modifier)); }
+    &Left { @include rem(padding-left, $navbar-side-width); }
+    &Right { @include rem(padding-right, $navbar-side-width); }
+    &Top { @include rem(padding-bottom, map-get($navbar-height, $modifier)); }
+  }
+}
+
 /// Returns a standardized set of background color classes for a given parent class
 ///
 

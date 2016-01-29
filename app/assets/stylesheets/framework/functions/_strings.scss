@@ -1,0 +1,35 @@
+/// Appends a dash to a string or returns an empty string for an empty input
+///
+/// @param {String} $n ['']
+/// String to be appended with a dash
+///
+
+@function postDash(
+  $string: ''
+) {
+  @if type-of($string) != string {
+    @error string-error($string);
+  } @else if ($string == '') {
+    @return '';
+  } @else {
+    @return $string + '-';
+  }
+}
+
+/// Prepends a dash to a string or returns an empty string for an empty input
+///
+/// @param {String} $n ['']
+/// String to be prepended with a dash
+///
+
+@function preDash(
+  $string: ''
+) {
+  @if type-of($string) != string {
+    @error string-error($string);
+  } @else if ($string == '') {
+    @return '';
+  } @else {
+    @return '-' + $string;
+  }
+}

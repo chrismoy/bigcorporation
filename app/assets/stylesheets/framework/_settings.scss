@@ -17,62 +17,120 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Units
-$base-unit: 1rem;
-$base-spacing: 2rem;
+$base-unit: 4rem;
 $golden-ratio: 1.61803398875;
+$gr: $golden-ratio;
 $golden-inverse: 0.61803398875;
+$gi: $golden-ratio;
 
 // Border
+
 $base-radius: 0.3rem !default;
 
 // Colors
-$color-primary: black !default;
-$color-secondary: black !default;
-$color-tertiary: black !default;
+
+$color: (
+  primary: black,
+  secondary: black,
+  tertiary: black
+) !default;
 
 // Spacing
-$base-margin: $base-spacing !default;
-$base-padding: $base-spacing !default;
+
+$base-spacing: (
+  margin: $base-spacing,
+  padding: $base-spacing
+) !default;
 
 // Transitions
-$base-transition: 0.2s !default;
+
+$base-transition: (
+  time: 0.2s,
+  function: ease-in-out,
+  forward-function: ease-in-out,
+  reverse-function: ease-in-out
+) !default;
+
+// Typography
+
+$base-font-size: 16px;
+
+@function font-sizer(
+  $font-size: 16px,
+  $gap: false,
+  $depth: 0
+) {
+  @if $gap {
+    $mult: ((1 + $gr) / 2) * $font-size;
+  } @else {
+    $mult: $font-size;
+  }
+
+  @for i from 1 through $depth {
+    $mult: $mult * $gr;
+  }
+
+  @debug $mult;
+  @return $mult;
+}
+
+$type-size: (
+  base: $base-font-size,
+  h6: font-sizer($base-font-size, false, 0),
+  h5: font-sizer($base-font-size, true, 0),
+  h4: font-sizer($base-font-size, false, 1),
+  h3: font-sizer($base-font-size, true, 1),
+  h2: font-sizer($base-font-size, false, 2),
+  h1: font-sizer($base-font-size, true, 2),
+  small: (2 / (1 + $golden-ratio)) * $base-font-size
+) !default;
+
+$type-style: (
+  line-height: 1,
+  sans-serif: (Arial, Helvetica, sans-serif),
+  serif: (Georgia, Times, 'Times New Roman', serif)
+) !default;
 
 // b. Media Queries
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Breakpoints
-$view-breakpoint-xl: 999999999px !default;
-$view-breakpoint-lg: 1200px !default;
-$view-breakpoint-md: 1024px !default;
-$view-breakpoint-sm: 640px !default;
+
+$view-breakpoint: (
+  xl: 999999999px,
+  lg: 1200px,
+  md: 1024px,
+  sm: 640px
+) !default;
 
 // Ranges
 
-$sm-range: (0px, $view-breakpoint-sm);
-$md-range: ($view-breakpoint-sm + 1px, $view-breakpoint-md);
-$lg-range: ($view-breakpoint-md + 1px, $view-breakpoint-lg);
-$xl-range: ($view-breakpoint-lg + 1px, $view-breakpoint-xl);
+$view-range: (
+  sm: (0px, map-get($view-breakpoint, sm)),
+  md: (map-get($view-breakpoint, sm) + 1px, map-get($view-breakpoint, md)),
+  lg: (map-get($view-breakpoint, md) + 1px, map-get($view-breakpoint, lg)),
+  xl: (map-get($view-breakpoint, lg) + 1px, map-get($view-breakpoint, xl))
+) !default;
 
 // Screen Options
 
-$screen: "only screen";
+$screen: "only screen" !default;
 
-$landscape: "#{$screen} and (orientation: landscape)";
-$portrait: "#{$screen} and (orientation: portrait)";
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
 
 // Screen Ranges
 
-$sm-up: $screen;
-$sm-only: "#{$screen} and (max-width: #{$view-breakpoint-sm})";
-
-$md-up: "#{$screen} and (min-width:#{$view-breakpoint-sm + 1})";
-$md-only: "#{$screen} and (min-width:#{lower-bound($md-range)}) and (max-width:#{upper-bound($md-range)})";
-
-$lg-up: "#{$screen} and (min-width:#{$view-breakpoint-md})";
-$lg-only: "#{$screen} and (min-width:#{lower-bound($lg-range)}) and (max-width:#{upper-bound($lg-range)})";
-
-$xl-up: "#{$screen} and (min-width:#{$view-breakpoint-lg})";
-$xl-only: "#{$screen} and (min-width:#{lower-bound($xl-range)}) and (max-width:#{upper-bound($xl-range)})";
+$screen-range: (
+  sm-up: $screen,
+  sm-only: "#{$screen} and (max-width: #{map-get($view-breakpoint, sm)})",
+  md-up: "#{$screen} and (min-width:#{map-get($view-breakpoint, sm) + 1px})",
+  md-only: "#{$screen} and (min-width:#{lower-bound(map-get($view-range, md))}) and (max-width:#{upper-bound(map-get($view-range, md))})",
+  lg-up: "#{$screen} and (min-width:#{map-get($view-breakpoint, md)})",
+  lg-only: "#{$screen} and (min-width:#{lower-bound(map-get($view-range, lg))}) and (max-width:#{upper-bound(map-get($view-range, lg))})",
+  xl-up: "#{$screen} and (min-width:#{map-get($view-breakpoint, lg)})",
+  xl-only: "#{$screen} and (min-width:#{lower-bound(map-get($view-range, xl))}) and (max-width:#{upper-bound(map-get($view-range, xl))})"
+) !default;
 
 // c. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -85,28 +143,44 @@ $column-groups: (12) !default;
 
 // Gutter-Width
 
-$horiz-gutter-width: $base-margin / 2;
-$vert-gutter-width: $base-margin / 2;
-
-$horiz-grid-gutter-width: $horiz-gutter-width !default;
-$vert-grid-gutter-width: $vert-gutter-width !default;
-$horiz-column-gutter-width: $horiz-gutter-width !default;
-$vert-column-gutter-width: $vert-gutter-width !default;
+$gutter-width: (
+  grid: (
+    horiz: $base-unit,
+    vert: $base-unit
+  ),
+  column: (
+    horiz: $base-unit,
+    vert: $base-unit
+  )
+) !default;
 
 // Namespaces
 
-$grid-namespace: "row" !default;
-$column-namespace: "col" !default;
+$namespace: (
+  column: "col",
+  grid: "row"
+) !default;
 
 // Column alignment. Defaults to left (columns rendered in order from left to
 // right). Set $align-right: true to align to the right.
 
-$align-right: false;
+$align-right: false !default;
 
 // d. Typography
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 $body-font-size: $base-font !default;
+
+// . Button
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$btn-sizing: (
+  height: (
+    sm: $golden-inverse * map-get($navbar-height, sm),
+    md: $golden-inverse * map-get($navbar-height, md),
+    lg: $golden-inverse * map-get($navbar-height, lg)
+  )
+) !default;
 
 // . Main
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -114,20 +188,38 @@ $body-font-size: $base-font !default;
 // . Navbar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$navbar-color: black;
+$navbar-color: map-get($color, primary);
 
-$navbar-sm-height: 5rem;
-$navbar-md-height: 6rem;
-$navbar-lg-height: 7rem;
+$navbar-type: (
+  horizontal: (
+    height: (
+      sm: 5rem,
+      md: 6rem,
+      lg: 7rem
+    ),
+    width: 100%
+  ),
+  vertical: (
+    height: 100%,
+    width: (1 - $golden-inverse) * 100%
+  )
+) !default;
 
-$navbar-sm-btn: $golden-inverse * $navbar-sm-height;
-$navbar-md-btn: $golden-inverse * $navbar-md-height;
-$navbar-lg-btn: $golden-inverse * $navbar-lg-height;
+$navbar-position: (
+  bottom: (bottom: 0, left: 0),
+  left: (left: 0, top: 0),
+  right: (right: 0, top: 0),
+  top: (left: 0, top: 0)
+) !default;
 
-$navbar-sm-hambar: 0.2rem;
-$navbar-md-hambar: 0.4rem;
-$navbar-lg-hambar: 0.4rem;
+$navbar-hambar: (
+  sm: 0.2rem,
+  md: 0.4rem,
+  lg: 0.4rem
+) !default;
 
-$navbar-sm-padding: $navbar-sm-height * (1 - $golden-inverse) / 2;
-$navbar-md-padding: $navbar-md-height * (1 - $golden-inverse) / 2;
-$navbar-lg-padding: $navbar-lg-height * (1 - $golden-inverse) / 2;
+$navbar-padding: (
+  sm: (1 - $golden-inverse) / 2 * map-get($navbar-height, sm),
+  md: (1 - $golden-inverse) / 2 * map-get($navbar-height, md),
+  lg: (1 - $golden-inverse) / 2 * map-get($navbar-height, lg)
+) !default;

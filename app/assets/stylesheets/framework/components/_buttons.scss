@@ -10,7 +10,7 @@ $btn-padding: 0.5rem 1rem !default;
 $btn-margin: $base-margin !default;
 
 .btn {
-  @include btn-base($navbar-sm-btn);
+  @include btn-base(map-get($navbar-btn, sm));
 
   /// BASE STYLES ///
 
@@ -61,7 +61,7 @@ $btn-margin: $base-margin !default;
     position: relative;
 
     &_prompt {
-      $prompt-size: $navbar-sm-height * $golden-inverse * 0.5;
+      $prompt-size: map-get($navbar-height, sm) * $golden-inverse * 0.5;
 
       @include rem(font-size, $prompt-size);
       line-height: 1;
@@ -77,15 +77,15 @@ $btn-margin: $base-margin !default;
     }
 
     &_bar {
-      @include hamburger-bar($navbar-sm-hambar, $navbar-color);
+      @include hamburger-bar(map-get($navbar-hambar, sm), $navbar-color);
 
-      margin-top: -0.5 * $navbar-sm-hambar;
+      margin-top: -0.5 * map-get($navbar-hambar, sm);
       top: 50%;
       transition: opacity $transition-duration linear $transition-delay;
     }
 
     &:before, &:after {
-      @include hamburger-bar($navbar-sm-hambar, $navbar-color);
+      @include hamburger-bar(map-get($navbar-hambar, sm), $navbar-color);
 
       content: "";
       transition: transform $transition-duration ease-in 0s, top $transition-duration ease-out $transition-delay;
@@ -121,7 +121,7 @@ $btn-margin: $base-margin !default;
   }
 
   @media #{$md-up} {
-    @include btn-base($navbar-md-btn);
+    @include btn-base(map-get($navbar-btn, md));
 
     &.btn-margin {
       margin: $navbar-md-padding;
@@ -129,24 +129,24 @@ $btn-margin: $base-margin !default;
 
     &-hamburger {
       &_prompt {
-        $prompt-size: $navbar-md-height * $golden-inverse * 0.5;
+        $prompt-size: map-get($navbar-height, md) * $golden-inverse * 0.5;
 
         @include rem(font-size, $prompt-size);
         @include rem(margin-top, $prompt-size / -2);
       }
 
       &_bar {
-        height: $navbar-md-hambar;
-        margin-top: -0.5 * $navbar-md-hambar;
+        height: map-get($navbar-hambar, md);
+        margin-top: -0.5 * map-get($navbar-hambar, md);
       }
       &:before, &:after {
-        height: $navbar-md-hambar;
+        height: map-get($navbar-hambar, md);
       }
     }
   }
 
   @media #{$lg-up} {
-    @include btn-base($navbar-lg-btn);
+    @include btn-base(map-get($navbar-btn, lg));
 
     &.btn-margin {
       margin: $navbar-lg-padding;
@@ -154,17 +154,17 @@ $btn-margin: $base-margin !default;
 
     &-hamburger {
       &_prompt {
-        $prompt-size: $navbar-lg-height * $golden-inverse * 0.5;
+        $prompt-size: map-get($navbar-height, lg) * $golden-inverse * 0.5;
 
         @include rem(font-size, $prompt-size);
         @include rem(margin-top, $prompt-size / -2);
       }
       &_bar {
-        height: $navbar-lg-hambar;
-        margin-top: -0.5 * $navbar-lg-hambar;
+        height: map-get($navbar-hambar, lg);
+        margin-top: -0.5 * map-get($navbar-hambar, lg);
       }
       &:before, &:after {
-        height: $navbar-lg-hambar;
+        height: map-get($navbar-hambar, lg);
       }
     }
   }

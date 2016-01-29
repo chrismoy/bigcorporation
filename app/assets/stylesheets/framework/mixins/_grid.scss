@@ -6,15 +6,19 @@
 /// @param {String} $column-namespace ["col"]
 /// Sets the name of the column class (default: .col .col-sm-1of12)
 ///
-/// @param {String} $column-namespace [null]
+/// @param {String} $modifier [null]
 /// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
 ///
 
 @mixin columnify(
   $column-groups: (12),
-  $column-namespace: "col",
+  $column-namespace: null,
   $modifier: null
 ) {
+
+  @if length($column-groups) < 1 { @error list-error($column-groups); }
+  @if type-of($column-namespace) != "string" { @error string-error($column-namespace); }
+  @if type-of($modifier) != "string" { @error string-error($modifier); }
 
   $class-base: #{$column-namespace}#{preDash($modifier)};
 

@@ -12,6 +12,8 @@
   $values: null
 ) {
 
+  @if type-of($property) != "string" { @error string-error($property); }
+
   $px : ();
   $rem: ();
 

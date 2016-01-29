@@ -7,6 +7,9 @@
 @mixin btn-base(
   $dimension: null
 ) {
+
+  @if type-of($dimension) != number { @error number-error($dimension); }
+
   $font-size: $golden-inverse * $dimension;
   $padding-horizontal: 0.5 * ($dimension - $font-size);
   $padding-vertical: $padding-horizontal;
@@ -32,6 +35,10 @@
   $width: 3px,
   $color: $white
 ) {
+
+  @if type-of($width) != number { @error number-error($width); }
+  @if type-of($color) != color { @error color-error($color); }
+
   background-color: $color;
   border-radius: $base-radius;
   display: inline-block;

@@ -10,18 +10,41 @@
 // b. Media Queries
 // c. Grid
 // d. Typography
-//  . Main
+//  . Buttons
+//  . Navbar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // a. Base
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Units
-$base-unit: 4rem;
 $golden-ratio: 1.61803398875;
-$gr: $golden-ratio;
-$golden-inverse: 0.61803398875;
-$gi: $golden-ratio;
+
+$scale-factor: $golden-ratio;
+
+$scaling: (
+  forward: (
+    small: 2 / ($scale-factor + 1),
+    f1: 1,
+    f2: (1 + $scale-factor) / 2,
+    f3: $scale-factor,
+    f4: (1 + $scale-factor) / 2 * $scale-factor,
+    f5: $scale-factor * $scale-factor,
+    f6: (1 + $scale-factor) / 2 * $scale-factor * $scale-factor,
+    f7: $scale-factor * $scale-factor * $scale-factor
+  ),
+  inverse: 1 / $scale-factor,
+  padding: (
+    double: 0.5 * ($scale-factor - 1.0),
+    single: $scale-factor - 1.0
+  ),
+  responsive: (
+    sm: 0.666667,
+    md: 1,
+    lg: 1.5,
+    xl: 2
+  )
+) !default;
 
 // Border
 
@@ -37,9 +60,11 @@ $color: (
 
 // Spacing
 
+$space-unit: 3rem !default;
+
 $base-spacing: (
-  margin: $base-spacing,
-  padding: $base-spacing
+  margin: $space-unit,
+  padding: $space-unit
 ) !default;
 
 // Transitions
@@ -49,46 +74,6 @@ $base-transition: (
   function: ease-in-out,
   forward-function: ease-in-out,
   reverse-function: ease-in-out
-) !default;
-
-// Typography
-
-$base-font-size: 16px;
-
-@function font-sizer(
-  $font-size: 16px,
-  $gap: false,
-  $depth: 0
-) {
-  @if $gap {
-    $mult: ((1 + $gr) / 2) * $font-size;
-  } @else {
-    $mult: $font-size;
-  }
-
-  @for i from 1 through $depth {
-    $mult: $mult * $gr;
-  }
-
-  @debug $mult;
-  @return $mult;
-}
-
-$type-size: (
-  base: $base-font-size,
-  h6: font-sizer($base-font-size, false, 0),
-  h5: font-sizer($base-font-size, true, 0),
-  h4: font-sizer($base-font-size, false, 1),
-  h3: font-sizer($base-font-size, true, 1),
-  h2: font-sizer($base-font-size, false, 2),
-  h1: font-sizer($base-font-size, true, 2),
-  small: (2 / (1 + $golden-ratio)) * $base-font-size
-) !default;
-
-$type-style: (
-  line-height: 1,
-  sans-serif: (Arial, Helvetica, sans-serif),
-  serif: (Georgia, Times, 'Times New Roman', serif)
 ) !default;
 
 // b. Media Queries
@@ -144,13 +129,13 @@ $column-groups: (12) !default;
 // Gutter-Width
 
 $gutter-width: (
-  grid: (
-    horiz: $base-unit,
-    vert: $base-unit
-  ),
   column: (
-    horiz: $base-unit,
-    vert: $base-unit
+    horiz: 0.5 * map-get($base-spacing, padding),
+    vert: 0.5 * map-get($base-spacing, padding)
+  ),
+  grid: ( 
+    horiz: 0.5 * map-get($base-spacing, padding),
+    vert: 0.5 * map-get($base-spacing, padding)
   )
 ) !default;
 
@@ -169,57 +154,57 @@ $align-right: false !default;
 // d. Typography
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$body-font-size: $base-font !default;
+$base-font-size: 20px !default;
 
-// . Button
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-$btn-sizing: (
-  height: (
-    sm: $golden-inverse * map-get($navbar-height, sm),
-    md: $golden-inverse * map-get($navbar-height, md),
-    lg: $golden-inverse * map-get($navbar-height, lg)
+$font: (
+  size: (
+    p: map-nested-get($scaling, forward, f1) * $base-font-size,
+    h6: map-nested-get($scaling, forward, f1) * $base-font-size,
+    h5: map-nested-get($scaling, forward, f2) * $base-font-size,
+    h4: map-nested-get($scaling, forward, f3) * $base-font-size,
+    h3: map-nested-get($scaling, forward, f4) * $base-font-size,
+    h2: map-nested-get($scaling, forward, f5) * $base-font-size,
+    h1: map-nested-get($scaling, forward, f6) * $base-font-size,
+    small: map-nested-get($scaling, forward, small) * $base-font-size
+  ),
+  style: (
+    line-height: 1,
+    sans-serif: (Arial, Helvetica, sans-serif),
+    serif: (Georgia, Times, 'Times New Roman', serif)
   )
 ) !default;
 
-// . Main
+// . Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$btn-font-key: p;
+
+$btn: (
+  font-size: map-nested-get($font, size, $btn-font-key),
+  hamburger: 0.2rem,
+  padding: map-nested-get($scaling, padding, double) * map-nested-get($font, size, $btn-font-key)
+) !default;
 
 // . Navbar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$navbar-color: map-get($color, primary);
+$navbar-font-key: p;
 
-$navbar-type: (
-  horizontal: (
-    height: (
-      sm: 5rem,
-      md: 6rem,
-      lg: 7rem
-    ),
-    width: 100%
+$navbar: (
+  color: map-get($color, primary),
+  height: (
+    horizontal: $scale-factor * $scale-factor * map-nested-get($font, size, $navbar-font-key),
+    vertical: 100%
   ),
-  vertical: (
-    height: 100%,
-    width: (1 - $golden-inverse) * 100%
+  padding: map-nested-get($scaling, padding, double) * $scale-factor * map-nested-get($font, size, $navbar-font-key),
+  position: (
+    bottom: (right: 0, bottom: 0, left: 0),
+    left: (top: 0, bottom: 0, left: 0),
+    right: (top: 0, right: 0, bottom: 0),
+    top: (top: 0, left: 0, right: 0)
+  ),
+  width: (
+    horizontal: 100%,
+    vertical: (1 - map-get($scaling, inverse)) * 100%
   )
-) !default;
-
-$navbar-position: (
-  bottom: (bottom: 0, left: 0),
-  left: (left: 0, top: 0),
-  right: (right: 0, top: 0),
-  top: (left: 0, top: 0)
-) !default;
-
-$navbar-hambar: (
-  sm: 0.2rem,
-  md: 0.4rem,
-  lg: 0.4rem
-) !default;
-
-$navbar-padding: (
-  sm: (1 - $golden-inverse) / 2 * map-get($navbar-height, sm),
-  md: (1 - $golden-inverse) / 2 * map-get($navbar-height, md),
-  lg: (1 - $golden-inverse) / 2 * map-get($navbar-height, lg)
 ) !default;

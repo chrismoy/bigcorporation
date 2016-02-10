@@ -5,12 +5,12 @@
 ///
 
 @mixin btn-base(
-  $dimension: null
+  $font-size: null
 ) {
 
-  @if type-of($dimension) != number { @error number-error($dimension); }
+  @if type-of($font-size) != number { @error number-error($font-size); }
 
-  $font-size: $golden-inverse * $dimension;
+  $dimension: ( ( $golden-ratio ) * $font-size );
   $padding-horizontal: 0.5 * ($dimension - $font-size);
   $padding-vertical: $padding-horizontal;
 

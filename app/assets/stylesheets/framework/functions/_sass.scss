@@ -1,0 +1,65 @@
+/// Recursively searches through nested maps to retrieve a value
+///
+/// @param {List} $list [()]
+/// Any sass list object.
+///
+/// @param {Number} $index [null]
+/// The index of the desired removal. Can be negative to remove from rear.
+///
+
+@function remove-nth(
+  $list: (),
+  $index: null
+) {
+  $result: null;
+
+  @if type-of($index) != number { @error number-error($index); }
+  @else if $index == 0 { @error nth-zero-error($index); }
+  @else if abs($index) > length($list) { @error list-error($list, $index); }
+  @else {
+    $result: ();
+    $index: if($index < 0, length($list) + $index + 1, $index);
+
+    @for $i from 1 through length($list) {
+      @if $i != $index {
+        $result: append($result, nth($list, $i));
+      }
+    }
+  }
+
+  @return $result;
+}
+
+/// Incrementally searches through nested maps to retrieve a value
+///
+/// @param {Map} $map [null]
+/// Any sass map object.
+///
+/// @param {List} $keys []
+/// A list of the map keys from least to most specific.
+///
+
+@function map-nested-get(
+  $map: null,
+  $keys...
+) {
+  $key-count: length($keys);
+
+  @if $key-count < 1 { @error list-error($list) }
+  @if type-of($map) != map { @error map-error($map); }
+
+  $ret: map-get($map, nth($keys, 1));
+
+  @while $key-count > 1 {
+    $keys: remove-nth($keys, 1);
+    $key-count: length($keys);
+
+    @if $ret == null {
+      @error "incorrect ordering of keys for nested-get"
+    }
+
+    $ret: map-get($ret, nth($keys, 1));
+  }
+
+  @return $ret;
+}

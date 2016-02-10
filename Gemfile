@@ -3,7 +3,7 @@ ruby '2.2.3'
 
 gem 'rails',                    '4.2.4'
 gem 'bcrypt',                   '3.1.7'
-gem 'sass-rails',               '5.0.2'
+gem 'sass-rails',               '5.0.4'
 gem 'uglifier',                 '2.7.2'
 gem 'coffee-rails',             '4.1.0'
 gem 'jquery-rails',             '4.0.3'

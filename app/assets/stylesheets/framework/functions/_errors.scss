@@ -35,12 +35,20 @@
 /// @param {List} $list [null]
 /// Any sass list
 ///
+/// @param {Number} $index [0]
+/// An index intended for use in an nth-function to access an element of $list
+///
 
 @function list-error(
-  $list: null
+  $list: null,
+  $index: 0
 ) {
-  @if length($list) < 1 {
+  $length: length($list);
+
+  @if $length < 1 {
     @return "Invalid list, no elements included";
+  } @else if abs($index) > $length {
+    @return "Index invalid. Index #{$index} for list length #{$length}";
   } @else {
     @return "Unexpected error, received valid list";
   }
@@ -59,6 +67,22 @@
     @return "Invalid type, expected map for #{type-of($map)}";
   } @else {
     @return "Unexpected error, received type map";
+  }
+}
+
+/// Checks an index for non-zero value
+///
+/// @param {Number} $index [null]
+/// A number representing the index used for nth-based list functions
+///
+
+@function nth-zero-error(
+  $index: null
+) {
+  @if $index == 0 {
+    @return "List index 0 must be a non-zero integer for `remove-nth`.";
+  } @else {
+    @return "Unexpected error, received non-zero index: #{$index}";
   }
 }
 

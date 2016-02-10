@@ -1,6 +1,10 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   background-color: $white;
-  box-sizing: border-box;
+  line-height: 1;
   margin: 0;
   padding: 0;
   position: relative;

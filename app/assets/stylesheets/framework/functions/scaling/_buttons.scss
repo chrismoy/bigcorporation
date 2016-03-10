@@ -1,0 +1,41 @@
+/// Returns the width for 1 bar of a hamburger button scaled to the desired viewport size
+///
+/// @param {String} $modifier [null]
+/// Name of the modifier to be used. Example: sm, md, lg
+///
+/// @return {Number}
+///
+
+@function scale-hambar(
+  $bar-width: null
+) {
+
+  $error: string-error($bar-width);
+
+  $scaler: responsive-scaler($modifier);
+
+  $base-hambar: map-get($btn, hamburger);
+  $scaled-hambar: floor($scaler * $base-hambar);
+
+  @return $scaled-hambar;
+}
+
+/// Returns the width of padding proportional to the scale factor for
+/// a centered object
+///
+/// @param {Number} $dimension [null]
+/// The dimension of the object to be padded. Example: 16px, 1.2rem
+///
+/// @return {Number}
+///
+
+@function scale-padding-sf(
+  $dimension: null
+) {
+
+  $error: number-error($dimension);
+
+  $padding: 0.5 * (scale-sf($dimension) - $dimension);
+
+  @return $padding;
+}

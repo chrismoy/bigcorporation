@@ -1,0 +1,92 @@
+/// Returns a CSS setting for a CSS transition (Using transition shorthand notation)
+///
+/// @param {String} $property [null]
+/// CSS Property to be transitioned. Example: "font-size", "width", "margin"
+///
+/// @param {String} $order [null]
+/// The order of the property's transition. Example: 1 would be first, 2 would be second
+/// If the number of transitions does not exist will return error (ex: if there is no variable for 6)
+///
+
+@mixin transition(
+  $property: null,
+  $order: 1
+) {
+
+  $error: string-error($property);
+  $error: number-error($order);
+
+  $interval: map-get($transition, time);
+  $function: map-get($transition, function);
+
+  $time: $interval * $order;
+  $delay: $interval * ($order - 1);
+
+  $transition: $property $time $function $delay;
+
+  transition: $transition;
+}
+
+/// Returns a CSS setting for a chain of CSS transitions (Using transition shorthand notation)
+///
+/// @param {String} $properties []
+/// CSS properties to be transitioned. Example: "font-size", "width", "margin"
+/// Can have multiple transitions per level using nested lists
+/// Example: color, width height, opacity would transition color, than width and height
+/// simultaneously, and then opacity.
+///
+
+@mixin chained-transitions(
+  $properties...
+) {
+
+  $error: list-error($properties);
+
+  $interval: map-get($transition, time);
+  $function: map-get($transition, function);
+
+  $transitions: ();
+
+  @for $i from 1 through length($properties) {
+    @each $property in nth($properties, $i) {
+
+      error: string-error($property);
+
+      $delay: $interval * ($i - 1);
+      $transition: $property $interval $function $delay;
+      $transitions: append($transitions, $transition, comma);
+    }
+  }
+
+  transition: $transitions;
+}
+
+/// Returns a CSS setting for synchronous CSS transitions (Using transition shorthand notation)
+///
+/// @param {String} $properties []
+/// CSS properties to be transitioned. Example: "font-size", "width", "margin"
+///
+
+@mixin synced-transitions(
+  $properties...
+) {
+
+  $error: list-error($properties);
+
+  $interval: map-get($transition, time);
+  $function: map-get($transition, function);
+
+  $transitions: ();
+
+  @for $i from 1 through length($properties) {
+
+    $property: nth($properties, $i);
+
+    error: string-error($property);
+
+    $transition: $property $interval $function 0;
+    $transitions: append($transitions, $transition, comma);
+  }
+
+  transition: $transitions;
+}

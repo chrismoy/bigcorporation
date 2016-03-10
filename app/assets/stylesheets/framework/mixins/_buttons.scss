@@ -1,49 +1,66 @@
 /// Returns the base sizing attributes for a button
 ///
-/// @param {Number} $dimension [null]
-/// Size of the button. Example: 40px, 4rem
+/// @param {Number} $font-size [null]
+/// Font-size of the button. Example: 20px, 2rem
 ///
 
 @mixin btn-base(
   $font-size: null
 ) {
 
-  @if type-of($font-size) != number { @error number-error($font-size); }
+  $error: number-error($font-size);
 
-  $dimension: ( ( $golden-ratio ) * $font-size );
-  $padding-horizontal: 0.5 * ($dimension - $font-size);
-  $padding-vertical: $padding-horizontal;
+  $dimension: scale-sf($font-size);
+  $padding-vertical: scale-padding-sf($font-size);
+  $padding-horizontal: scale-sf($padding-vertical);
 
   @include rem(border-radius, $base-radius);
   @include rem(font-size, $font-size);
   @include rem(height, $dimension);
   @include rem(padding, $padding-vertical $padding-horizontal);
 
-  &.btn-square { @include rem(width, $dimension); }
+  &-square { @include rem(width, $dimension); }
+
+  &-margin {
+    @include rem(padding, scale-padding-sf($dimension));
+  }
 }
 
-/// Returns the CSS stylings for one bar of a hamburger button
+/// Returns the viewport-dependent sizing attributes for a hamburger button
 ///
-/// @param {Number} $width [null]
-/// Thickness of the bar (may be thought of as height be some). Example: 3px, 3rem
+/// @param {Number} $font-size [null]
+/// Font-size of the button. Example: 20px, 2rem
 ///
-/// @param {Color} $color [null]
-/// Color of the bar. Example: rgba(255,255,255,1), #FFF, white
+/// @param {String} $modifier [null]
+/// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
 ///
 
-@mixin hamburger-bar(
-  $width: 3px,
-  $color: $white
+@mixin hamburger(
+  $font-size: null,
+  $modifier: null
 ) {
 
-  @if type-of($width) != number { @error number-error($width); }
-  @if type-of($color) != color { @error color-error($color); }
+  $error: number-error($font-size);
+  $error: string-error($modifier);
 
-  background-color: $color;
-  border-radius: $base-radius;
-  display: inline-block;
-  @include rem(height, $width);
-  position: absolute;
-  right: 0;
-  width: 100%;
+  &-hamburger {
+    &_prompt {
+      @include rem(font-size, $font-size);
+      @include rem(margin-top, -0.5 * $font-size);
+    }
+
+    &_bar, &:before, &:after {
+      @include rem(height, scale-hambar($modifier));
+    }
+
+    &_bar {
+      @include rem(margin-top, -0.5 * scale-hambar($modifier));
+    }
+
+    &-active {
+      &:before, &:after {
+        margin-top: -0.5 * scale-hambar($modifier);
+      }
+    }
+  }
 }

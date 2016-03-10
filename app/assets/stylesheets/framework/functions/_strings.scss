@@ -7,9 +7,9 @@
 @function postDash(
   $string: ''
 ) {
-  @if type-of($string) != string {
-    @error string-error($string);
-  } @else if ($string == '') {
+  $error: string-error($string);
+
+  @if ($string == '') {
     @return '';
   } @else {
     @return $string + '-';
@@ -25,9 +25,9 @@
 @function preDash(
   $string: ''
 ) {
-  @if type-of($string) != string {
-    @error string-error($string);
-  } @else if ($string == '') {
+  $error: string-error($string);
+  
+  @if ($string == '') {
     @return '';
   } @else {
     @return '-' + $string;

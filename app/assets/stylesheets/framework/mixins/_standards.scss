@@ -7,7 +7,8 @@
 @mixin clear-nav(
   $modifier: null
 ) {
-  @if type-of($modifier) != "string" { @error string-error($modifier); }
+  
+  $error: string-error($modifier);
 
   &-clearNav {
     &Bottom { @include rem(padding-top, map-get($navbar-height, $modifier)); }
@@ -60,3 +61,14 @@
     color: $color-tertiary;
   }
 }
+
+/// Returns a standardized set of color classes for a given parent class
+///
+
+@mixin stdFloat(
+) {
+  &-right {
+    float: right;
+  }
+}
+

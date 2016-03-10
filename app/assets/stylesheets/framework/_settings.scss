@@ -19,83 +19,63 @@
 
 // Units
 $golden-ratio: 1.61803398875;
+$golden-inverse: 0.61803398875;
 
 $scale-factor: $golden-ratio;
 
-$scaling: (
-  forward: (
-    small: 2 / ($scale-factor + 1),
-    f1: 1,
-    f2: (1 + $scale-factor) / 2,
-    f3: $scale-factor,
-    f4: (1 + $scale-factor) / 2 * $scale-factor,
-    f5: $scale-factor * $scale-factor,
-    f6: (1 + $scale-factor) / 2 * $scale-factor * $scale-factor,
-    f7: $scale-factor * $scale-factor * $scale-factor
-  ),
-  inverse: 1 / $scale-factor,
-  padding: (
-    double: 0.5 * ($scale-factor - 1.0),
-    single: $scale-factor - 1.0
-  ),
-  responsive: (
-    sm: 0.666667,
-    md: 1,
-    lg: 1.5,
-    xl: 2
-  )
-) !default;
+$scale-forward-small: 2 / ($scale-factor + 1) !default;
+$scale-forward-1: 1 !default;
+$scale-forward-2: (1 + $scale-factor) / 2 !default;
+$scale-forward-3: $scale-factor !default;
+$scale-forward-4: (1 + $scale-factor) / 2 * $scale-factor !default;
+$scale-forward-5: $scale-factor * $scale-factor !default;
+$scale-forward-6: (1 + $scale-factor) / 2 * $scale-factor * $scale-factor !default;
+$scale-forward-7: $scale-factor * $scale-factor * $scale-factor !default;
+$scale-inverse: 1 / $scale-factor !default;
 
+$scale-responsive: (
+  sm: 0.9,
+  md: 1.0,
+  lg: 1.1,
+  xl: 1.2
+) !default;
 // Border
 
 $base-radius: 0.3rem !default;
 
 // Colors
 
-$color: (
-  primary: black,
-  secondary: black,
-  tertiary: black
-) !default;
+$color-primary: black !default;
+$color-secondary: black !default;
+$color-tertiary: black !default;
 
 // Spacing
 
-$space-unit: 3rem !default;
-
-$base-spacing: (
-  margin: $space-unit,
-  padding: $space-unit
-) !default;
+$base-spacing-unit: 3rem !default;
+$base-padding: $base-spacing-unit;
+$base-margin: $base-spacing-unit;
 
 // Transitions
 
-$base-transition: (
-  time: 0.2s,
-  function: ease-in-out,
-  forward-function: ease-in-out,
-  reverse-function: ease-in-out
-) !default;
+$transition-time: 0.2s !default;
+$transition-function: ease-in-out !default;
 
 // b. Media Queries
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Breakpoints
 
-$view-breakpoint: (
-  xl: 999999999px,
-  lg: 1200px,
-  md: 1024px,
-  sm: 640px
-) !default;
+$view-breakpoint-xl: 999999999px !default;
+$view-breakpoint-lg: 1200px !default;
+$view-breakpoint-md: 1024px !default;
+$view-breakpoint-sm: 640px !default;
 
 // Ranges
 
-$view-range: (
-  sm: (0px, map-get($view-breakpoint, sm)),
-  md: (map-get($view-breakpoint, sm) + 1px, map-get($view-breakpoint, md)),
-  lg: (map-get($view-breakpoint, md) + 1px, map-get($view-breakpoint, lg)),
-  xl: (map-get($view-breakpoint, lg) + 1px, map-get($view-breakpoint, xl))
-) !default;
+$view-range-sm: (0px, $view-breakpoint-sm) !default;
+$view-range-md: ($view-breakpoint-sm + 1px, $view-breakpoint-md) !default;
+$view-range-lg: ($view-breakpoint-md + 1px, $view-breakpoint-lg) !default;
+$view-range-xl: ($view-breakpoint-lg + 1px, $view-breakpoint-xl) !default;
 
 // Screen Options
 
@@ -106,19 +86,22 @@ $portrait: "#{$screen} and (orientation: portrait)" !default;
 
 // Screen Ranges
 
-$screen-range: (
-  sm-up: $screen,
-  sm-only: "#{$screen} and (max-width: #{map-get($view-breakpoint, sm)})",
-  md-up: "#{$screen} and (min-width:#{map-get($view-breakpoint, sm) + 1px})",
-  md-only: "#{$screen} and (min-width:#{lower-bound(map-get($view-range, md))}) and (max-width:#{upper-bound(map-get($view-range, md))})",
-  lg-up: "#{$screen} and (min-width:#{map-get($view-breakpoint, md)})",
-  lg-only: "#{$screen} and (min-width:#{lower-bound(map-get($view-range, lg))}) and (max-width:#{upper-bound(map-get($view-range, lg))})",
-  xl-up: "#{$screen} and (min-width:#{map-get($view-breakpoint, lg)})",
-  xl-only: "#{$screen} and (min-width:#{lower-bound(map-get($view-range, xl))}) and (max-width:#{upper-bound(map-get($view-range, xl))})"
-) !default;
+$sm-up: $screen !default;
+$sm-only: "#{$screen} and (max-width: #{$view-breakpoint-sm})" !default;
+$md-up: "#{$screen} and (min-width:#{lower-bound($view-range-md)})" !default;
+$md-only: "#{$screen} and (min-width:#{lower-bound($view-range-md)}) and (max-width:#{upper-bound($view-range-md)})" !default;
+$lg-up: "#{$screen} and (min-width:#{lower-bound($view-range-lg)})" !default;
+$lg-only: "#{$screen} and (min-width:#{lower-bound($view-range-lg)}) and (max-width:#{upper-bound($view-range-lg)})" !default;
+$xl-up: "#{$screen} and (min-width:#{lower-bound($view-range-xl)})" !default;
+$xl-only: "#{$screen} and (min-width:#{lower-bound($view-range-xl)}) and (max-width:#{upper-bound($view-range-xl)})" !default;
 
 // c. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Namespaces
+
+$namespace-column: "col" !default;
+$namespace-grid: "row" !default;
 
 // $col-groups are the column groups you want
 // For example, $col-groups: (3, 4, 5) will output:
@@ -126,85 +109,58 @@ $screen-range: (
 
 $column-groups: (12) !default;
 
-// Gutter-Width
+// Grid
 
-$gutter-width: (
-  column: (
-    horiz: 0.5 * map-get($base-spacing, padding),
-    vert: 0.5 * map-get($base-spacing, padding)
-  ),
-  grid: ( 
-    horiz: 0.5 * map-get($base-spacing, padding),
-    vert: 0.5 * map-get($base-spacing, padding)
-  )
-) !default;
+$grid-gutter: 0.5 * $base-padding !default;
 
-// Namespaces
+// Column
 
-$namespace: (
-  column: "col",
-  grid: "row"
-) !default;
-
-// Column alignment. Defaults to left (columns rendered in order from left to
-// right). Set $align-right: true to align to the right.
-
-$align-right: false !default;
+$column-align: left !default;
+$column-gutter: 0.5 * $base-padding !default;
 
 // d. Typography
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 $base-font-size: 20px !default;
 
-$font: (
-  size: (
-    p: map-nested-get($scaling, forward, f1) * $base-font-size,
-    h6: map-nested-get($scaling, forward, f1) * $base-font-size,
-    h5: map-nested-get($scaling, forward, f2) * $base-font-size,
-    h4: map-nested-get($scaling, forward, f3) * $base-font-size,
-    h3: map-nested-get($scaling, forward, f4) * $base-font-size,
-    h2: map-nested-get($scaling, forward, f5) * $base-font-size,
-    h1: map-nested-get($scaling, forward, f6) * $base-font-size,
-    small: map-nested-get($scaling, forward, small) * $base-font-size
-  ),
-  style: (
-    line-height: 1,
-    sans-serif: (Arial, Helvetica, sans-serif),
-    serif: (Georgia, Times, 'Times New Roman', serif)
-  )
-) !default;
+$font-size-p: $scale-forward-1 * $base-font-size !default;
+$font-size-h6: $scale-forward-1 * $base-font-size !default;
+$font-size-h5: $scale-forward-2 * $base-font-size !default;
+$font-size-h4: $scale-forward-3 * $base-font-size !default;
+$font-size-h3: $scale-forward-4 * $base-font-size !default;
+$font-size-h2: $scale-forward-5 * $base-font-size !default;
+$font-size-h1: $scale-forward-6 * $base-font-size !default;
+$font-size-small: $scale-forward-small * $base-font-size !default;
+
+$font-line-height: 1 !default;
+$font-sans-serif: Arial, Helvetica, sans-serif !default;
+$font-serif: Georgia, Times, 'Times New Roman', serif !default;
 
 // . Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+$btn-font-size: $font-size-p;
 
-$btn-font-key: p;
+$btn-border: 0 !default;
+$btn-font-size: $btn-font-size !default;
+$btn-radius: $base-radius !default;
 
-$btn: (
-  font-size: map-nested-get($font, size, $btn-font-key),
-  hamburger: 0.2rem,
-  padding: map-nested-get($scaling, padding, double) * map-nested-get($font, size, $btn-font-key)
-) !default;
+$btn-hamburger-bar: 3px;
 
 // . Navbar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$navbar-font-key: p;
+$navbar-font-size: $font-size-p;
 
-$navbar: (
-  color: map-get($color, primary),
-  height: (
-    horizontal: $scale-factor * $scale-factor * map-nested-get($font, size, $navbar-font-key),
-    vertical: 100%
-  ),
-  padding: map-nested-get($scaling, padding, double) * $scale-factor * map-nested-get($font, size, $navbar-font-key),
-  position: (
-    bottom: (right: 0, bottom: 0, left: 0),
-    left: (top: 0, bottom: 0, left: 0),
-    right: (top: 0, right: 0, bottom: 0),
-    top: (top: 0, left: 0, right: 0)
-  ),
-  width: (
-    horizontal: 100%,
-    vertical: (1 - map-get($scaling, inverse)) * 100%
-  )
-) !default;
+$navbar-color: $color-primary !default;
+
+$navbar-height-horizontal: $scale-factor * $scale-factor * $navbar-font-size !default;
+$navbar-height-vertical: 100% !default;
+
+$navbar-width-horizontal: 100% !default;
+$navbar-width-vertical: (1 - $scale-inverse) * 100% !default;
+
+$navbar-position-top: (top: 0, left: 0, right: 0) !default;
+$navbar-position-right: (top: 0, right: 0, bottom: 0) !default;
+$navbar-position-bottom: (right: 0, bottom: 0, left: 0) !default;
+$navbar-position-left: (top: 0, bottom: 0, left: 0) !default;
+

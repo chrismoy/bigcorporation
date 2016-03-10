@@ -9,6 +9,8 @@
 
 // Functions
 
+@import "framework/functions/scaling/general";
+
 @import "framework/functions/errors";
 @import "framework/functions/math";
 @import "framework/functions/strings";
@@ -20,6 +22,7 @@
 @import "framework/mixins/general";
 @import "framework/mixins/grid";
 @import "framework/mixins/standards";
+@import "framework/mixins/transitions";
 
 // Components
 

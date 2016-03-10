@@ -1,94 +1,64 @@
 // BUTTONS //
 // Framework by Chris Moy
 
-/// Padding inside buttons.
-
-$btn-padding: 0.5rem 1rem !default;
-
-/// Margin around buttons.
-
-$btn-margin: $base-margin !default;
+@import "framework/functions/scaling/buttons";
 
 .btn {
-  @include btn-base(map-get($navbar-btn, sm));
+  $btn-font-size: scale-font($btn, sm);
 
-  /// BASE STYLES ///
+  @include btn-base($btn-font-size);
+  @include stdBg();
+  @include stdColor();
+  @include stdFloat();
 
   border: none;
-  line-height: 1;
   outline: 0;
   position: relative;
-
-  // BACKGROUND //
-
-  @include stdBg();
-
-  // COLOR //
-
-  @include stdColor();
-
-  // POSITION //
-
-  &-margin {
-    @include rem(margin, $navbar-sm-padding);
-  }
-
-  &-padding {
-    @include rem(padding, $navbar-sm-padding);
-  }
-
-  &-right {
-    float: right;
-  }
-
-  // STATE //
 
   &:hover {
     cursor: pointer;
   }
 
-  // TYPE //
+  @include hamburger($btn-font-size, sm);
 
   &-hamburger {
-    $bar-width: 10%;
-    $bar-spacing: (1 - $golden-inverse) * 0.5 * 100%;
-    $transition-duration: $base-transition;
-    $transition-delay: $base-transition;
+    $bar-spacing: 19.0983005625%; // (1 - $golden-inverse) * 0.5 * 100%
+    $bar-color: map-get($navbar, color);
 
     background-color: transparent;
     border-radius: 0;
     padding: 0;
     position: relative;
 
-    &_prompt {
-      $prompt-size: map-get($navbar-height, sm) * $golden-inverse * 0.5;
-
-      @include rem(font-size, $prompt-size);
+    &_prompt {      
       line-height: 1;
-      @include rem(margin-top, $prompt-size / -2);
       position: absolute;
       right: 120%;
       top: 50%;
-      transition: all $transition-duration linear $transition-delay;
+      @include transition(all, 2);
 
       &-active {
         opacity: 0;
       }
     }
 
-    &_bar {
-      @include hamburger-bar(map-get($navbar-hambar, sm), $navbar-color);
+    &_bar, &:before, &:after {
+      background-color: $bar-color;
+      border-radius: $base-radius;
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      width: 100%;
+    }
 
-      margin-top: -0.5 * map-get($navbar-hambar, sm);
+    &_bar {
       top: 50%;
-      transition: opacity $transition-duration linear $transition-delay;
+      @include transition(all, 2);
     }
 
     &:before, &:after {
-      @include hamburger-bar(map-get($navbar-hambar, sm), $navbar-color);
-
       content: "";
-      transition: transform $transition-duration ease-in 0s, top $transition-duration ease-out $transition-delay;
+      @include synced-transitions(transform, top);
     }
 
     &:before { top: $bar-spacing; }
@@ -106,13 +76,12 @@ $btn-margin: $base-margin !default;
 
       .btn-hamburger_bar {
         opacity: 0;
-        transition: all $transition-duration linear 0s;
+        @include transition(all);
       }
 
       &:before, &:after {
-        margin-top: -0.5 * $bar-width;
         top: 50%;
-        transition: top $transition-duration ease-out 0s, transform $transition-duration ease-in $transition-delay;
+        @include chained-transitions(top, transform);
       }
 
       &:before { transform: rotate(-45deg); }
@@ -121,51 +90,16 @@ $btn-margin: $base-margin !default;
   }
 
   @media #{$md-up} {
-    @include btn-base(map-get($navbar-btn, md));
+    $btn-font-size: scale-font($btn, md);
 
-    &.btn-margin {
-      margin: $navbar-md-padding;
-    }
-
-    &-hamburger {
-      &_prompt {
-        $prompt-size: map-get($navbar-height, md) * $golden-inverse * 0.5;
-
-        @include rem(font-size, $prompt-size);
-        @include rem(margin-top, $prompt-size / -2);
-      }
-
-      &_bar {
-        height: map-get($navbar-hambar, md);
-        margin-top: -0.5 * map-get($navbar-hambar, md);
-      }
-      &:before, &:after {
-        height: map-get($navbar-hambar, md);
-      }
-    }
+    @include btn-base($btn-font-size);
+    @include hamburger($btn-font-size, md);
   }
 
   @media #{$lg-up} {
-    @include btn-base(map-get($navbar-btn, lg));
+    $btn-font-size: scale-font($btn, lg);
 
-    &.btn-margin {
-      margin: $navbar-lg-padding;
-    }
-
-    &-hamburger {
-      &_prompt {
-        $prompt-size: map-get($navbar-height, lg) * $golden-inverse * 0.5;
-
-        @include rem(font-size, $prompt-size);
-        @include rem(margin-top, $prompt-size / -2);
-      }
-      &_bar {
-        height: map-get($navbar-hambar, lg);
-        margin-top: -0.5 * map-get($navbar-hambar, lg);
-      }
-      &:before, &:after {
-        height: map-get($navbar-hambar, lg);
-      }
-    }
+    @include btn-base($btn-font-size);
+    @include hamburger($btn-font-size, lg)
   }
 }

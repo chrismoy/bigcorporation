@@ -6,24 +6,24 @@
 /// @param {Number} $index [null]
 /// The index of the desired removal. Can be negative to remove from rear.
 ///
+/// @return {List}
+///
 
 @function remove-nth(
   $list: (),
   $index: null
 ) {
-  $result: null;
+  
+  $error: number-error($index);
+  $error: nth-zero-error($index);
+  $error: list-error($list, $index);
 
-  @if type-of($index) != number { @error number-error($index); }
-  @else if $index == 0 { @error nth-zero-error($index); }
-  @else if abs($index) > length($list) { @error list-error($list, $index); }
-  @else {
-    $result: ();
-    $index: if($index < 0, length($list) + $index + 1, $index);
+  $result: ();
+  $index: if($index < 0, length($list) + $index + 1, $index);
 
-    @for $i from 1 through length($list) {
-      @if $i != $index {
-        $result: append($result, nth($list, $i));
-      }
+  @for $i from 1 through length($list) {
+    @if $i != $index {
+      $result: append($result, nth($list, $i));
     }
   }
 
@@ -43,11 +43,11 @@
   $map: null,
   $keys...
 ) {
+
+  // TODO: figure out why $error: map-error($map); is invalid
+  @if type-of($map) != map { $error: map-error($map); }
+
   $key-count: length($keys);
-
-  @if $key-count < 1 { @error list-error($list) }
-  @if type-of($map) != map { @error map-error($map); }
-
   $ret: map-get($map, nth($keys, 1));
 
   @while $key-count > 1 {
@@ -55,7 +55,7 @@
     $key-count: length($keys);
 
     @if $ret == null {
-      @error "incorrect ordering of keys for nested-get"
+      @error "incorrect ordering of keys for nested-get";
     }
 
     $ret: map-get($ret, nth($keys, 1));

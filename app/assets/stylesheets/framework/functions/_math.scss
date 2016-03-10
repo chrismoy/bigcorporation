@@ -3,17 +3,15 @@
 /// @param {List} $range [null]
 /// List of integers showing a range. Ex: (1, 2) or (342, 9999999)
 ///
+/// @return {Number}
+///
 
 @function lower-bound(
   $range: null
 ){
-  @if type-of($range) != list {
-    @error list-error($range);
-  } @else if length($range) == 2 {
-    @return nth($range, 1);
-  } @else {
-    @error range-error($range);
-  }
+  $error: range-error($range);
+
+  @return nth($range, 1);
 }
 
 /// Returns the result of the function x!
@@ -21,11 +19,14 @@
 /// @param {Number} $x [0]
 /// The exponent of the function
 ///
+/// @return {Number}
+///
 
 @function factorial(
   $x: 0
 ){
-  @if type-of($x) != number { @error number-error($x); }
+  $error: number-error($x);
+
   $val: 1;
 
   @if $x > 0 {
@@ -46,13 +47,16 @@
 /// @param {Number} $x [0]
 /// The exponent of the function
 ///
+/// @return {Number}
+///
 
 @function power(
   $b: 0,
   $x: 0
 ){
-  @if type-of($b) != number { @error number-error($b); }
-  @if type-of($x) != number { @error number-error($x); }
+
+  $error: number-error($b);
+  $error: number-error($x);
 
   $val: 1;
 
@@ -74,15 +78,13 @@
 /// @param {List} $range [null]
 /// List of integers showing a range. Ex: (1, 2) or (342, 9999999)
 ///
+/// @return {Number}
+///
 
 @function upper-bound(
   $range: null
 ) {
-  @if type-of($range) != list {
-    @error list-error($range);
-  } @else if length($range) == 2 {
-    @return nth($range, 1);
-  } @else {
-    @error range-error($range);
-  }
+  $error: range-error($range);
+
+  @return nth($range, 1);
 }

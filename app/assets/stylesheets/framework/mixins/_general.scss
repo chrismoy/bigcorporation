@@ -1,7 +1,7 @@
 /// Returns a CSS setting that includes a backup value for REMs in pixels if applicable
 ///
 /// @param {String} $property [null]
-/// CSS Property to be changed. Example inputs "font-size", "width", "margin"
+/// CSS Property to be changed. Example: "font-size", "width", "margin"
 ///
 /// @param {List} $values [null]
 /// A list of values to be updated. Can be single or plural. Ex: 10px 20px is valid for work with padding or the like
@@ -12,14 +12,15 @@
   $values: null
 ) {
 
-  @if type-of($property) != "string" { @error string-error($property); }
+  $error: string-error($property);
+  $error: list-error($values);
 
   $px : ();
   $rem: ();
 
   @each $value in $values {
 
-    @if $value == 0 or type-of($value) != "number" {
+    @if $value == 0 or type-of($value) != number {
       $px : append($px , $value);
       $rem: append($rem, $value);
     }
@@ -28,12 +29,12 @@
       $unit: unit($value);
       $val: parseInt($value);
 
-      @if $unit == "px" {
+      @if $unit == px {
         $px : append($px,  $value);
         $rem: append($rem, ($val / 10 + 0rem));
       }
 
-      @if $unit == "rem" {
+      @if $unit == rem {
         $px : append($px,  ($val * 10 + 0px));
         $rem: append($rem, $value);
       }
@@ -47,3 +48,4 @@
     #{$property}: $rem;
   }
 }
+

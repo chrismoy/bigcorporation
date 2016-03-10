@@ -16,20 +16,14 @@
   $modifier: null
 ) {
 
-  @if length($column-groups) < 1 { @error list-error($column-groups); }
-  @if type-of($column-namespace) != "string" { @error string-error($column-namespace); }
-  @if type-of($modifier) != "string" { @error string-error($modifier); }
+  $error: list-error($column-groups);
+  $error: string-error($column-namespace);
+  $error: string-error($modifier);
 
   $class-base: #{$column-namespace}#{preDash($modifier)};
 
   &[class*="#{$class-base}"] {
-
-    @if $align-right == true {
-      float: right;
-    } @else {
-      float: left;
-    }
-
+    float: left;
   }
 
   @each $group in $column-groups {

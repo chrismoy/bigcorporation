@@ -3,14 +3,16 @@
 /// @param {Bool} $bool [null]
 /// Any sass bool
 ///
+/// @return {String}
+///
 
 @function bool-error(
   $bool: null
 ) {
   @if type-of($bool) != bool {
-    @return "Invalid type, expected bool for #{type-of($bool)}";
+    @error "Invalid type, expected bool for #{type-of($bool)}";
   } @else {
-    @return "Unexpected error, received type bool";
+    @return true;
   }
 }
 
@@ -19,14 +21,16 @@
 /// @param {Color} $color [null]
 /// Any sass color
 ///
+/// @return {String}
+///
 
 @function color-error(
   $color: null
 ) {
   @if type-of($color) != color {
-    @return "Invalid type, expected color for #{type-of($color)}";
+    @error "Invalid type, expected color for #{type-of($color)}";
   } @else {
-    @return "Unexpected error, received type color";
+    @return true;
   }
 }
 
@@ -38,6 +42,8 @@
 /// @param {Number} $index [0]
 /// An index intended for use in an nth-function to access an element of $list
 ///
+/// @return {String}
+///
 
 @function list-error(
   $list: null,
@@ -46,11 +52,11 @@
   $length: length($list);
 
   @if $length < 1 {
-    @return "Invalid list, no elements included";
+    @error "Invalid list, no elements included";
   } @else if abs($index) > $length {
-    @return "Index invalid. Index #{$index} for list length #{$length}";
+    @error "Index invalid. Index #{$index} for list length #{$length}";
   } @else {
-    @return "Unexpected error, received valid list";
+    @return true;
   }
 }
 
@@ -59,14 +65,16 @@
 /// @param {Map} $map [null]
 /// Any sass map
 ///
+/// @return {String}
+///
 
 @function map-error(
   $map: null
 ) {
   @if type-of($map) != map {
-    @return "Invalid type, expected map for #{type-of($map)}";
+    @error "Invalid type, expected map for #{type-of($map)}";
   } @else {
-    @return "Unexpected error, received type map";
+    @return true;
   }
 }
 
@@ -75,14 +83,34 @@
 /// @param {Number} $index [null]
 /// A number representing the index used for nth-based list functions
 ///
+/// @return {String}
+///
 
 @function nth-zero-error(
   $index: null
 ) {
   @if $index == 0 {
-    @return "List index 0 must be a non-zero integer for `remove-nth`.";
+    @error "List index 0 must be a non-zero integer for `remove-nth`.";
   } @else {
-    @return "Unexpected error, received non-zero index: #{$index}";
+    @return true;
+  }
+}
+
+/// Checks for presence of a variable
+///
+/// @param {List} $range [null]
+/// Any sass range
+///
+/// @return {String}
+///
+
+@function presence-error(
+  $var: null
+) {
+  @if $var == null {
+    @error "Empty variable, received null";
+  } @else {
+    @return true;
   }
 }
 
@@ -91,14 +119,16 @@
 /// @param {List} $range [null]
 /// Any sass range
 ///
+/// @return {String}
+///
 
 @function range-error(
   $range: null
 ) {
   @if length($range) != 2 {
-    @return "Invalid range, expected length 2 for #{length($range)}";
+    @error "Invalid range, expected length 2 for #{length($range)}";
   } @else {
-    @return "Unexpected error, received acceptable range";
+    @return true;
   }
 }
 
@@ -107,13 +137,15 @@
 /// @param {String} $string [null]
 /// Any sass string
 ///
+/// @return {String}
+///
 
 @function string-error(
   $string: null
 ) {
   @if type-of($string) != string {
-    @return "Invalid type, expected string for #{type-of($string)}";
+    @error "Invalid type, expected string for #{type-of($string)}";
   } @else {
-    @return "Unexpected error, received type string";
+    @return true;
   }
 }

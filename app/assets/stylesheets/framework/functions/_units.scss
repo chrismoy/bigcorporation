@@ -7,9 +7,7 @@
 @function parseInt(
   $n: null
 ) {
-  @if type-of($n) != number {
-    @error number-error($n)
-  } @else {
-    @return $n / ($n * 0 + 1);
-  }
+  $error: number-error($n);
+  
+  @return $n / ($n * 0 + 1);
 }

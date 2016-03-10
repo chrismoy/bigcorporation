@@ -5,6 +5,9 @@
 // NOTE: YOU MUST OMIT THE CLOSING TAG OF YOUR COLUMNS FOR THIS TO FUNCTION
 //        PROPERLY
 
+$grid-namespace: map-get($namespace, grid);
+$column-namespace: map-get($namespace, column);
+
 .#{$grid-namespace} {
   list-style: none;
   @include rem(padding, $vert-grid-gutter-width $horiz-grid-gutter-width);

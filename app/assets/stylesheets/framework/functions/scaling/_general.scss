@@ -1,0 +1,115 @@
+/// Returns the CSS values for font-size scaled to the desired viewport size
+///
+/// @param {Map} $map [null]
+/// Map of the element to be sized. Example: $btn, $navbar
+///
+/// @param {String} $modifier [null]
+/// Name of the modifier to be used. Example: sm, md, lg
+///
+/// @return {Number}
+///
+
+@function scale-font(
+  $font-size: null,
+  $modifier: null
+) {
+
+  $error: map-error($font-size);
+  $error: string-error($modifier);
+
+  $scaler: map-get($scale-responsive, $modifier);
+
+  $scaled-font-size: $scaler * $font-size;
+
+  @return $scaled-font-size;
+}
+
+/// Returns the a value scaled down by the scale factor
+///
+/// @param {Number} $arg [null]
+/// The number that is to be divided by the scale factor
+///
+/// @param {Number} $order [1]
+/// The number of times the argument should be divided by the scale factor.
+/// Example: $order: 2 would yield arg / sf / sf
+///
+/// @return {Number}
+///
+
+@function scale-inverse-sf(
+  $value: null,
+  $order: 1
+) {
+
+  $error: number-error($arg);
+
+  $ret: $value;
+
+  @for $i from 1 through $order {
+    $ret: $ret / $scale-factor;
+  }
+
+  @return $ret;
+}
+
+/// Returns the a value scaled up by the scale factor
+///
+/// @param {Number} $value [null]
+/// The number that is to be multiplied by the scale factor
+///
+/// @param {Number} $order [1]
+/// The number of times the argument should be multiplied by the scale factor.
+/// Example: $order: 3 would yield arg * sf * sf * sf
+///
+/// @return {Number}
+///
+
+@function scale-sf(
+  $value: null,
+  $order: 1
+) {
+
+  $error: number-error($arg);
+
+  $ret: $value;
+
+  @for $i from 1 through $order {
+    $ret: $ret * $scale-factor;
+  }
+
+  @return $ret;
+}
+
+/// Returns the CSS values for padding scaled to the desired viewport size
+///
+/// @param {Map} $map [null]
+/// Map of the element to be sized. Example: $btn, $navbar
+///
+/// @param {String} $modifier [null]
+/// Name of the modifier to be used. Example: sm, md, lg
+///
+/// @param {Number} $ratio [null]
+/// Ratio of horizontal to vertical padding. Example: 2 would produce horizontal
+/// padding twice the width of the vertical padding, and .333 would produce
+/// horizontal padding 1/3 the width of the vertical padding. Vertical padding
+/// is always the base value (the ratio will always be 1:xxx vert:horiz)
+///
+/// @return {Number}
+///
+
+@function scale-padding(
+  $map: null,
+  $modifier: null,
+  $ratio: 1
+) {
+
+  $error: map-error($map);
+  $error: string-error($modifier);
+
+  $scaler: responsive-scaler($modifier);
+
+  $base-padding: map-get($map, padding);
+  $scaled-padding: $scaler * $base-padding;
+
+  @return $scaled-padding
+}

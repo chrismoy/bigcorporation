@@ -1,24 +1,23 @@
 .navbar {
 
   display: block;
-  position: absolute;
+  position: fixed;
 
   // BACKGROUND //
 
   @include stdBg();
+  @include clearNav(sm);
 
   // POSITION //
 
   &-bottom, &-top {
-    @include rem(height, map-get-z($navbar-type, horizontal, height, sm));
+    @include rem(height, scale-navbar(scale-sf($navbar-font-size, 2), sm));
     left: 0;
-    width: 100%;
   }
 
   &-left, &-right {
-    height: 100%;
     top: 0;
-    width: $navbar-side-width;
+    @include rem(width, scale-navbar($navbar-width-vertical, sm));
   }
 
   &-bottom { bottom: 0; }
@@ -28,16 +27,21 @@
 
   // SIZE //
 
-  @media #{$md-up} {
-    &-bottom, &-top {
-      @include rem(height, map-get($navbar-height, md));
+  @each $size in $screen-sizes {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @media #{$viewport} {
+      @include clearNav($modifier);
+
+      &-bottom, &-top {
+        @include rem(height, scale-navbar($navbar-height-horizontal, $modifier));
+      }
+
+      &-left, &-right {
+        @include rem(width, scale-navbar($navbar-width-vertical, $modifier));
+      }
     }
   }
-
-  @media #{$lg-up} {
-    &-bottom, &-top {
-      @include rem(height, map-get($navbar-height, lg));
-    }
-  }
-
 }

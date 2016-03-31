@@ -5,10 +5,7 @@
 // NOTE: YOU MUST OMIT THE CLOSING TAG OF YOUR COLUMNS FOR THIS TO FUNCTION
 //        PROPERLY
 
-$grid-namespace: map-get($namespace, grid);
-$column-namespace: map-get($namespace, column);
-
-.#{$grid-namespace} {
+.#{$namespace-grid} {
   list-style: none;
   @include rem(padding, $vert-grid-gutter-width $horiz-grid-gutter-width);
 
@@ -19,7 +16,7 @@ $column-namespace: map-get($namespace, column);
   }
 }
 
-.#{$column-namespace} {
+.#{$namespace-column} {
   box-sizing: border-box;
   display: inline-block;
   @include rem(min-height, 1px);
@@ -27,23 +24,23 @@ $column-namespace: map-get($namespace, column);
   vertical-align: top;
 
   @media #{$sm-up} {
-    @include columnify($column-groups, $column-namespace, "sm");
+    @include columnify($column-groups, $namespace-column, sm);
   }
 
   @media #{$md-up} {
-    @include columnify($column-groups, $column-namespace, "md");
+    @include columnify($column-groups, $namespace-column, md);
   }
 
   @media #{$lg-up} {
-    @include columnify($column-groups, $column-namespace, "lg");
+    @include columnify($column-groups, $namespace-column, lg);
   }
 
   @media #{$xl-up} {
-    @include columnify($column-groups, $column-namespace, "xl");
+    @include columnify($column-groups, $namespace-column, xl);
   }
 
   // Centers the column in the grid and clears the row of all other columns
-  &.#{$column-namespace}-centered {
+  &.#{$namespace-column}-centered {
     display: block;
     float: none;
     margin-left: auto;
@@ -51,31 +48,31 @@ $column-namespace: map-get($namespace, column);
   }
 
   // Aligns the column right in the row
-  &.#{$column-namespace}-right {
+  &.#{$namespace-column}-right {
     float: right;
   }
 
   // Align column to the bottom.
-  &.#{$column-namespace}-ab {
+  &.#{$namespace-column}-ab {
     vertical-align: bottom;
   }
 
   // Align column to the middle.
-  &.#{$column-namespace}-am {
+  &.#{$namespace-column}-am {
     vertical-align: middle;
   }
 }
 
 // Removes gutters from the columns
-.#{$grid-namespace}-noGutter {
+.#{$namespace-grid}-noGutter {
   margin-left: 0;
   width: 100%;
 
-  .#{$column-namespace} {
+  .#{$namespace-column} {
     padding-left: 0;
   }
 
-  .#{$column-namespace}-spanAll {
+  .#{$namespace-column}-spanAll {
     margin-left: 0;
     width: 100%;
   }

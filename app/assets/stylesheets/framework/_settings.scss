@@ -17,6 +17,8 @@
 // a. Base
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+$rem-scaler: 0.625;
+
 // Units
 $golden-ratio: 1.61803398875;
 $golden-inverse: 0.61803398875;
@@ -70,6 +72,8 @@ $view-breakpoint-lg: 1200px !default;
 $view-breakpoint-md: 1024px !default;
 $view-breakpoint-sm: 640px !default;
 
+$max-width: 1400px;
+
 // Ranges
 
 $view-range-sm: (0px, $view-breakpoint-sm) !default;
@@ -88,12 +92,14 @@ $portrait: "#{$screen} and (orientation: portrait)" !default;
 
 $sm-up: $screen !default;
 $sm-only: "#{$screen} and (max-width: #{$view-breakpoint-sm})" !default;
-$md-up: "#{$screen} and (min-width:#{lower-bound($view-range-md)})" !default;
-$md-only: "#{$screen} and (min-width:#{lower-bound($view-range-md)}) and (max-width:#{upper-bound($view-range-md)})" !default;
-$lg-up: "#{$screen} and (min-width:#{lower-bound($view-range-lg)})" !default;
-$lg-only: "#{$screen} and (min-width:#{lower-bound($view-range-lg)}) and (max-width:#{upper-bound($view-range-lg)})" !default;
-$xl-up: "#{$screen} and (min-width:#{lower-bound($view-range-xl)})" !default;
-$xl-only: "#{$screen} and (min-width:#{lower-bound($view-range-xl)}) and (max-width:#{upper-bound($view-range-xl)})" !default;
+$md-up: "#{$screen} and (min-width: #{lower-bound($view-range-md)})" !default;
+$md-only: "#{$screen} and (min-width: #{lower-bound($view-range-md)}) and (max-width:#{upper-bound($view-range-md)})" !default;
+$lg-up: "#{$screen} and (min-width: #{lower-bound($view-range-lg)})" !default;
+$lg-only: "#{$screen} and (min-width: #{lower-bound($view-range-lg)}) and (max-width:#{upper-bound($view-range-lg)})" !default;
+$xl-up: "#{$screen} and (min-width: #{lower-bound($view-range-xl)})" !default;
+$xl-only: "#{$screen} and (min-width: #{lower-bound($view-range-xl)}) and (max-width:#{upper-bound($view-range-xl)})" !default;
+
+$screen-sizes: ($md-up md, $lg-up lg, $xl-up xl);
 
 // c. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -138,10 +144,10 @@ $font-serif: Georgia, Times, 'Times New Roman', serif !default;
 
 // . Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
-$btn-font-size: $font-size-p;
+$btn-font-size: $font-size-p !default;
 
 $btn-border: 0 !default;
-$btn-font-size: $btn-font-size !default;
+$btn-color: $color-primary !default;
 $btn-radius: $base-radius !default;
 
 $btn-hamburger-bar: 3px;
@@ -149,7 +155,7 @@ $btn-hamburger-bar: 3px;
 // . Navbar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$navbar-font-size: $font-size-p;
+$navbar-font-size: $btn-font-size !default;
 
 $navbar-color: $color-primary !default;
 
@@ -157,7 +163,7 @@ $navbar-height-horizontal: $scale-factor * $scale-factor * $navbar-font-size !de
 $navbar-height-vertical: 100% !default;
 
 $navbar-width-horizontal: 100% !default;
-$navbar-width-vertical: (1 - $scale-inverse) * 100% !default;
+$navbar-width-vertical: 20% !default;
 
 $navbar-position-top: (top: 0, left: 0, right: 0) !default;
 $navbar-position-right: (top: 0, right: 0, bottom: 0) !default;

@@ -4,14 +4,13 @@
 @import "framework/functions/scaling/buttons";
 
 .btn {
-  $btn-font-size: scale-font($btn, sm);
-
-  @include btn-base($btn-font-size);
+  @include btn-base(sm);
   @include stdBg();
   @include stdColor();
   @include stdFloat();
 
   border: none;
+  line-height: 1;
   outline: 0;
   position: relative;
 
@@ -19,15 +18,12 @@
     cursor: pointer;
   }
 
-  @include hamburger($btn-font-size, sm);
+  @include hamburger(sm);
 
   &-hamburger {
     $bar-spacing: 19.0983005625%; // (1 - $golden-inverse) * 0.5 * 100%
-    $bar-color: map-get($navbar, color);
 
     background-color: transparent;
-    border-radius: 0;
-    padding: 0;
     position: relative;
 
     &_prompt {      
@@ -43,7 +39,7 @@
     }
 
     &_bar, &:before, &:after {
-      background-color: $bar-color;
+      background-color: $color-primary;
       border-radius: $base-radius;
       display: inline-block;
       position: absolute;
@@ -89,17 +85,16 @@
     }
   }
 
-  @media #{$md-up} {
-    $btn-font-size: scale-font($btn, md);
+    // SIZE //
 
-    @include btn-base($btn-font-size);
-    @include hamburger($btn-font-size, md);
-  }
+  @each $size in $screen-sizes {
 
-  @media #{$lg-up} {
-    $btn-font-size: scale-font($btn, lg);
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
 
-    @include btn-base($btn-font-size);
-    @include hamburger($btn-font-size, lg)
+    @media #{$viewport} {
+      @include btn-base($modifier);
+      @include hamburger($modifier);
+    }
   }
 }

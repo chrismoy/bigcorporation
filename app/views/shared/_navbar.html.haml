@@ -1,7 +1,8 @@
-%header.navbar.navbar-top
+%header.navbar.navbar-top.navbar-fullTop{style: "background-color:rgba(255,0,0,0.2)"}
   = button_tag("big corporation", class: "btn btn-navbar btn-colorPrimary btn-bgPrimary btn-margin", style: "color: white;")
-  = button_tag(class: "btn btn-navbar btn-square btn-colorPrimary btn-hamburger btn-right btn-margin", data: { behavior: "toggle-menu" }) do
+  = button_tag(class: "btn btn-navbar btn-square btn-colorPrimary btn-hamburger btn-right btn-margin btn-noText", data: { behavior: "toggle-menu" }) do
     = content_tag(:span, "", class: "btn-hamburger_bar")
     = content_tag(:span, "MENU", class: "btn-hamburger_prompt")
     = content_tag(:span, "CLOSE", class: "btn-hamburger_prompt btn-hamburger_prompt-active")
+%header.navbar.navbar-right.navbar-clearTransTop{style: "background-color:rgba(0,0,255,0.2)"}
 

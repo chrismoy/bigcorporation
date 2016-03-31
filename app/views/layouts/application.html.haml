@@ -12,6 +12,8 @@
     = csrf_meta_tags
 
   %body
-    = yield
+    %main.content.content-clearFilledTop.content-clearFilledRight
+      .container
+        = yield
     = render "shared/menu"
     = render "shared/navbar"

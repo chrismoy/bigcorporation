@@ -7,35 +7,15 @@
 ///
 
 @function scale-hambar(
-  $bar-width: null
+  $modifier: null
 ) {
 
-  $error: string-error($bar-width);
+  $error: string-error($modifier);
 
-  $scaler: responsive-scaler($modifier);
+  $scaler: map-get($scale-responsive, $modifier);
 
-  $base-hambar: map-get($btn, hamburger);
-  $scaled-hambar: floor($scaler * $base-hambar);
+  $base-thickness: $btn-hamburger-bar;
+  $scaled-hambar: floor($scaler * $base-thickness);
 
   @return $scaled-hambar;
-}
-
-/// Returns the width of padding proportional to the scale factor for
-/// a centered object
-///
-/// @param {Number} $dimension [null]
-/// The dimension of the object to be padded. Example: 16px, 1.2rem
-///
-/// @return {Number}
-///
-
-@function scale-padding-sf(
-  $dimension: null
-) {
-
-  $error: number-error($dimension);
-
-  $padding: 0.5 * (scale-sf($dimension) - $dimension);
-
-  @return $padding;
 }

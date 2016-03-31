@@ -1,6 +1,7 @@
-// Sass Extensions
+// Base functions
 
 @import "framework/functions/sass";
+@import "framework/functions/math";
 
 // Settings
 
@@ -10,9 +11,7 @@
 // Functions
 
 @import "framework/functions/scaling/general";
-
 @import "framework/functions/errors";
-@import "framework/functions/math";
 @import "framework/functions/strings";
 @import "framework/functions/units";
 
@@ -30,6 +29,7 @@
 
 @import "framework/components/buttons";
 @import "framework/components/grid";
+@import "framework/components/main";
 @import "framework/components/menu";
 @import "framework/components/navbar";
 

@@ -4,17 +4,63 @@
 /// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
 ///
 
-@mixin clear-nav(
+@mixin clearNav(
   $modifier: null
 ) {
   
   $error: string-error($modifier);
 
-  &-clearNav {
-    &Bottom { @include rem(padding-top, map-get($navbar-height, $modifier)); }
-    &Left { @include rem(padding-left, $navbar-side-width); }
-    &Right { @include rem(padding-right, $navbar-side-width); }
-    &Top { @include rem(padding-bottom, map-get($navbar-height, $modifier)); }
+  $navbar-height: scale-navbar(scale-sf($navbar-font-size, 2), $modifier);
+  $navbar-width: scale-navbar($navbar-width-vertical, $modifier);
+
+  &-full {
+    &Bottom { width: 100%; }
+    &Left { height: 100%; }
+    &Right { height: 100%; }
+    &Top { width: 100%; }
+  }
+
+  &-clear {
+    &Trans {
+      &Bottom {
+        @include rem(padding-bottom, $navbar-height);
+        height: 100%;
+      }
+      &Left {
+        @include rem(padding-left, $navbar-width);
+      }
+      &Right {
+        @include rem(padding-right, $navbar-width);
+      }
+      &Top {
+        @include rem(padding-top, $navbar-height);
+      }
+    }
+
+    TODO SHOULD BOTTOM BE HEIGHT?
+
+    &Filled {
+      &Bottom {
+        @include rem(margin-bottom, $navbar-height);
+        height: 100%;
+        height: calc(100% - #{$navbar-height});
+      }
+      &Left {
+        @include rem(margin-left, $navbar-width);
+        width: 100%;
+        width: calc(100% - #{$navbar-width});
+      }
+      &Right {
+        @include rem(margin-right, $navbar-width);
+        width: 100%;
+        width: calc(100% - #{$navbar-width});
+      }
+      &Top {
+        @include rem(margin-top, $navbar-height);
+        height: 100%;
+        height: calc(100% - #{$navbar-height});
+      }
+    }
   }
 }
 
@@ -67,6 +113,10 @@
 
 @mixin stdFloat(
 ) {
+  &-left {
+    float: left;
+  }
+
   &-right {
     float: right;
   }

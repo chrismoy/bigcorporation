@@ -1,49 +1,48 @@
 /// Returns the base sizing attributes for a button
 ///
-/// @param {Number} $font-size [null]
-/// Font-size of the button. Example: 20px, 2rem
+/// @param {String} $modifier [null]
+/// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
 ///
 
 @mixin btn-base(
-  $font-size: null
+  $modifier: null
 ) {
 
-  $error: number-error($font-size);
+  $error: string-error($modifier);
 
+  $font-size: scale-font($btn-font-size, $modifier);
   $dimension: scale-sf($font-size);
-  $padding-vertical: scale-padding-sf($font-size);
-  $padding-horizontal: scale-sf($padding-vertical);
+  $btn-padding: 0.5 * ($dimension - $font-size);
 
   @include rem(border-radius, $base-radius);
   @include rem(font-size, $font-size);
-  @include rem(height, $dimension);
-  @include rem(padding, $padding-vertical $padding-horizontal);
+  @include rem(padding, scale-padding($btn-padding, $modifier));
+
+  &-noText {  @include rem(height, $dimension); }
+
+  &-margin { @include rem(margin, scale-sf($btn-padding)); }
 
   &-square { @include rem(width, $dimension); }
-
-  &-margin {
-    @include rem(padding, scale-padding-sf($dimension));
-  }
 }
 
 /// Returns the viewport-dependent sizing attributes for a hamburger button
-///
-/// @param {Number} $font-size [null]
-/// Font-size of the button. Example: 20px, 2rem
 ///
 /// @param {String} $modifier [null]
 /// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
 ///
 
 @mixin hamburger(
-  $font-size: null,
   $modifier: null
 ) {
 
-  $error: number-error($font-size);
   $error: string-error($modifier);
 
+  $font-size: scale-font($btn-font-size, $modifier);
+
   &-hamburger {
+    border-radius: 0;
+    padding: 0;
+
     &_prompt {
       @include rem(font-size, $font-size);
       @include rem(margin-top, -0.5 * $font-size);

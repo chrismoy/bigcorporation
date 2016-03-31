@@ -20,7 +20,7 @@
 
   @each $value in $values {
 
-    @if $value == 0 or type-of($value) != number {
+    @if $value == 0 or unit($value) == '%' or type-of($value) != number {
       $px : append($px , $value);
       $rem: append($rem, $value);
     }
@@ -28,14 +28,15 @@
     @else {
       $unit: unit($value);
       $val: parseInt($value);
+      $conversion-factor: 16 * $rem-scaler;
 
       @if $unit == px {
         $px : append($px,  $value);
-        $rem: append($rem, ($val / 10 + 0rem));
+        $rem: append($rem, ($val / $conversion-factor + 0rem));
       }
 
       @if $unit == rem {
-        $px : append($px,  ($val * 10 + 0px));
+        $px : append($px,  ($val * $conversion-factor + 0px));
         $rem: append($rem, $value);
       }
     }

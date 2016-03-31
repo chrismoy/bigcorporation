@@ -11,7 +11,7 @@ body {
 }
 
 html {
-  font-size: 62.5%;
+  font-size: percentage($rem-scaler);
 }
 
 html, body {
@@ -19,12 +19,8 @@ html, body {
   width: 100%;
 }
 
-main {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  right: 0;
-  width: 100%;
+.container {
+  max-width: 1400px;
 }
 
 .debug_dump {

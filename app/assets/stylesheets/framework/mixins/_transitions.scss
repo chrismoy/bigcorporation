@@ -16,8 +16,8 @@
   $error: string-error($property);
   $error: number-error($order);
 
-  $interval: map-get($transition, time);
-  $function: map-get($transition, function);
+  $interval: $transition-time;
+  $function: $transition-function;
 
   $time: $interval * $order;
   $delay: $interval * ($order - 1);
@@ -42,8 +42,8 @@
 
   $error: list-error($properties);
 
-  $interval: map-get($transition, time);
-  $function: map-get($transition, function);
+  $interval: $transition-time;
+  $function: $transition-function;
 
   $transitions: ();
 
@@ -73,8 +73,8 @@
 
   $error: list-error($properties);
 
-  $interval: map-get($transition, time);
-  $function: map-get($transition, function);
+  $interval: $transition-time;
+  $function: $transition-function;
 
   $transitions: ();
 

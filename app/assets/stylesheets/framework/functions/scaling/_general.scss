@@ -1,7 +1,33 @@
-/// Returns the CSS values for font-size scaled to the desired viewport size
+/// Returns the value for a number scaled to the desired viewport size
 ///
-/// @param {Map} $map [null]
-/// Map of the element to be sized. Example: $btn, $navbar
+/// @param {Number} $value [null]
+/// The SASS number to be scaled
+///
+/// @param {String} $modifier [null]
+/// Name of the modifier to be used. Example: sm, md, lg
+///
+/// @return {Number}
+///
+
+@function scale-responsive(
+  $value: null,
+  $modifier: null
+) {
+
+  $error: number-error($value);
+  $error: string-error($modifier);
+
+  $scaler: map-get($scale-responsive, $modifier);
+
+  $ret: $scaler * $value;
+
+  @return $ret;
+}
+
+/// Returns the value for font-size scaled to the desired viewport size
+///
+/// @param {Number} $font-size [null]
+/// The font-size of the element to be scaled
 ///
 /// @param {String} $modifier [null]
 /// Name of the modifier to be used. Example: sm, md, lg
@@ -14,19 +40,15 @@
   $modifier: null
 ) {
 
-  $error: map-error($font-size);
+  $error: number-error($font-size);
   $error: string-error($modifier);
 
-  $scaler: map-get($scale-responsive, $modifier);
-
-  $scaled-font-size: $scaler * $font-size;
-
-  @return $scaled-font-size;
+  @return scale-responsive($font-size, $modifier);
 }
 
-/// Returns the a value scaled down by the scale factor
+/// Returns a value scaled down by the scale factor
 ///
-/// @param {Number} $arg [null]
+/// @param {Number} $value [null]
 /// The number that is to be divided by the scale factor
 ///
 /// @param {Number} $order [1]
@@ -41,7 +63,7 @@
   $order: 1
 ) {
 
-  $error: number-error($arg);
+  $error: number-error($value);
 
   $ret: $value;
 
@@ -50,6 +72,28 @@
   }
 
   @return $ret;
+}
+
+/// Returns the value for the height of the navbar scaled to the desired viewport size
+///
+/// @param {Number} $height [null]
+/// The base-height of the navbar
+///
+/// @param {String} $modifier [null]
+/// Name of the modifier to be used. Example: sm, md, lg
+///
+/// @return {Number}
+///
+
+@function scale-navbar(
+  $height: null,
+  $modifier: null
+) {
+
+  $error: number-error($height);
+  $error: string-error($modifier);
+
+  @return scale-responsive($height, $modifier);
 }
 
 /// Returns the a value scaled up by the scale factor
@@ -69,7 +113,7 @@
   $order: 1
 ) {
 
-  $error: number-error($arg);
+  $error: number-error($value);
 
   $ret: $value;
 
@@ -82,7 +126,7 @@
 
 /// Returns the CSS values for padding scaled to the desired viewport size
 ///
-/// @param {Map} $map [null]
+/// @param {Number} $padding [null]
 /// Map of the element to be sized. Example: $btn, $navbar
 ///
 /// @param {String} $modifier [null]
@@ -98,18 +142,17 @@
 ///
 
 @function scale-padding(
-  $map: null,
+  $padding: null,
   $modifier: null,
   $ratio: 1
 ) {
 
-  $error: map-error($map);
+  $error: number-error($padding);
   $error: string-error($modifier);
 
-  $scaler: responsive-scaler($modifier);
+  $scaled-padding: scale-responsive($padding, $modifier);
 
-  $base-padding: map-get($map, padding);
-  $scaled-padding: $scaler * $base-padding;
+  $ret: $scaled-padding $ratio * $scaled-padding;
 
-  @return $scaled-padding
+  @return $ret;
 }

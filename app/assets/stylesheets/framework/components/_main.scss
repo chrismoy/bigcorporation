@@ -1,0 +1,17 @@
+.content {
+  @include clearNav(sm);
+
+  background-color: green;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+
+  @each $size in $screen-sizes {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @include clearNav($modifier);
+  }
+}

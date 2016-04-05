@@ -12,8 +12,7 @@
     = csrf_meta_tags
 
   %body
-    %main.content.content-clearFilledTop.content-clearFilledRight
-      .container
+    %main
+      .content.content-clearTransTop.content-clearTransRight
         = yield
-    = render "shared/menu"
-    = render "shared/navbar"
+    = render "shared/nav"

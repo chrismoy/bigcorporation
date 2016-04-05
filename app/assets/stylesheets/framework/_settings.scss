@@ -119,10 +119,16 @@ $column-groups: (12) !default;
 
 $grid-gutter: 0.5 * $base-padding !default;
 
+$vert-grid-gutter: 0;
+$horiz-grid-gutter: 0;
+
 // Column
 
 $column-align: left !default;
 $column-gutter: 0.5 * $base-padding !default;
+
+$vert-column-gutter: 0;
+$horiz-column-gutter: 0;
 
 // d. Typography
 // - - - - - - - - - - - - - - - - - - - - - - - - -

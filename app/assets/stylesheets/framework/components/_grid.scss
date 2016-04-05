@@ -7,7 +7,7 @@
 
 .#{$namespace-grid} {
   list-style: none;
-  @include rem(padding, $vert-grid-gutter-width $horiz-grid-gutter-width);
+  @include rem(padding, $vert-grid-gutter $horiz-grid-gutter);
 
   &:after {
     clear: both;
@@ -19,8 +19,8 @@
 .#{$namespace-column} {
   box-sizing: border-box;
   display: inline-block;
-  @include rem(min-height, 1px);
-  @include rem(padding, $vert-column-gutter-width $horiz-column-gutter-width);
+  min-height: 1px;
+  @include rem(padding, $vert-column-gutter $horiz-column-gutter);
   vertical-align: top;
 
   @media #{$sm-up} {

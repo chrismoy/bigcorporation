@@ -1,17 +1,27 @@
+main {
+  box-sizing: border-box;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .content {
   @include clearNav(sm);
 
-  background-color: green;
-  left: 0;
+  background-image: black image-url("SkylineBlack2.jpg") no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
   overflow: auto;
-  position: fixed;
-  top: 0;
 
   @each $size in $screen-sizes {
 
     $viewport: nth($size, 1);
     $modifier: nth($size, 2);
 
-    @include clearNav($modifier);
+    @media #{$viewport} {
+      @include clearNav($modifier);
+    }
   }
 }

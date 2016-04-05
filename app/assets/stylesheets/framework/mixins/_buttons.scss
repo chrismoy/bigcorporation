@@ -20,7 +20,7 @@
 
   &-noText {  @include rem(height, $dimension); }
 
-  &-margin { @include rem(margin, scale-sf($btn-padding)); }
+  &-margin { @include rem(margin, scale-sf(floor($btn-padding))); }
 
   &-square { @include rem(width, $dimension); }
 }

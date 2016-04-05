@@ -28,16 +28,17 @@
       }
       &Left {
         @include rem(padding-left, $navbar-width);
+        width: 100%;
       }
       &Right {
         @include rem(padding-right, $navbar-width);
+        width: 100%;
       }
       &Top {
         @include rem(padding-top, $navbar-height);
+        height: 100%;
       }
     }
-
-    TODO SHOULD BOTTOM BE HEIGHT?
 
     &Filled {
       &Bottom {

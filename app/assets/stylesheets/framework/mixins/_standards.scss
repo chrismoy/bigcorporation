@@ -21,46 +21,21 @@
   }
 
   &-clear {
-    &Trans {
-      &Bottom {
-        @include rem(padding-bottom, $navbar-height);
-        height: 100%;
-      }
-      &Left {
-        @include rem(padding-left, $navbar-width);
-        width: 100%;
-      }
-      &Right {
-        @include rem(padding-right, $navbar-width);
-        width: 100%;
-      }
-      &Top {
-        @include rem(padding-top, $navbar-height);
-        height: 100%;
-      }
+    &Bottom {
+      @include rem(padding-bottom, $navbar-height);
+      height: 100%;
     }
-
-    &Filled {
-      &Bottom {
-        @include rem(margin-bottom, $navbar-height);
-        height: 100%;
-        height: calc(100% - #{$navbar-height});
-      }
-      &Left {
-        @include rem(margin-left, $navbar-width);
-        width: 100%;
-        width: calc(100% - #{$navbar-width});
-      }
-      &Right {
-        @include rem(margin-right, $navbar-width);
-        width: 100%;
-        width: calc(100% - #{$navbar-width});
-      }
-      &Top {
-        @include rem(margin-top, $navbar-height);
-        height: 100%;
-        height: calc(100% - #{$navbar-height});
-      }
+    &Left {
+      @include rem(padding-left, $navbar-width);
+      width: 100%;
+    }
+    &Right {
+      @include rem(padding-right, $navbar-width);
+      width: 100%;
+    }
+    &Top {
+      @include rem(padding-top, $navbar-height);
+      height: 100%;
     }
   }
 }
@@ -70,6 +45,7 @@
 
 @mixin stdBg (
 ) {
+
   &-bgTransparent {
     background-color: transparent;
   }
@@ -84,6 +60,14 @@
 
   &-bgTertiary {
     background-color: $color-tertiary;
+  }
+
+  &-colorBlack {
+    color: $black;
+  }
+
+  &-colorWhite {
+    color: $white;
   }
 }
 
@@ -107,6 +91,14 @@
   &-colorTertiary {
     color: $color-tertiary;
   }
+
+  &-colorBlack {
+    color: $black;
+  }
+
+  &-colorWhite {
+    color: $white;
+  }
 }
 
 /// Returns a standardized set of color classes for a given parent class
@@ -122,4 +114,18 @@
     float: right;
   }
 }
+
+/// Returns a standardized set of spacing (margin/padding) classes
+///
+
+@mixin stdSpacing(
+) {
+  &-margin {
+    margin: $base-margin;
+  }
+
+  &-padding {
+    padding: $base-padding;
+  }
+} 
 

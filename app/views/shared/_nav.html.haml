@@ -1,5 +1,21 @@
 %header
-  .nav.nav-top.nav-clearFilledRight
-  = button_tag("big corporation", class: "btn btn-nav btn-colorPrimary btn-bgPrimary btn-margin", style: "color: white;")
-  .nav.nav-right.nav-fullRight
-
+  .nav.nav-left.nav-fullleft
+    = button_tag(class: "btn btn-nav btn-large   btn-logo btn-margin") do
+      BIG
+      %br
+      CORP.
+    %ul.nav-links
+      %li.nav-link.active
+        = link_to home_path do
+          %span home
+      %li.nav-link 
+        = link_to work_path do 
+          %span work
+      %li.nav-link
+        = link_to about_path do 
+          %span about
+      %li.nav-link
+        = link_to contact_path do
+          %span contact
+    .contact-card
+      .yolo

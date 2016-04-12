@@ -63,3 +63,21 @@
 
   @return $ret;
 }
+
+/// Adds a value to the beginning of a sass list
+///
+/// @param {Map} $list [null]
+/// A sass list
+///
+/// @param {List} $value []
+/// A value to be added to the front of the list
+///
+/// @return {list}
+///
+
+@function prepend(
+  $list: null,
+  $value: null
+) {
+  @return join($value, $list);
+}

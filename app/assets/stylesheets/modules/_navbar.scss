@@ -1,1 +1,74 @@
+header {
+  display: inline-block;
+  height: 100%;
 
+  .nav-left {
+    background-color: white;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    z-index: 0;
+
+    .nav-links {
+      background-color: white;
+      list-style-type: none;
+      margin: 10rem auto 0 auto;
+      padding: 1rem;
+      text-align: center;
+      width: 50%;
+      z-index: 2;
+
+      &:before {
+        background: $black;
+        content: '';
+        height: 80%;
+        left: 50%;
+        margin-left: -1px;
+        position: absolute;
+        top: 10%;
+        width: 2px;
+        z-index: 1;
+      }
+
+      .nav-link {
+        margin: 20px 0;
+
+        color: $black;
+        text-decoration: none;
+
+        a {
+          color: $black;
+          font-size: 2rem;
+          text-decoration: none;
+
+          span {
+            background-color: white;
+            padding: 10px 5px;
+            z-index: 20;
+          }
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+
+    .contact-card {
+      background-color: red;
+      bottom: 0;
+      height: 200px;
+      left: 0;
+      padding: $base-padding;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+
+      .yolo {
+        background-color: blue;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

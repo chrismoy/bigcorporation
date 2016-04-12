@@ -1,0 +1,18 @@
+.section {
+  @include clearNav(sm);
+
+  background: black image-url("SkylineBlack2.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+
+  @each $size in $screen-sizes {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @media #{$viewport} {
+      @include clearNav($modifier);
+    }
+  }
+}

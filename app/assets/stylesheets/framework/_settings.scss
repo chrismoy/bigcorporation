@@ -25,14 +25,17 @@ $golden-inverse: 0.61803398875;
 
 $scale-factor: $golden-ratio;
 
-$scale-forward-small: 2 / ($scale-factor + 1) !default;
-$scale-forward-1: 1 !default;
-$scale-forward-2: (1 + $scale-factor) / 2 !default;
-$scale-forward-3: $scale-factor !default;
-$scale-forward-4: (1 + $scale-factor) / 2 * $scale-factor !default;
-$scale-forward-5: $scale-factor * $scale-factor !default;
-$scale-forward-6: (1 + $scale-factor) / 2 * $scale-factor * $scale-factor !default;
-$scale-forward-7: $scale-factor * $scale-factor * $scale-factor !default;
+$scale-forward: (
+  1: 1,
+  2: (1 + $scale-factor) / 2,
+  3: $scale-factor,
+  4: (1 + $scale-factor) / 2 * $scale-factor,
+  5: $scale-factor * $scale-factor,
+  6: (1 + $scale-factor) / 2 * $scale-factor * $scale-factor,
+  7: $scale-factor * $scale-factor * $scale-factor,
+  small: 2 / ($scale-factor + 1)
+) !default;
+
 $scale-inverse: 1 / $scale-factor !default;
 
 $scale-responsive: (
@@ -47,15 +50,18 @@ $base-radius: 0.3rem !default;
 
 // Colors
 
-$color-primary: black !default;
-$color-secondary: black !default;
-$color-tertiary: black !default;
+$black: #000000 !default;
+$white: #FFFFFF !default;
+
+$color-primary: $black !default;
+$color-secondary: $black !default;
+$color-tertiary: $white !default;
 
 // Spacing
 
 $base-spacing-unit: 3rem !default;
-$base-padding: $base-spacing-unit;
-$base-margin: $base-spacing-unit;
+$base-padding: 0.5 * $base-spacing-unit;
+$base-margin: 0.5 * $base-spacing-unit;
 
 // Transitions
 
@@ -135,22 +141,42 @@ $horiz-column-gutter: 0;
 
 $base-font-size: 20px !default;
 
-$font-size-p: $scale-forward-1 * $base-font-size !default;
-$font-size-h6: $scale-forward-1 * $base-font-size !default;
-$font-size-h5: $scale-forward-2 * $base-font-size !default;
-$font-size-h4: $scale-forward-3 * $base-font-size !default;
-$font-size-h3: $scale-forward-4 * $base-font-size !default;
-$font-size-h2: $scale-forward-5 * $base-font-size !default;
-$font-size-h1: $scale-forward-6 * $base-font-size !default;
-$font-size-small: $scale-forward-small * $base-font-size !default;
+$font-sizes: (
+  h6: map-get($scale-forward, 1) * $base-font-size,
+  h5: map-get($scale-forward, 2) * $base-font-size,
+  h4: map-get($scale-forward, 3) * $base-font-size,
+  h3: map-get($scale-forward, 4) * $base-font-size,
+  h2: map-get($scale-forward, 5) * $base-font-size,
+  h1: map-get($scale-forward, 6) * $base-font-size,
+  p: map-get($scale-forward, 1) * $base-font-size,
+  small: map-get($scale-forward, small) * $base-font-size
+) !default;
+
+$headings: (h1 h2 h3 h4 h5 h6);
 
 $font-line-height: 1 !default;
-$font-sans-serif: Arial, Helvetica, sans-serif !default;
-$font-serif: Georgia, Times, 'Times New Roman', serif !default;
+$font-sans-primary: 'Futura' !default;
+$font-sans-secondary: 'Futura Condensed' !default;
+$font-sans-fallback: Helvetica, sans-serif !default;
+$font-serif-primary: 'Times New Roman' !default;
+$font-serif-fallback: Georgia, Times, serif !default;
+
+$font-family-sans: prepend($font-sans-fallback, $font-sans-primary);
+$font-family-sans-secondary: prepend($font-sans-fallback, $font-sans-secondary);
+$font-family-serif: prepend($font-serif-fallback, $font-serif-primary);
+
+$font-weight-bolder: 700;
+$font-weight-bold: 500;
+$font-weight-normal: 400;
+$font-weight-lighter: 200;
+
+$font-style-normal: normal;
+$font-style-italic: oblique;
 
 // . Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
-$btn-font-size: $font-size-p !default;
+$btn-font-size: map-get($font-sizes, h6) !default;
+$btn-font-size-lg: map-get($font-sizes, h5) !default;
 
 $btn-border: 0 !default;
 $btn-color: $color-primary !default;
@@ -169,7 +195,7 @@ $navbar-height-horizontal: $scale-factor * $scale-factor * $navbar-font-size !de
 $navbar-height-vertical: 100% !default;
 
 $navbar-width-horizontal: 100% !default;
-$navbar-width-vertical: 20% !default;
+$navbar-width-vertical: 25rem !default;
 
 $navbar-position-top: (top: 0, left: 0, right: 0) !default;
 $navbar-position-right: (top: 0, right: 0, bottom: 0) !default;

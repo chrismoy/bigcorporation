@@ -1,0 +1,78 @@
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 {
+  @include rem(font-size, scale-font(map-get($font-sizes, h1), sm));
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  @include rem(font-size, scale-font(map-get($font-sizes, h2), sm));
+  font-weight: $font-weight-bold;
+}
+
+h3 {
+  @include rem(font-size, scale-font(map-get($font-sizes, h3), sm));
+  font-weight: $font-weight-normal;
+}
+
+h4 {
+  @include rem(font-size, scale-font(map-get($font-sizes, h3), sm));
+  font-weight: $font-weight-normal;
+}
+
+h5 {
+  @include rem(font-size, scale-font(map-get($font-sizes, h3), sm));
+  font-weight: $font-weight-lighter;
+}
+
+h6 {
+  @include rem(font-size, scale-font(map-get($font-sizes, h3), sm));
+  font-weight: $font-weight-lighter;
+}
+
+@each $heading in $headings {
+  @each $size in $screen-sizes {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    #{$heading} {
+
+      @media #{$viewport} {
+        @include rem(font-size, scale-font(map-get($font-sizes, $heading), $modifier));
+      }
+    }
+  }
+}
+
+p {
+  @include rem(font-size, scale-font(map-get($font-sizes, p), sm));
+  font-weight: $font-weight-normal;
+
+  @each $size in $screen-sizes {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @media #{$viewport} {
+      @include rem(font-size, scale-font(map-get($font-sizes, p), $modifier));
+    }
+  }
+}
+
+small {
+  @include rem(font-size, scale-font(map-get($font-sizes, small), sm));
+  font-weight: $font-weight-normal;
+
+  @each $size in $screen-sizes {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @media #{$viewport} {
+      @include rem(font-size, scale-font(map-get($font-sizes, small), $modifier));
+    }
+  }
+}

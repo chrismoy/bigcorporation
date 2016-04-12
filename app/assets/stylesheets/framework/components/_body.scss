@@ -1,9 +1,11 @@
 *, *:before, *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 body {
   background-color: $white;
+  font-family: $font-family-sans;
+  font-weight: 400;
   line-height: 1;
   margin: 0;
   padding: 0;
@@ -11,6 +13,7 @@ body {
 }
 
 html {
+  font-family: Futura;
   font-size: percentage($rem-scaler);
 }
 

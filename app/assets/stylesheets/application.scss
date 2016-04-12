@@ -1,16 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Playfair+Display:400,700);
+
 // Globals
 
 @import "global/variables";
 
 // Fonts
 
+@import "fonts/fonts";
 @import "fonts/weather/weather";
 
 // Vendor
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "jquery.fullPage";
+// @import "jquery.fullPage";
 
 // Framework
 

@@ -16,11 +16,18 @@
 
   @include rem(border-radius, $base-radius);
   @include rem(font-size, $font-size);
-  @include rem(padding, scale-padding($btn-padding, $modifier));
+  @include rem(padding, scale-spacing($btn-padding, $modifier));
 
-  &-noText {  @include rem(height, $dimension); }
+  &-noText { @include rem(height, $dimension); }
 
-  &-margin { @include rem(margin, scale-sf(floor($btn-padding))); }
+  &-large {
+    $font-size: scale-font($btn-font-size-lg, $modifier);
+    $dimension: scale-sf($font-size);
+    $btn-padding: 0.5 * ($dimension - $font-size);
+
+    @include rem(font-size, $font-size);
+    @include rem(padding, scale-spacing($btn-padding, $modifier));
+  }
 
   &-square { @include rem(width, $dimension); }
 }

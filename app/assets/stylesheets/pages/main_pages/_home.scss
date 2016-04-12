@@ -1,9 +1,19 @@
-.heightz {
-  background-color: $smoke;
-  font-size: 1.8rem;
-  height: 600px;
+.home {
+  padding-top: 15%;
+  text-align: center;
 
-  &:nth-child(odd) {
-    background-color: $iron;
+  .content {
+
+    font-family: 'Futura Condensed';
+
+    h1 {
+
+      span {
+      }
+    }
+
+    h3 {
+      margin: 30px;
+    }
   }
 }

@@ -2,49 +2,51 @@ header {
   display: inline-block;
   height: 100%;
 
+  button {
+  }
+
   .nav-left {
     background-color: white;
     height: 100%;
     position: relative;
     text-align: center;
-    z-index: 0;
 
     .nav-links {
       background-color: white;
+      left: 50%;
       list-style-type: none;
-      margin: 10rem auto 0 auto;
-      padding: 1rem;
+      padding: 0;
+      position: absolute;
       text-align: center;
-      width: 50%;
-      z-index: 2;
+      top: 0;
 
-      &:before {
-        background: $black;
-        content: '';
-        height: 80%;
-        left: 50%;
-        margin-left: -1px;
-        position: absolute;
-        top: 10%;
-        width: 2px;
-        z-index: 1;
-      }
+      // &:before {
+      //   background: $black;
+      //   content: '';
+      //   height: 80%;
+      //   left: 50%;
+      //   margin-left: -1px;
+      //   position: absolute;
+      //   top: 10%;
+      //   width: 2px;
+      //   z-index: 1;
+      // }
 
       .nav-link {
-        margin: 20px 0;
+        $font-size: scale-font(map-get($font-sizes, h5), sm);
 
         color: $black;
+        margin: 40px 0;
         text-decoration: none;
 
         a {
           color: $black;
-          font-size: 2rem;
+          @include rem(font-size, $font-size);
           text-decoration: none;
+          text-transform: capitalize;
 
           span {
             background-color: white;
-            padding: 10px 5px;
-            z-index: 20;
           }
 
           &:hover {
@@ -54,20 +56,24 @@ header {
       }
     }
 
-    .contact-card {
-      background-color: red;
+    .company-info {
+      $font-size: scale-font(map-get($font-sizes, small), sm);
+
       bottom: 0;
-      height: 200px;
       left: 0;
       padding: $base-padding;
       position: absolute;
       width: 100%;
-      z-index: 2;
 
-      .yolo {
-        background-color: blue;
+      .company-card {
         height: 100%;
+        text-align: center;
         width: 100%;
+
+        p {
+          @include rem(font-size, $font-size);
+          line-height: 1.5;
+        }
       }
     }
   }

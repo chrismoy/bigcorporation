@@ -5,4 +5,5 @@
 //= require jquery.fullPage.min
 //= require init
 //= require app.menu
+//= require app.nav
 

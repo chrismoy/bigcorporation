@@ -17,6 +17,7 @@
   }
 
   &-left, &-right {
+    min-height: $minimum-module-height;
     top: 0;
     @include rem(width, scale-navbar($navbar-width-vertical, sm));
   }

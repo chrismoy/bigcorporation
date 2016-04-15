@@ -44,6 +44,8 @@ $scale-responsive: (
   lg: 1.1,
   xl: 1.2
 ) !default;
+
+$minimum-module-height: 600px;
 // Border
 
 $base-radius: 0.3rem !default;
@@ -139,7 +141,7 @@ $horiz-column-gutter: 0;
 // d. Typography
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$base-font-size: 20px !default;
+$base-font-size: 16px !default;
 
 $font-sizes: (
   h6: map-get($scale-forward, 1) * $base-font-size,

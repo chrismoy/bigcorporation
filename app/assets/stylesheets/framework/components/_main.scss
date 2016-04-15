@@ -2,6 +2,7 @@ main {
   box-sizing: border-box;
   height: 100%;
   left: 0;
+  min-height: $minimum-module-height;
   overflow-y: auto;
   position: fixed;
   top: 0;

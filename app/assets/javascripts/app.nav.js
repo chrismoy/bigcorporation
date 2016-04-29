@@ -1,9 +1,9 @@
 App.Nav = {
   center_links: function() {
     var nav_height = $('.nav-left').height();
-    var logo_height = $('#brand-logo').height();
-    var info_height = $('.company-info').height() + 30;
-    var link_height = $('.nav-links').height();
+    var logo_height = $('#brand-logo').outerHeight();
+    var info_height = $('.company-info').outerHeight();
+    var link_height = $('.nav-links').outerHeight();
     var link_width = $('.nav-links').width();
 
     var link_margin = (nav_height - info_height + logo_height - link_height);
@@ -15,3 +15,8 @@ App.Nav = {
 $(document).on('page:change', function() {
   App.Nav.center_links();
 });
+
+$(window).on('resize', function() {
+  App.Nav.center_links();
+});
+

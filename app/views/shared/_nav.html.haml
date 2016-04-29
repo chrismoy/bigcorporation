@@ -1,33 +1,34 @@
 %header
   .nav.nav-left.nav-fullLeft
-    = button_tag(class: "btn btn-nav btn-large btn-logo btn-margin", id: "brand-logo") do
-      BIG
-      %br
-      CORP.
-    %ul.nav-links
-      %li.nav-link.active
-        = link_to home_path do
-          %span home
-      %li.nav-link 
-        = link_to work_path do 
-          %span work
-      %li.nav-link
-        = link_to about_path do 
-          %span about
-      %li.nav-link
-        = link_to contact_path do
-          %span contact
-    .company-info
-      .company-card
-        %p.title
-          Big Corporation
-        %p.address
-          530 N Lake Shore Drive
-          %br
-          Chicago, IL, 60611
-        %p.contact
-          (847)942-1853
-          %br
-          hello@bigcorp.io
-        %p.copyright
-          Copyright © 2016
+    .nav-wrapper
+      = button_tag(class: "btn btn-nav btn-large btn-logo", id: "brand-logo") do
+        BIG
+        %br
+        CORP.
+      %ul.nav-links
+        %li.nav-link.active
+          = link_to home_path do
+            %span home
+        %li.nav-link 
+          = link_to work_path do 
+            %span work
+        %li.nav-link
+          = link_to about_path do 
+            %span about
+        %li.nav-link
+          = link_to contact_path do
+            %span contact
+      .company-info
+        .company-card
+          %p.title
+            Big Corporation
+          %p.address
+            530 N Lake Shore Drive
+            %br
+            Chicago, IL, 60611
+          %p.contact
+            (847)942-1853
+            %br
+            hello@bigcorp.io
+          %p.copyright
+            Copyright © 2016

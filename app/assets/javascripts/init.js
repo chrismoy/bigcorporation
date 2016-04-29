@@ -4,4 +4,4 @@ App.init = function() {
   new scrollReveal;
 }
 
-$(document).on('page:change', App.init());
+$(document).on('ready page:change', App.init());

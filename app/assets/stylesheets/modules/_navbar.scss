@@ -2,55 +2,56 @@ header {
   display: inline-block;
   height: 100%;
 
-  button {
+  .btn.btn-logo {
+    border-radius: 0;
+    border-bottom-right-radius: $btn-radius;
+    position: static;
   }
 
   .nav-left {
     background-color: white;
     height: 100%;
+    padding: $base-padding;
     position: relative;
-    text-align: center;
+    text-align: left;
 
-    .nav-links {
-      background-color: white;
-      left: 50%;
-      list-style-type: none;
-      padding: 0;
-      position: absolute;
-      text-align: center;
-      top: 0;
+    .nav-wrapper {
+      border: $btn-radius solid $black;
+      border-radius: $btn-radius;
+      height: 100%;
+      width: 100%;
 
-      // &:before {
-      //   background: $black;
-      //   content: '';
-      //   height: 80%;
-      //   left: 50%;
-      //   margin-left: -1px;
-      //   position: absolute;
-      //   top: 10%;
-      //   width: 2px;
-      //   z-index: 1;
-      // }
+      .nav-links {
+        background-color: transparent;
+        left: 50%;
+        list-style-type: none;
+        padding: 0;
+        position: absolute;
+        text-align: center;
+        top: 0;
 
-      .nav-link {
-        $font-size: scale-font(map-get($font-sizes, h5), sm);
+        .nav-link {
+          $font-size: scale-font(map-get($font-sizes, h5), sm);
 
-        color: $black;
-        margin: 40px 0;
-        text-decoration: none;
-
-        a {
           color: $black;
-          @include rem(font-size, $font-size);
+          font-weight: $font-weight-normal;
+          margin: 50px 0;
           text-decoration: none;
-          text-transform: capitalize;
 
-          span {
-            background-color: white;
-          }
+          a {
+            color: $black;
+            @include rem(font-size, $font-size);
+            text-decoration: none;
+            text-transform: capitalize;
 
-          &:hover {
-            color: $color-primary;
+            &:hover {
+              color: $color-primary;
+            }
+
+            span {
+              background-color: white;
+              padding: 10px 0;
+            }
           }
         }
       }
@@ -59,11 +60,11 @@ header {
     .company-info {
       $font-size: scale-font(map-get($font-sizes, small), sm);
 
-      bottom: 0;
-      left: 0;
-      padding: $base-padding;
+      background-color: white;
+      bottom: 2 * $base-padding;
+      left: 20%;
       position: absolute;
-      width: 100%;
+      width: 60%;
 
       .company-card {
         height: 100%;
@@ -72,7 +73,16 @@ header {
 
         p {
           @include rem(font-size, $font-size);
+          font-weight: $font-weight-lighter;
           line-height: 1.5;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
     }

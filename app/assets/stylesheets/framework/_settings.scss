@@ -52,12 +52,36 @@ $base-radius: 0.3rem !default;
 
 // Colors
 
+$transparent : transparent;
+$pearl       : #ecf0f1;
+$ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+$vapor       : #F6F6F6;
+$white-smoke : #F5F5F5;
+$silver      : #EFEFEF;
+$smoke       : #EEEEEE;
+$gainsboro   : #DDDDDD;
+$iron        : #CCCCCC;
+$base        : #AAAAAA;
+$aluminum    : #999999;
+$jumbo       : #888888;
+$monsoon     : #777777;
+$steel       : #666666;
+$charcoal    : #555555;
+$tuatara     : #444444;
+$oil         : #333333;
+$jet         : #222222;
+
 $black: #000000 !default;
 $white: #FFFFFF !default;
+$lighter-gray: $silver !default;
+$light-gray: $gainsboro !default;
+$gray: $aluminum !default;
+$dark-gray: $oil !default;
 
 $color-primary: $black !default;
-$color-secondary: $black !default;
-$color-tertiary: $white !default;
+$color-secondary: $white !default;
+$color-tertiary: $light-gray !default;
 
 // Spacing
 

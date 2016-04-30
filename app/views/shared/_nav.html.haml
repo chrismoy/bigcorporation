@@ -6,28 +6,28 @@
         %br
         CORP.
       %ul.nav-links
-        %li.nav-link.active
-          = link_to home_path do
-            %span home
+        %li.nav-link
+          = link_to home_path, class: "active" do
+            %span Home
         %li.nav-link 
           = link_to work_path do 
-            %span work
+            %span Work
         %li.nav-link
           = link_to about_path do 
-            %span about
+            %span About
         %li.nav-link
           = link_to contact_path do
-            %span contact
+            %span Contact
       .company-info
         .company-card
           %p.title
-            Big Corporation
+            Big Corporation Digital
           %p.address
             530 N Lake Shore Drive
             %br
             Chicago, IL, 60611
           %p.contact
-            (847)942-1853
+            (847) 942-1853
             %br
             hello@bigcorp.io
           %p.copyright

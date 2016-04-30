@@ -33,19 +33,22 @@ header {
         .nav-link {
           $font-size: scale-font(map-get($font-sizes, h5), sm);
 
-          color: $black;
           font-weight: $font-weight-normal;
           margin: 50px 0;
           text-decoration: none;
 
           a {
-            color: $black;
+            color: $light-gray;
             @include rem(font-size, $font-size);
             text-decoration: none;
-            text-transform: capitalize;
+            transition: color $transition-time $transition-function;
 
-            &:hover {
-              color: $color-primary;
+            &:hover:not(.active) {
+              color: $gray;
+            }
+
+            &.active {
+              color: $black;
             }
 
             span {

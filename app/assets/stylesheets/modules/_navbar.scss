@@ -2,24 +2,25 @@ header {
   display: inline-block;
   height: 100%;
 
-  .btn.btn-logo {
-    border-radius: 0;
-    border-bottom-right-radius: $btn-radius;
-    position: static;
-  }
-
   .nav-left {
-    background-color: white;
+    background-color: transparent;
     height: 100%;
     padding: $base-padding;
     position: relative;
     text-align: left;
 
     .nav-wrapper {
+      background-color: white;
       border: $btn-radius solid $black;
       border-radius: $btn-radius;
       height: 100%;
       width: 100%;
+
+      .btn.btn-logo {
+        border-radius: 0;
+        border-bottom-right-radius: $btn-radius;
+        position: static;
+      }
 
       .nav-links {
         background-color: transparent;

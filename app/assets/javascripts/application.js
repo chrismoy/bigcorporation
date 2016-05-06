@@ -3,10 +3,11 @@
 //= require turbolinks
 //= require scrollReveal.min
 //= require jquery.fullPage.min
-//= require jquery.particleground.min
+//= require particles
 
 //= require init
 //= require app.turbolinks
 
 //= require app.menu
 //= require app.nav
+//= require app.particles

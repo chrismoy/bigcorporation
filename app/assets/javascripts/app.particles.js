@@ -4,20 +4,20 @@ App.Particles = {
     particlesJS(tag, {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 75,
           "density": {
             "enable": true,
-            "value_area": 800
+            "value_area": 600
           }
         },
         "color": {
-          "value": "#FF0000"
+          "value": "#000000"
         },
         "shape": {
           "type": "circle",
           "stroke": {
-            "width": 5,
-            "color": "#00FF00"
+            "width": 0,
+            "color": "#FFFFFF"
           },
           "polygon": {
             "nb_sides": 5
@@ -50,15 +50,15 @@ App.Particles = {
         },
         "line_linked": {
           "enable": true,
-          "distance": 150,
+          "distance": 200,
           "color": "#000000",
           "opacity": 0.3,
           "width": 1
         },
         "move": {
           "enable": true,
-          "speed": 6,
-          "direction": "none",
+          "speed": 1,
+          "direction": "right",
           "random": false,
           "straight": false,
           "out_mode": "out",
@@ -74,11 +74,11 @@ App.Particles = {
         "detect_on": "canvas",
         "events": {
           "onhover": {
-            "enable": true,
+            "enable": false,
             "mode": "grab"
           },
           "onclick": {
-            "enable": true,
+            "enable": false,
             "mode": "push"
           },
           "resize": true

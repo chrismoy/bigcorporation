@@ -11,7 +11,7 @@ App.Particles = {
           }
         },
         "color": {
-          "value": "#000000"
+          "value": "#009ACD"
         },
         "shape": {
           "type": "circle",
@@ -29,7 +29,7 @@ App.Particles = {
           }
         },
         "opacity": {
-          "value": 0.5,
+          "value": 0.67,
           "random": false,
           "anim": {
             "enable": false,
@@ -39,7 +39,7 @@ App.Particles = {
           }
         },
         "size": {
-          "value": 3,
+          "value": 2,
           "random": true,
           "anim": {
             "enable": false,
@@ -51,8 +51,8 @@ App.Particles = {
         "line_linked": {
           "enable": true,
           "distance": 200,
-          "color": "#000000",
-          "opacity": 0.3,
+          "color": "#009ACD",
+          "opacity": 0.67,
           "width": 1
         },
         "move": {

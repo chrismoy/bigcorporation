@@ -24,12 +24,11 @@
   @include hamburger(sm);
 
   &-hamburger {
-    $bar-spacing: 19.0983005625%; // (1 - $golden-inverse) * 0.5 * 100%
-
     background-color: transparent;
     position: relative;
 
-    &_prompt {      
+    &_prompt {
+      color: $btn-hamburger-prompt-color; 
       line-height: 1;
       position: absolute;
       right: 120%;
@@ -42,7 +41,7 @@
     }
 
     &_bar, &:before, &:after {
-      background-color: $color-primary;
+      background-color: $btn-hamburger-color;
       border-radius: $base-radius;
       display: inline-block;
       position: absolute;
@@ -60,8 +59,8 @@
       @include synced-transitions(transform, top);
     }
 
-    &:before { top: $bar-spacing; }
-    &:after { bottom: $bar-spacing; }
+    &:before { top: $btn-hamburger-bar-spacing; }
+    &:after { bottom: $btn-hamburger-bar-spacing; }
 
     &-active {
 

@@ -15,6 +15,13 @@
     display: table;
   }
 
+  &-centered {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
   &-fill {
     height: 100%;
     width: 100%;
@@ -27,22 +34,6 @@
   min-height: 1px;
   @include rem(padding, $vert-column-gutter $horiz-column-gutter);
   vertical-align: top;
-
-  @media #{$sm-up} {
-    @include columnify($column-groups, $namespace-column, sm);
-  }
-
-  @media #{$md-up} {
-    @include columnify($column-groups, $namespace-column, md);
-  }
-
-  @media #{$lg-up} {
-    @include columnify($column-groups, $namespace-column, lg);
-  }
-
-  @media #{$xl-up} {
-    @include columnify($column-groups, $namespace-column, xl);
-  }
 
   // Centers the column in the grid and clears the row of all other columns
   &.#{$namespace-column}-centered {
@@ -65,6 +56,22 @@
   // Align column to the middle.
   &.#{$namespace-column}-am {
     vertical-align: middle;
+  }
+
+  @media #{$sm-up} {
+    @include columnify($column-groups, $namespace-column, sm);
+  }
+
+  @media #{$md-up} {
+    @include columnify($column-groups, $namespace-column, md);
+  }
+
+  @media #{$lg-up} {
+    @include columnify($column-groups, $namespace-column, lg);
+  }
+
+  @media #{$xl-up} {
+    @include columnify($column-groups, $namespace-column, xl);
   }
 }
 

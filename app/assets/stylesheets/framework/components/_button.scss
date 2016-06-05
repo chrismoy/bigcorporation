@@ -16,6 +16,7 @@
   line-height: 1;
   outline: 0;
   position: relative;
+  @include transition(all);
 
   &:hover {
     cursor: pointer;

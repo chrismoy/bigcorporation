@@ -21,6 +21,7 @@
 @import "framework/mixins/grid";
 @import "framework/mixins/standards";
 @import "framework/mixins/transitions";
+@import "framework/mixins/visibility";
 
 // Components
 
@@ -33,3 +34,4 @@
 @import "framework/components/navbar";
 @import "framework/components/section";
 @import "framework/components/typography";
+@import "framework/components/visibility";

@@ -1,1 +1,57 @@
+/// Show an element by default, and hide it above a certain screen size.
+/// 
 
+@mixin hide(
+  $append: false
+) {
+
+  @each $size in $screen-sizes {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @if $append {
+      &#{capitalize($modifier)}Up {
+        @media #{$viewport} {
+          display: none !important;
+        }
+      }
+    } @else {
+
+      @error $modifier, $viewport;
+      &-#{$modifier}Up {
+        @media #{$viewport} {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+/// Hide an element by default, and show it above a certain screen size.
+/// 
+
+@mixin show(
+  $append: false
+) {
+
+  @each $size in $screen-sizes-inverse {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @if $append {
+      &#{capitalize($modifier)}Up {
+        @media #{$viewport} {
+          display: none !important;
+        }
+      }
+    } @else {
+      &-#{$modifier}Up {
+        @media #{$viewport} {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

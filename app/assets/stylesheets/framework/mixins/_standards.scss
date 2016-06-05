@@ -26,6 +26,8 @@
       height: 100%;
     }
     &Left {
+      @include hide($append: true);
+
       @include rem(padding-left, $navbar-width);
       width: 100%;
     }

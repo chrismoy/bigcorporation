@@ -1,36 +1,9 @@
 %header
+  = render partial: "shared/menu"
+
   = button_tag(class: "btn btn-nav btn-large btn-logo", id: "brand-logo") do
     BIG
     %br
     CORP.
 
-  = render partial: "framework/buttons/hamburger", style: "float: right;"
-  .nav.nav-left.nav-fullLeft
-    .nav-wrapper
-      %ul.nav-links
-        %li.nav-link
-          = link_to home_path, class: "active" do
-            %span Home
-        %li.nav-link 
-          = link_to work_path do 
-            %span Work
-        %li.nav-link
-          = link_to about_path do 
-            %span About
-        %li.nav-link
-          = link_to contact_path do
-            %span Contact
-      .company-info
-        .company-card
-          %p.title
-            Big Corporation Digital
-          %p.address
-            530 N Lake Shore Drive
-            %br
-            Chicago, IL, 60611
-          %p.contact
-            (847) 942-1853
-            %br
-            hello@bigcorp.io
-          %p.copyright
-            Copyright © 2016
+  = render partial: "framework/buttons/hamburger"

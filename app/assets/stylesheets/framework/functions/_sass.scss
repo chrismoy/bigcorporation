@@ -81,3 +81,18 @@
 ) {
   @return join($value, $list);
 }
+
+/// Capitalizes a string
+///
+/// @param {String} $string [null]
+/// A sass string
+///
+
+@function capitalize(
+  $string: null
+) {
+
+  $error: string-error($string);
+
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}

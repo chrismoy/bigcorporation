@@ -1,0 +1,12 @@
+.hidden {
+  display: none;
+
+  @include hide();
+}
+
+.show {
+
+  @include show();
+}
+
+

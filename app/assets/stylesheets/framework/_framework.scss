@@ -1,7 +1,8 @@
 // Base functions
 
-@import "framework/functions/sass";
+@import "framework/functions/general";
 @import "framework/functions/math";
+@import "framework/mixins/general";
 
 // Settings
 
@@ -17,7 +18,6 @@
 // Mixins
 
 @import "framework/mixins/buttons";
-@import "framework/mixins/general";
 @import "framework/mixins/grid";
 @import "framework/mixins/standards";
 @import "framework/mixins/transitions";

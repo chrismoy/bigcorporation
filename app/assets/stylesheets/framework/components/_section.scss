@@ -2,6 +2,7 @@
   @include clearNav(sm);
 
   height: 100%;
+  padding: 0;
   width: 100%;
 
   @each $size in $screen-sizes {

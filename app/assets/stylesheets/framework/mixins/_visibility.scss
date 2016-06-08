@@ -1,57 +1,25 @@
-/// Show an element by default, and hide it above a certain screen size.
-/// 
+/// Hide an element by default, and hide it above a certain screen size.
+///
+/// @param {Bool} $append [false]
+/// Whether to append to an existing block modifier or to be an independent block modifier
+///
 
 @mixin hide(
   $append: false
 ) {
 
-  @each $size in $screen-sizes {
-
-    $viewport: nth($size, 1);
-    $modifier: nth($size, 2);
-
-    @if $append {
-      &#{capitalize($modifier)}Up {
-        @media #{$viewport} {
-          display: none !important;
-        }
-      }
-    } @else {
-
-      @error $modifier, $viewport;
-      &-#{$modifier}Up {
-        @media #{$viewport} {
-          display: none !important;
-        }
-      }
-    }
-  }
+  @include andUp(display, none, $append);
 }
 
-/// Hide an element by default, and show it above a certain screen size.
-/// 
+/// Show an element by default, and show it above a certain screen size.
+///
+/// @param {Bool} $append [false]
+/// Whether to append to an existing block modifier or to be an independent block modifier
+///
 
 @mixin show(
   $append: false
 ) {
 
-  @each $size in $screen-sizes-inverse {
-
-    $viewport: nth($size, 1);
-    $modifier: nth($size, 2);
-
-    @if $append {
-      &#{capitalize($modifier)}Up {
-        @media #{$viewport} {
-          display: none !important;
-        }
-      }
-    } @else {
-      &-#{$modifier}Up {
-        @media #{$viewport} {
-          display: none !important;
-        }
-      }
-    }
-  }
+  @include andDown(display, none, $append);
 }

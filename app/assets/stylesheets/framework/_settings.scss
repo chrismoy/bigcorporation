@@ -134,7 +134,7 @@ $xl-up: "#{$screen} and (min-width: #{lower-bound($view-range-xl)})" !default;
 $xl-only: "#{$screen} and (min-width: #{lower-bound($view-range-xl)}) and (max-width:#{upper-bound($view-range-xl)})" !default;
 
 $screen-sizes: ($md-up md, $lg-up lg, $xl-up xl);
-$screen-sizes-inverse: ($md-down md, $lg-down lg);
+$screen-sizes-inverse: ($sm-only sm, $md-down md, $lg-down lg);
 
 // c. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -

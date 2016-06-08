@@ -20,7 +20,7 @@
 
   @each $value in $values {
 
-    @if $value == 0 or unit($value) == '%' or type-of($value) != number {
+    @if type-of($value) != number or $value == 0 or unit($value) == '%' {
       $px : append($px , $value);
       $rem: append($rem, $value);
     }
@@ -50,3 +50,86 @@
   }
 }
 
+/// Returns settings to a specified value for a property for the various screen sizers as specified in
+/// $screen-sizes in settings.scss
+///
+/// @param {String} $property [null]
+/// A property to be set
+///
+/// @param {String/Number} $value [null]
+/// The value of the property to be set
+///
+/// @param {Bool} $append [false]
+/// Whether to append to an existing block modifier or to be an independent block modifier
+///
+
+@mixin andUp(
+  $property: null,
+  $value: null,
+  $append: false
+) {
+
+  $error: string-error($property);
+
+  @each $size in $screen-sizes {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @if $append {
+      &#{capitalize($modifier)}Up {
+        @media #{$viewport} {
+          @include rem($property, $value);
+        }
+      }
+    } @else {
+      &-#{$modifier}Up {
+        @media #{$viewport} {
+          @include rem($property, $value);
+        }
+      }
+    }
+  }
+}
+
+/// Returns settings to a specified value for a property for the various screen sizers as specified in
+/// $screen-sizes-inverse in settings.scss
+///
+/// @param {String} $property [null]
+/// A property to be set
+///
+/// @param {String/Number} $value [null]
+/// The value of the property to be set
+///
+/// @param {Bool} $append [false]
+/// Whether to append to an existing block modifier or to be an independent block modifier
+///
+
+@mixin andDown(
+  $property: null,
+  $value: null,
+  $append: false
+) {
+
+  $error: string-error($property);
+
+  @each $size in $screen-sizes-inverse {
+
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
+
+    @if $append {
+      &#{capitalize($modifier)}Up {
+        @media #{$viewport} {
+          @include rem($property, $value);
+        }
+      }
+    } @else {
+      &-#{$modifier}Up {
+        @media #{$viewport} {
+          @include rem($property, $value);
+        }
+      }
+    }
+  }
+}

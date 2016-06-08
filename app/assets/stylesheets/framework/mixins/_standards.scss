@@ -1,4 +1,27 @@
+/// Returns a set of base styles for all navbars
+///
+
+// @mixin navBase(
+// ) {
+//   &-full {
+//     &Bottom { width: 100%; }
+//     &Left { height: 100%; }
+//     &Right { height: 100%; }
+//     &Top { width: 100%; }
+//   }
+
+//   &-clear {
+//     &Bottom { height: 100%; }
+//     &Left { width: 100%; }
+//     &Right { width: 100%; }
+//     &Top { height: 100%; }
+//   }
+// }
+
 /// Returns a set of classes to set the correct window area based on navbar position
+///
+/// @param {String} $viewport [null]
+/// The viewport definition for the desired screen size ('only screen and (max-width: 641px)')
 ///
 /// @param {String} $modifier [null]
 /// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
@@ -13,29 +36,20 @@
   $navbar-height: scale-navbar(scale-sf($navbar-font-size, 2), $modifier);
   $navbar-width: scale-navbar($navbar-width-vertical, $modifier);
 
-  &-full {
-    &Bottom { width: 100%; }
-    &Left { height: 100%; }
-    &Right { height: 100%; }
-    &Top { width: 100%; }
-  }
-
   &-clear {
-    &Bottom {
+    &Bottom#{capitalize($modifier)} {
       @include rem(padding-bottom, $navbar-height);
       height: 100%;
     }
-    &Left {
-      @include hide($append: true);
-
+    &Left#{capitalize($modifier)} {
       @include rem(padding-left, $navbar-width);
       width: 100%;
     }
-    &Right {
+    &Right#{capitalize($modifier)} {
       @include rem(padding-right, $navbar-width);
       width: 100%;
     }
-    &Top {
+    &Top#{capitalize($modifier)} {
       @include rem(padding-top, $navbar-height);
       height: 100%;
     }

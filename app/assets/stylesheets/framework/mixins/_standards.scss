@@ -131,6 +131,52 @@
   }
 }
 
+/// Returns a standardized set of color classes for a given parent class
+///
+
+@mixin stdPosition(
+  $fixed: false
+) {
+
+  $position: nil;
+
+  @if $fixed {
+    $position: fixed;
+  } @else {
+    $position: absolute;
+  }
+
+  &-top {
+    
+    &Left {
+      left: 0;
+      position: $position;
+      top: 0;
+    }
+
+    &Right {
+      right: 0;
+      position: $position;
+      top: 0;
+    }
+  }
+
+  &-bottom {
+    
+    &Left {
+      left: 0;
+      position: $position;
+      top: 0;
+    }
+
+    &Right {
+      right: 0;
+      position: $position;
+      top: 0;
+    }
+  }
+}
+
 /// Returns a standardized set of spacing (margin/padding) classes
 ///
 

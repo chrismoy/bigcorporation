@@ -33,40 +33,99 @@
 }
 
 /// Returns the viewport-dependent sizing attributes for a hamburger button
+/// Adapted from Joren Vanhee's sass-burger
 ///
 /// @param {String} $modifier [null]
 /// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
 ///
 
-@mixin hamburger(
-  $modifier: null
-) {
+@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
+  $burger-height: $height !global;
+  $burger-gutter: $gutter !global;
 
-  $error: string-error($modifier);
+  position: relative;
+  margin-top: $height + $gutter;
+  margin-bottom: $height + $gutter;
 
-  $font-size: scale-font($btn-font-size, $modifier);
-
-  &-hamburger {
-    border-radius: 0;
+  & {
     padding: 0;
+  }
 
-    &_prompt {
-      @include rem(font-size, $font-size);
-      @include rem(margin-top, -0.5 * $font-size);
+  &, &::before, &::after {
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+
+    @if $border-radius != 0 {
+      border-radius: $border-radius;
     }
 
-    &_bar, &:before, &:after {
-      @include rem(height, scale-hambar($modifier));
-    }
+    transition-property: background-color, transform;
+    transition-duration: $transition-duration;
+  }
 
-    &_bar {
-      @include rem(margin-top, -0.5 * scale-hambar($modifier));
-    }
+  &::before, &::after {
+    position: absolute;
+    content: "";
+  }
 
-    &-active {
-      &:before, &:after {
-        margin-top: -0.5 * scale-hambar($modifier);
-      }
+  &::before {
+    top: -($height + $gutter);
+  }
+
+  &::after {
+    top: $height + $gutter;
+  }
+
+  // TODO, set prompt variables
+
+  &_prompt {
+    @include rem(font-size, 2rem);
+    @include rem(margin-top, -0.5 * 2rem);
+  }
+}
+
+// Burger animations
+@mixin burger-to-cross($color: auto) {
+  & {
+    background-color: transparent;
+  }
+  @if ($color != auto) {
+    &::before, &::after {
+      background-color: $color;
     }
+  }
+  &::before {
+    transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+  }
+  &::after {
+    transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+  }
+}
+
+
+// Select parts of the burger
+@mixin burger-parts {
+  &, &::before, &::after {
+    @content;
+  }
+}
+
+@mixin burger-top {
+  &::before {
+    @content;
+  }
+}
+
+@mixin burger-middle {
+  & {
+    @content;
+  }
+}
+
+@mixin burger-bottom {
+  &::after {
+    @content;
   }
 }

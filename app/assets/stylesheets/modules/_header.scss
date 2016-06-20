@@ -1,6 +1,13 @@
+$nav-links-margin: (
+  sm: 100px,
+  md: 125px,
+  lg: 150px,
+  xl: 175px
+);
+
 header {
-  display: inline-block;
-  height: 100%;
+
+  // width: 100%;
 
   .btn {
     &.btn-logo {
@@ -12,13 +19,6 @@ header {
       &:hover {
         color: $theme-blue;
       }
-    }
-
-    &.btn-hamburger {
-      right: $base-padding;
-      position: absolute;
-      top: $base-padding;
-      z-index: 1;
     }
   }
 
@@ -38,12 +38,10 @@ header {
 
       .nav-links {
         background-color: transparent;
-        left: 50%;
         list-style-type: none;
+        margin-top: map-get($nav-links-margin, sm);
         padding: 0;
-        position: absolute;
         text-align: center;
-        top: 0;
 
         .nav-link {
           $font-size: scale-font(map-get($font-sizes, h5), sm);
@@ -100,6 +98,30 @@ header {
 
           &:last-child {
             margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    @each $size in $screen-sizes {
+
+      $viewport: nth($size, 1);
+      $modifier: nth($size, 2);
+
+      @media #{$viewport} {
+        @include clearNav($modifier);
+
+        &-bottom, &-top {
+          @include rem(height, scale-navbar($navbar-height-horizontal, $modifier));
+        }
+
+        &-left, &-right {
+          @include rem(width, scale-navbar($navbar-width-vertical, $modifier));
+        }
+
+        .nav-wrapper {
+          .nav-links {
+            margin-top: map-get($nav-links-margin, $modifier);
           }
         }
       }

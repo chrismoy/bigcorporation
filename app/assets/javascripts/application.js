@@ -2,8 +2,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require scrollReveal.min
-//= require jquery.fullPage.min
-//= require particles
+//= require particles.min
 
 //= require init
 //= require app.turbolinks

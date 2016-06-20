@@ -5,6 +5,6 @@ App.Menu = {
 }
 
 $(document).on( "click", "[data-behavior~=toggle-menu]", function() {
-  $(this).toggleClass("btn-hamburger-active");
+  $(this).children('.btn-hamburger').toggleClass("btn-hamburger-active");
   App.Menu.toggle();
 });

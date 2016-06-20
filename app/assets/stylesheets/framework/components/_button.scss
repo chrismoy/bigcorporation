@@ -8,8 +8,10 @@
   @include stdBg();
   @include stdColor();
   @include stdFloat();
+  @include stdPosition(true);
   @include stdSpacing();
 
+  background-color: transparent;
   border: none;
   box-sizing: border-box;
   font-family: $font-family-sans;
@@ -22,70 +24,8 @@
     cursor: pointer;
   }
 
-  @include hamburger(sm);
-
-  &-hamburger {
-    background-color: transparent;
-    position: relative;
-
-    &_prompt {
-      color: $btn-hamburger-prompt-color; 
-      line-height: 1;
-      position: absolute;
-      right: 120%;
-      top: 50%;
-      @include transition(all, 2);
-
-      &-active {
-        opacity: 0;
-      }
-    }
-
-    &_bar, &:before, &:after {
-      background-color: $btn-hamburger-color;
-      border-radius: $base-radius;
-      display: inline-block;
-      position: absolute;
-      right: 0;
-      width: 100%;
-    }
-
-    &_bar {
-      top: 50%;
-      @include transition(all, 2);
-    }
-
-    &:before, &:after {
-      content: "";
-      @include synced-transitions(transform, top);
-    }
-
-    &:before { top: $btn-hamburger-bar-spacing; }
-    &:after { bottom: $btn-hamburger-bar-spacing; }
-
-    &-active {
-
-      .btn-hamburger_prompt {
-        opacity: 0;
-
-        &-active {
-          opacity: 1;
-        }
-      }
-
-      .btn-hamburger_bar {
-        opacity: 0;
-        @include transition(all);
-      }
-
-      &:before, &:after {
-        top: 50%;
-        @include chained-transitions(top, transform);
-      }
-
-      &:before { transform: rotate(-45deg); }
-      &:after { transform: rotate(-135deg); }
-    }
+  &-ghost {
+    border: 1px solid black;
   }
 
   &-logo {
@@ -94,6 +34,16 @@
     font-style: oblique;
     font-weight: 700;
     text-align: left;
+  }
+
+  &-hamburger {
+    @include burger(100%, 3px, 5px, #444);
+
+    background-color: transparent;
+
+    &-active {
+      @include burger-to-cross;
+    }
   }
 
     // SIZE //
@@ -105,7 +55,14 @@
 
     @media #{$viewport} {
       @include btn-base($modifier);
-      @include hamburger($modifier);
+
+      &-hamburger {
+        @include burger(100%, 3px, 5px, #444);
+
+        &-active {
+          @include burger-to-cross;
+        }
+      }
     }
   }
 }

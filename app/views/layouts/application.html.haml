@@ -12,6 +12,9 @@
     = csrf_meta_tags
 
   %body
-    %main
+    %main.main
       = yield
-    = render partial: "shared/nav"
+    %header.header
+      = render partial: "shared/header"
+
+    = render partial: "framework/buttons/hamburger", locals: { mobile_only: true }

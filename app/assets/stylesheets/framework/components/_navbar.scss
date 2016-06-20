@@ -2,7 +2,7 @@
 
   display: block;
   font-weight: 700;
-  position: fixed;
+  position: relative;
 
   // BACKGROUND //
 
@@ -19,7 +19,7 @@
   &-left, &-right {
     min-height: $minimum-module-height;
     top: 0;
-    @include rem(width, scale-navbar($navbar-width-vertical, sm));
+    @include rem(width, 100%);
   }
 
   &-bottom { bottom: 0; }
@@ -42,7 +42,11 @@
       }
 
       &-left, &-right {
-        @include rem(width, scale-navbar($navbar-width-vertical, $modifier));
+        @if $modifier == md {
+          @include rem(width, 100%);
+        } @else {
+          @include rem(width, scale-navbar($navbar-width-vertical, $modifier));
+        }
       }
     }
   }

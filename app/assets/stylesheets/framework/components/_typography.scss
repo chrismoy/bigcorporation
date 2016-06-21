@@ -18,17 +18,17 @@ h3 {
 }
 
 h4 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h3), sm));
+  @include rem(font-size, scale-font(map-get($font-sizes, h4), sm));
   font-weight: $font-weight-normal;
 }
 
 h5 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h3), sm));
+  @include rem(font-size, scale-font(map-get($font-sizes, h5), sm));
   font-weight: $font-weight-lighter;
 }
 
 h6 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h3), sm));
+  @include rem(font-size, scale-font(map-get($font-sizes, h6), sm));
   font-weight: $font-weight-lighter;
 }
 

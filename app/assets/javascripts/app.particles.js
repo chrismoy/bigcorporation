@@ -4,7 +4,7 @@ App.Particles = {
     particlesJS(tag, {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 100,
           "density": {
             "enable": true,
             "value_area": 1000
@@ -57,7 +57,7 @@ App.Particles = {
         },
         "move": {
           "enable": true,
-          "speed": 1,
+          "speed": 0.5,
           "direction": "right",
           "random": false,
           "straight": false,

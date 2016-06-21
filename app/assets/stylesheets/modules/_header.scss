@@ -29,7 +29,7 @@ header {
 
     .nav-wrapper {
       background-color: white;
-      border: 0 solid $black;
+      border: $btn-radius solid white;
       border-radius: 0;
       height: 100%;
       width: 100%;
@@ -121,8 +121,8 @@ header {
           padding: $base-padding;
 
           .nav-wrapper {
+            border-color: $black;
             border-radius: $btn-radius;
-            border-width: $btn-radius;
           }
         }
 

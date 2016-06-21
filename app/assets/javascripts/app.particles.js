@@ -4,10 +4,10 @@ App.Particles = {
     particlesJS(tag, {
       "particles": {
         "number": {
-          "value": 75,
+          "value": 100,
           "density": {
             "enable": true,
-            "value_area": 600
+            "value_area": 1000
           }
         },
         "color": {

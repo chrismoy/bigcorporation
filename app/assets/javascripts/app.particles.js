@@ -57,7 +57,7 @@ App.Particles = {
         },
         "move": {
           "enable": true,
-          "speed": 1,
+          "speed": 0.75,
           "direction": "right",
           "random": false,
           "straight": false,

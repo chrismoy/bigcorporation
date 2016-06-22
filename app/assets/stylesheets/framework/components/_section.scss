@@ -1,9 +1,9 @@
 .section {
   @include clearNav(sm);
 
-  height: 100%;
-  padding: 0;
-  width: 100%;
+  height: $section-height;
+  padding: $section-padding;
+  width: $section-width;
 
   @each $size in $screen-sizes {
 

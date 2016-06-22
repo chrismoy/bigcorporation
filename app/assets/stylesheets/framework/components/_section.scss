@@ -2,7 +2,7 @@
   @include clearNav(sm);
 
   height: $section-height;
-  padding: $section-padding;
+  padding: $section-padding-top $section-padding-right $section-padding-bottom $section-padding-left;
   width: $section-width;
 
   @each $size in $screen-sizes {

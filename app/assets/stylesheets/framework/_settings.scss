@@ -181,7 +181,8 @@ $font-sizes: (
   small: map-get($scale-forward, small) * $base-font-size
 ) !default;
 
-$headings: (h1 h2 h3 h4 h5 h6);
+$headings: (h1 h2 h3 h4 h5 h6) !default;
+$heading-margin: 0 !default;
 
 $font-line-height: 1 !default;
 $font-sans-primary: 'Futura' !default;
@@ -238,6 +239,15 @@ $navbar-position-left: (top: 0, bottom: 0, left: 0) !default;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 $section-padding: $base-padding !default;
+
+$section-padding-vertical: $section-padding !default;
+$section-padding-horizontal: $section-padding !default;
+
+$section-padding-top: $section-padding-vertical !default;
+$section-padding-right: $section-padding-horizontal !default;
+$section-padding-bottom: $section-padding-vertical !default;
+$section-padding-left: $section-padding-horizontal !default;
+
 $section-height: 100% !default;
 $section-width: 100% !default;
 

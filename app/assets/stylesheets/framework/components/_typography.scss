@@ -1,5 +1,5 @@
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+  margin: $heading-margin;
 }
 
 h1 {
@@ -32,46 +32,35 @@ h6 {
   font-weight: $font-weight-lighter;
 }
 
-@each $heading in $headings {
-  @each $size in $screen-sizes {
-
-    $viewport: nth($size, 1);
-    $modifier: nth($size, 2);
-
-    #{$heading} {
-
-      @media #{$viewport} {
-        @include rem(font-size, scale-font(map-get($font-sizes, $heading), $modifier));
-      }
-    }
-  }
-}
-
 p {
   @include rem(font-size, scale-font(map-get($font-sizes, p), sm));
   font-weight: $font-weight-normal;
-
-  @each $size in $screen-sizes {
-
-    $viewport: nth($size, 1);
-    $modifier: nth($size, 2);
-
-    @media #{$viewport} {
-      @include rem(font-size, scale-font(map-get($font-sizes, p), $modifier));
-    }
-  }
 }
 
 small {
   @include rem(font-size, scale-font(map-get($font-sizes, small), sm));
   font-weight: $font-weight-normal;
+}
 
-  @each $size in $screen-sizes {
+@each $size in $screen-sizes {
 
-    $viewport: nth($size, 1);
-    $modifier: nth($size, 2);
+  $viewport: nth($size, 1);
+  $modifier: nth($size, 2);
 
-    @media #{$viewport} {
+  @media #{$viewport} {
+
+    @each $heading in $headings {
+
+      #{$heading} {
+        @include rem(font-size, scale-font(map-get($font-sizes, $heading), $modifier));
+      }
+    }
+
+    p {
+      @include rem(font-size, scale-font(map-get($font-sizes, p), $modifier));
+    }
+
+    small {
       @include rem(font-size, scale-font(map-get($font-sizes, small), $modifier));
     }
   }

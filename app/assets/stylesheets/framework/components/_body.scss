@@ -3,17 +3,17 @@
 }
 
 body {
-  background-color: $white;
-  font-family: $font-family-sans;
-  font-weight: 400;
-  line-height: 1;
+  background-color: $body-bg-color;
+  font-family: $body-font-primary;
+  font-weight: $font-weight-base;
+  line-height: $font-line-height-base;
   margin: 0;
   padding: 0;
   position: relative;
 }
 
 html {
-  font-family: Futura;
+  font-family: $font-family-primary;
   font-size: percentage($rem-scaler);
 }
 
@@ -23,7 +23,7 @@ html, body {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: $max-width;
 }
 
 .debug_dump {

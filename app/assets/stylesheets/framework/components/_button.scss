@@ -4,45 +4,24 @@
 @import "framework/functions/scaling/buttons";
 
 .btn {
-  @include btn-base(sm);
-  @include stdBg();
-  @include stdColor();
+  @include btnBase();
+  @include btnResponsive(sm);
   @include stdFloat();
   @include stdPosition(true);
   @include stdSpacing();
 
-  background-color: transparent;
-  border: none;
-  box-sizing: border-box;
-  font-family: $font-family-sans;
-  line-height: 1;
-  outline: 0;
-  position: relative;
-  @include transition(all);
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &-ghost {
-    border: 1px solid black;
-  }
-
-  &-logo {
-    background-color: black;
-    color: white;
-    font-style: oblique;
-    font-weight: 700;
-    text-align: left;
-  }
-
   &-hamburger {
-    @include burger(100%, 3px, 5px, #444);
-
-    background-color: transparent;
+    @include btn-hamburger();
 
     &-active {
-      @include burger-to-cross;
+      @include btn-hamburger-active();
+    }
+  }
+
+  @each $key in $btn-keys {
+
+    &-#{$key} {
+      @include btnTheme($key);
     }
   }
 
@@ -54,13 +33,13 @@
     $modifier: nth($size, 2);
 
     @media #{$viewport} {
-      @include btn-base($modifier);
+      @include btnResponsive($modifier);
 
       &-hamburger {
-        @include burger(100%, 3px, 5px, #444);
+        @include btn-hamburger();
 
         &-active {
-          @include burger-to-cross;
+          @include btn-hamburger-active();
         }
       }
     }

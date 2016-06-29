@@ -1,11 +1,4 @@
-$nav-links-margin: (
-  sm: 75px,
-  md: 100px,
-  lg: 150px,
-  xl: 250px
-);
-
-header {
+.header {
 
   .btn {
     &.btn-logo {
@@ -32,24 +25,32 @@ header {
       border: $btn-radius solid white;
       border-radius: 0;
       height: 100%;
+      position: relative;
       width: 100%;
 
       .nav-links {
         background-color: transparent;
         list-style-type: none;
-        margin-top: map-get($nav-links-margin, sm);
-        padding: 0;
-        text-align: center;
+        padding: 0 $base-spacing;
+        position: absolute;
+        text-align: right;
+        top: 50%;
+        transform: translate(0, -70%);
+        width: 100%;
 
         .nav-link {
           $font-size: scale-font(map-get($font-sizes, h5), sm);
 
           font-weight: $font-weight-normal;
-          margin: 50px 0;
+          letter-spacing: 4px;
+          margin: $base-spacing 0;
           text-decoration: none;
+          text-transform: uppercase;
+          transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
           a {
             color: $light-gray;
+            cursor: pointer;
             @include rem(font-size, $font-size);
             text-decoration: none;
             @include transition(color);
@@ -75,7 +76,7 @@ header {
       $font-size: scale-font(map-get($font-sizes, small), sm);
 
       background-color: white;
-      bottom: 2 * $base-padding;
+      bottom: $base-padding;
       left: 20%;
       position: absolute;
       width: 60%;
@@ -123,12 +124,6 @@ header {
           .nav-wrapper {
             border-color: $black;
             border-radius: $btn-radius;
-          }
-        }
-
-        .nav-wrapper {
-          .nav-links {
-            margin-top: map-get($nav-links-margin, $modifier);
           }
         }
       }

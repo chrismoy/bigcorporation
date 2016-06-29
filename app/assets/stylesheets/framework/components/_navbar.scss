@@ -1,12 +1,8 @@
 .nav {
 
   display: block;
-  // font-weight: 700;
   position: relative;
 
-  // BACKGROUND //
-
-  @include stdBg();
   @include clearNav(sm);
 
   // POSITION //

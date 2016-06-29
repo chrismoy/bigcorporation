@@ -1,45 +1,41 @@
-h1, h2, h3, h4, h5, h6 {
-  margin: $heading-margin;
-}
-
 h1 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h1), sm));
-  font-weight: $font-weight-bold;
+  @include typeBase(h1);
+  @include typeResponsive(h1, sm);
 }
 
 h2 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h2), sm));
-  font-weight: $font-weight-bold;
+  @include typeBase(h2);
+  @include typeResponsive(h2, sm);
 }
 
 h3 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h3), sm));
-  font-weight: $font-weight-normal;
+  @include typeBase(h3);
+  @include typeResponsive(h3, sm);
 }
 
 h4 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h4), sm));
-  font-weight: $font-weight-normal;
+  @include typeBase(h4);
+  @include typeResponsive(h4, sm);
 }
 
 h5 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h5), sm));
-  font-weight: $font-weight-lighter;
+  @include typeBase(h5);
+  @include typeResponsive(h5, sm);
 }
 
 h6 {
-  @include rem(font-size, scale-font(map-get($font-sizes, h6), sm));
-  font-weight: $font-weight-lighter;
+  @include typeBase(h6);
+  @include typeResponsive(h6, sm);
 }
 
 p {
-  @include rem(font-size, scale-font(map-get($font-sizes, p), sm));
-  font-weight: $font-weight-normal;
+  @include typeBase(h6);
+  @include typeResponsive(p, sm);
 }
 
 small {
-  @include rem(font-size, scale-font(map-get($font-sizes, small), sm));
-  font-weight: $font-weight-normal;
+  @include typeBase(h6);
+  @include typeResponsive(small, sm);
 }
 
 @each $size in $screen-sizes {
@@ -49,19 +45,36 @@ small {
 
   @media #{$viewport} {
 
-    @each $heading in $headings {
+    h1 {
+      @include typeResponsive(h1, $modifier);
+    }
 
-      #{$heading} {
-        @include rem(font-size, scale-font(map-get($font-sizes, $heading), $modifier));
-      }
+    h2 {
+      @include typeResponsive(h2, $modifier);
+    }
+
+    h3 {
+      @include typeResponsive(h3, $modifier);
+    }
+
+    h4 {
+      @include typeResponsive(h4, $modifier);
+    }
+
+    h5 {
+      @include typeResponsive(h5, $modifier);
+    }
+
+    h6 {
+      @include typeResponsive(h6, $modifier);
     }
 
     p {
-      @include rem(font-size, scale-font(map-get($font-sizes, p), $modifier));
+      @include typeResponsive(p, $modifier);
     }
 
     small {
-      @include rem(font-size, scale-font(map-get($font-sizes, small), $modifier));
+      @include typeResponsive(small, $modifier);
     }
   }
 }

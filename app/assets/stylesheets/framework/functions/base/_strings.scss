@@ -1,3 +1,20 @@
+/// Capitalizes a string
+///
+/// @param {String} $string [null]
+/// A sass string
+///
+/// @return {String}
+///
+
+@function capitalize(
+  $string: null
+) {
+
+  $error: string-error($string);
+
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
 /// Appends a dash to a string or returns an empty string for an empty input
 ///
 /// @param {String} $n ['']
@@ -32,4 +49,21 @@
   } @else {
     @return '-' + $string;
   }
+}
+
+/// Turns an element selector into a class
+///
+/// @param {String} $selector [null]
+/// A css element selector
+///
+/// @return {String}
+///
+
+@function toClass(
+  $selector: null
+) {
+
+  $error: string-error($selector);
+
+  @return ".#{$selector}";
 }

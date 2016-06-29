@@ -1,6 +1,7 @@
 App.Menu = {
   toggle: function() {
-    $('.menu').fadeToggle( "200" );
+    $('.header').addClass( 'header-active' );
+    $('.menu').fadeToggle( '200' );
   }
 }
 

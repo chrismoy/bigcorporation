@@ -1,8 +1,16 @@
-// Base functions
+// Base Functions
 
-@import "framework/functions/general";
-@import "framework/functions/math";
-@import "framework/mixins/general";
+@import "framework/functions/base/errors";
+@import "framework/functions/base/lists";
+@import "framework/functions/base/maps";
+@import "framework/functions/base/numbers";
+@import "framework/functions/base/strings";
+@import "framework/functions/base/units";
+
+// Base Mixins
+
+@import "framework/mixins/base/screens";
+@import "framework/mixins/base/units";
 
 // Settings
 
@@ -11,21 +19,21 @@
 // Functions
 
 @import "framework/functions/scaling/general";
-@import "framework/functions/errors";
-@import "framework/functions/strings";
-@import "framework/functions/units";
 
 // Mixins
 
-@import "framework/mixins/buttons";
+@import "framework/mixins/button";
 @import "framework/mixins/grid";
 @import "framework/mixins/standards";
-@import "framework/mixins/transitions";
+@import "framework/mixins/transition";
+@import "framework/mixins/typography";
 @import "framework/mixins/visibility";
 
-// Components
+// Base Components
 
 @import "framework/components/body";
+
+// Components
 
 @import "framework/components/button";
 @import "framework/components/grid";

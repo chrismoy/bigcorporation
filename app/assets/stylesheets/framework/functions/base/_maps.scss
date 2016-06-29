@@ -1,0 +1,35 @@
+/// Incrementally searches through nested maps to retrieve a value
+///
+/// @param {Map} $map [null]
+/// Any sass map object.
+///
+/// @param {List} $keys []
+/// A list of the map keys from least to most specific.
+///
+/// @return {String/Number}
+///
+
+@function map-nested-get(
+  $map: null,
+  $keys...
+) {
+
+  // TODO: figure out why $error: map-error($map); is invalid
+  @if type-of($map) != map { $error: map-error($map); }
+
+  $key-count: length($keys);
+  $ret: map-get($map, nth($keys, 1));
+
+  @while $key-count > 1 {
+    $keys: remove-nth($keys, 1);
+    $key-count: length($keys);
+
+    @if $ret == null {
+      @error "incorrect ordering of keys for nested-get";
+    }
+
+    $ret: map-get($ret, nth($keys, 1));
+  }
+
+  @return $ret;
+}

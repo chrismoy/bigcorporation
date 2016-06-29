@@ -1,0 +1,49 @@
+/// Adds a value to the beginning of a sass list
+///
+/// @param {Map} $list [null]
+/// A sass list
+///
+/// @param {List} $value []
+/// A value to be added to the front of the list
+///
+/// @return {List}
+///
+
+@function prepend(
+  $list: null,
+  $value: null
+) {
+  @return join($value, $list);
+}
+
+/// Recursively searches through nested maps to retrieve a value
+///
+/// @param {List} $list [()]
+/// Any sass list object.
+///
+/// @param {Number} $index [null]
+/// The index of the desired removal. Can be negative to remove from rear.
+///
+/// @return {List}
+///
+
+@function remove-nth(
+  $list: (),
+  $index: null
+) {
+  
+  $error: number-error($index);
+  $error: nth-zero-error($index);
+  $error: list-error($list, $index);
+
+  $result: ();
+  $index: if($index < 0, length($list) + $index + 1, $index);
+
+  @for $i from 1 through length($list) {
+    @if $i != $index {
+      $result: append($result, nth($list, $i));
+    }
+  }
+
+  @return $result;
+}

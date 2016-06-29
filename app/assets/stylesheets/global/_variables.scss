@@ -36,8 +36,8 @@ $base-transition: 0.2s;
 
   // Customs //
 
-  $light-green: #24C2AF;
-  $dark-green: #1C9C8D;
+  // $light-green: #24C2AF;
+  // $dark-green: #1C9C8D;
 
   $theme-blue: #009ACD;
 
@@ -69,7 +69,7 @@ $base-transition: 0.2s;
 
 $golden-ratio: 1.61803398875;
 $golden-inverse: 0.61803398875;
-$color-primary: $light-green;
-$color-secondary: $dark-green;
+$color-primary: $theme-blue;
+$color-secondary: $white;
 $color-tertiary: $black;
 

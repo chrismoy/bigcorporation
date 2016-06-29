@@ -10,8 +10,10 @@
 // b. Media Queries
 // c. Grid
 // d. Typography
-//  . Buttons
+//  . Body
+//  . Button
 //  . Navbar
+//  . Section
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // a. Base
@@ -46,9 +48,11 @@ $scale-responsive: (
 ) !default;
 
 $minimum-module-height: 400px;
+
 // Border
 
-$base-radius: 0.3rem !default;
+$base-radius: 3px !default;
+$base-border-width: 1px !default;
 
 // Colors
 
@@ -85,9 +89,9 @@ $color-tertiary: $light-gray !default;
 
 // Spacing
 
-$base-spacing-unit: 3rem !default;
-$base-padding: 0.5 * $base-spacing-unit;
-$base-margin: 0.5 * $base-spacing-unit;
+$base-spacing: 3rem !default;
+$base-padding: 0.5 * $base-spacing;
+$base-margin: 0.5 * $base-spacing;
 
 // Transitions
 
@@ -104,7 +108,7 @@ $view-breakpoint-lg: 1400px !default;
 $view-breakpoint-md: 1024px !default;
 $view-breakpoint-sm: 640px !default;
 
-$max-width: 1400px;
+$max-width: 1400px !default;
 
 // Ranges
 
@@ -170,21 +174,12 @@ $horiz-column-gutter: 0;
 
 $base-font-size: 16px !default;
 
-$font-sizes: (
-  h6: map-get($scale-forward, 1) * $base-font-size,
-  h5: map-get($scale-forward, 2) * $base-font-size,
-  h4: map-get($scale-forward, 3) * $base-font-size,
-  h3: map-get($scale-forward, 4) * $base-font-size,
-  h2: map-get($scale-forward, 5) * $base-font-size,
-  h1: map-get($scale-forward, 6) * $base-font-size,
-  p: map-get($scale-forward, 1) * $base-font-size,
-  small: map-get($scale-forward, small) * $base-font-size
-) !default;
-
-$headings: (h1 h2 h3 h4 h5 h6) !default;
 $heading-margin: 0 !default;
 
-$font-line-height: 1 !default;
+$p-margin: 0 !default;
+
+$small-margin: 0 !default;
+
 $font-sans-primary: 'Futura' !default;
 $font-sans-secondary: 'Futura Condensed' !default;
 $font-sans-fallback: Helvetica, sans-serif !default;
@@ -203,19 +198,113 @@ $font-weight-lighter: 200;
 $font-style-normal: normal;
 $font-style-italic: oblique;
 
-// . Buttons
+$font-family-primary: $font-family-sans !default;
+$font-family-secondary: $font-family-serif !default;
+
+$font-sizes: (
+  p:      map-get($scale-forward, 1) * $base-font-size,
+  small:  map-get($scale-forward, small) * $base-font-size,
+  h6:     map-get($scale-forward, 1) * $base-font-size,
+  h5:     map-get($scale-forward, 2) * $base-font-size,
+  h4:     map-get($scale-forward, 3) * $base-font-size,
+  h3:     map-get($scale-forward, 4) * $base-font-size,
+  h2:     map-get($scale-forward, 5) * $base-font-size,
+  h1:     map-get($scale-forward, 6) * $base-font-size
+) !default;
+
+$font-weights: (
+  p:      $font-weight-normal,
+  small:  $font-weight-lighter,
+  h6:     $font-weight-lighter,
+  h5:     $font-weight-lighter,
+  h4:     $font-weight-normal,
+  h3:     $font-weight-normal,
+  h2:     $font-weight-bold,
+  h1:     $font-weight-bold
+) !default;
+
+$type-margins: (
+  p:      $p-margin,
+  small:  $small-margin,
+  h6:     $heading-margin,
+  h5:     $heading-margin,
+  h4:     $heading-margin,
+  h3:     $heading-margin,
+  h2:     $heading-margin,
+  h1:     $heading-margin
+) !default;
+
+$font-family-base: $font-family-primary !default;
+$font-weight-base: map-get($font-weights, p) !default;
+$font-line-height-base: 1 !default;
+
+// . Body
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$body-bg-color: $white !default;
+$body-font-primary: $font-family-primary !default;
+$body-font-secondary: $font-family-secondary !default;
+$body-font-weight: $font-weight-base !default;
+
+// . Button
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 $btn-font-size: map-get($font-sizes, h6) !default;
 $btn-font-size-lg: map-get($font-sizes, h5) !default;
 
-$btn-border: 0 !default;
-$btn-color: $color-primary !default;
-$btn-radius: $base-radius !default;
-
-$btn-hamburger-bar: 3px !default;
-$btn-hamburger-bar-spacing: 20% !default; // (1 - $golden-inverse) * 0.5 * 100%
+$btn-hamburger-bar-height: 3px !default;
+$btn-hamburger-bar-spacing: 5px !default;
 $btn-hamburger-color: $black !default;
 $btn-hamburger-prompt-color: $black !default;
+$btn-hamburger-prompt-size: 2rem !default;
+
+$btn-border: none !default;
+$btn-color: $color-primary !default;
+$btn-cursor: pointer !default;
+$btn-outline: 0 !default;
+$btn-radius: $base-radius !default;
+
+/// To add more button styles, simply add a key to the $btn-keys list and add the corresponding
+/// Values to each of the button style maps below. This will result in a generate class of
+/// .btn-key (ex: the key 'primary' results in class .btn-primary).
+///
+
+$btn-keys: (primary, secondary, tertiary, ghost, blk, wht) !default;
+
+$btn-bg-colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  tertiary: $color-tertiary,
+  ghost: $color-primary,
+  blk: $black,
+  wht: $white
+) !default;
+
+$btn-border-colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  tertiary: $color-tertiary,
+  ghost: $color-primary,
+  blk: $black,
+  wht: $white
+) !default;
+
+$btn-font-colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  tertiary: $color-tertiary,
+  ghost: $color-primary,
+  blk: $black,
+  wht: $white
+) !default;
+
+$btn-box-shadows: (
+  primary: none,
+  secondary: none,
+  tertiary: none,
+  ghost: none,
+  blk: none,
+  wht: none
+) !default;
 
 // . Navbar
 // - - - - - - - - - - - - - - - - - - - - - - - - -

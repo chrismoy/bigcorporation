@@ -1,0 +1,51 @@
+/// Returns a CSS setting that includes a backup value for REMs in pixels if applicable
+///
+/// @param {String} $property [null]
+/// CSS Property to be changed. Example: "font-size", "width", "margin"
+///
+/// @param {List} $values [null]
+/// A list of values to be updated. Can be single or plural. Ex: 10px 20px is valid for work with padding or the like
+///
+
+@mixin rem(
+  $property: null,
+  $values: null
+) {
+
+  $error: string-error($property);
+  $error: list-error($values);
+
+  $px : ();
+  $rem: ();
+
+  @each $value in $values {
+
+    @if type-of($value) != number or $value == 0 or unit($value) == '%' {
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+
+    @else {
+      $unit: unit($value);
+      $val: parseInt($value);
+      $conversion-factor: 16 * $rem-scaler;
+
+      @if $unit == px {
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / $conversion-factor + 0rem));
+      }
+
+      @if $unit == rem {
+        $px : append($px,  ($val * $conversion-factor + 0px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  @if $px == $rem {
+    #{$property}: $px;
+  } @else {
+    #{$property}: $px;
+    #{$property}: $rem;
+  }
+}

@@ -1,0 +1,52 @@
+/// Returns base CSS settings for any typography selector
+///
+/// @param {String} $selector [null]
+/// The name of the selector to be set for
+///
+
+@mixin typeBase(
+  $selector: null
+) {
+
+  $error: string-error($selector);
+
+  font-weight: map-get($font-weights, $selector);
+  margin: map-get($type-margins, $selector);
+}
+
+/// Returns responsive CSS settings for any typography selector
+///
+/// @param {String} $selector [null]
+/// The name of the selector to be set for
+///
+/// @param {String} $modifier [null]
+/// The name for the size modifier of the column classes (sm, md, lg, xl, etc)
+///
+
+@mixin typeResponsive(
+  $selector: null,
+  $modifier: null
+) {
+
+  $error: string-error($selector);
+  $error: string-error($modifier);
+
+  @include rem(font-size, scale-font(map-get($font-sizes, $selector), $modifier));
+}
+
+/// Returns font family classes for any typography selector
+///
+
+@mixin type(
+) {
+
+  $error: string-error($selector);
+
+  &-primary {
+    font-family: $font-family-primary;
+  }
+
+  &-secondary {
+    font-family: $font-family-secondary;
+  }
+}

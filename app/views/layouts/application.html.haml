@@ -6,6 +6,7 @@
     %title
       = content_for?(:title) ? "#{yield(:title)} | Big Corp." : "Big Corporation"
     -# place scripts here
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
 
@@ -17,6 +18,5 @@
 
     = render partial: "framework/buttons/hamburger", locals: { mobile_only: true }
 
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag "vendor/modernizr"

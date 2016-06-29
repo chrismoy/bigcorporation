@@ -4,7 +4,30 @@
 /// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
 ///
 
-@mixin btn-base(
+@mixin btnBase(
+) {
+  background-color: transparent;
+  border: $btn-border;
+  @include rem(border-radius, $base-radius);
+  box-sizing: border-box;
+  font-family: $font-family-primary;
+  line-height: $font-line-height-base;
+  outline: $btn-outline;
+  position: relative;
+  @include transition(all);
+
+  &:hover {
+    cursor: $btn-cursor;
+  }
+}
+
+/// Returns the responsive sizing attributes for a button
+///
+/// @param {String} $modifier [null]
+/// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
+///
+
+@mixin btnResponsive(
   $modifier: null
 ) {
 
@@ -14,7 +37,6 @@
   $dimension: scale-sf($font-size);
   $btn-padding: 0.5 * ($dimension - $font-size);
 
-  @include rem(border-radius, $base-radius);
   @include rem(font-size, $font-size);
   @include rem(padding, scale-spacing($btn-padding, $modifier));
 
@@ -29,7 +51,9 @@
     @include rem(padding, scale-spacing($btn-padding, $modifier));
   }
 
-  &-square { @include rem(width, $dimension); }
+  &-square {
+    @include rem(width, $dimension);
+  }
 }
 
 /// Returns the viewport-dependent sizing attributes for a hamburger button
@@ -39,30 +63,31 @@
 /// $size: The name for the size modifier of the column classes (sm, md, lg, xl, etc)
 ///
 
-@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
-  $burger-height: $height !global;
-  $burger-gutter: $gutter !global;
+@mixin btn-hamburger(
+  $width: 100%
+) {
 
+  $bar-height: $btn-hamburger-bar-height;
+  $color: $btn-hamburger-color;
+  $gutter: $btn-hamburger-bar-spacing;
+  $prompt-size: $btn-hamburger-prompt-size;
+
+  margin-bottom: $bar-height + $gutter;
+  margin-top: $bar-height + $gutter;
   position: relative;
-  margin-top: $height + $gutter;
-  margin-bottom: $height + $gutter;
 
   & {
     padding: 0;
   }
 
   &, &::before, &::after {
+    background-color: $color;
+    border-radius: $base-radius;
     display: block;
     width: $width;
-    height: $height;
-    background-color: $color;
-
-    @if $border-radius != 0 {
-      border-radius: $border-radius;
-    }
-
+    height: $bar-height;
     transition-property: background-color, transform;
-    transition-duration: $transition-duration;
+    transition-duration: $transition-time;
   }
 
   &::before, &::after {
@@ -71,11 +96,11 @@
   }
 
   &::before {
-    top: -($height + $gutter);
+    top: -($bar-height + $gutter);
   }
 
   &::after {
-    top: $height + $gutter;
+    top: $bar-height + $gutter;
   }
 
   // TODO, set prompt variables
@@ -87,7 +112,13 @@
 }
 
 // Burger animations
-@mixin burger-to-cross($color: auto) {
+@mixin btn-hamburger-active(
+  $color: auto
+) {
+
+  $bar-height: $btn-hamburger-bar-height;
+  $gutter: $btn-hamburger-bar-spacing;
+
   & {
     background-color: transparent;
   }
@@ -97,10 +128,10 @@
     }
   }
   &::before {
-    transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    transform: translateY($gutter + $bar-height) rotate(45deg);
   }
   &::after {
-    transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+    transform: translateY(-($gutter + $bar-height)) rotate(-45deg);
   }
 }
 
@@ -128,4 +159,20 @@
   &::after {
     @content;
   }
+}
+
+@mixin btnTheme(
+  $key: null
+) {
+
+  @if type-of($key) != string {
+    @error type-of($key);
+  }
+
+  $error: string-error($key);
+
+  background-color: map-get($btn-bg-colors, $key);
+  color: map-get($btn-font-colors, $key);
+  border: map-get($btn-border-colors, $key);
+  box-shadow: map-get($btn-box-shadows, $key);
 }

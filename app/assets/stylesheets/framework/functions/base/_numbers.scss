@@ -86,6 +86,6 @@
 ) {
   $error: range-error($range);
 
-  @return nth($range, 1);
+  @return nth($range, 2);
 }
 

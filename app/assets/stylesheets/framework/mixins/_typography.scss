@@ -12,6 +12,7 @@
 
   font-weight: map-get($font-weights, $selector);
   margin: map-get($type-margins, $selector);
+  letter-spacing: map-get($letter-spacings, $selector);
 }
 
 /// Returns responsive CSS settings for any typography selector

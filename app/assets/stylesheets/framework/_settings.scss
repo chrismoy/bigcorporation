@@ -198,6 +198,10 @@ $font-weight-lighter: 200;
 $font-style-normal: normal;
 $font-style-italic: oblique;
 
+$font-spacing-tight: 0;
+$font-spacing-normal: 0.05em;
+$font-spacing-loose: 0.1em;
+
 $font-family-primary: $font-family-sans !default;
 $font-family-secondary: $font-family-serif !default;
 
@@ -221,6 +225,17 @@ $font-weights: (
   h3:     $font-weight-normal,
   h2:     $font-weight-bold,
   h1:     $font-weight-bold
+) !default;
+
+$letter-spacings: (
+  p:      $font-spacing-tight,
+  small:  $font-spacing-tight,
+  h6:     $font-spacing-normal,
+  h5:     $font-spacing-normal,
+  h4:     $font-spacing-normal,
+  h3:     $font-spacing-normal,
+  h2:     $font-spacing-loose,
+  h1:     $font-spacing-loose
 ) !default;
 
 $type-margins: (

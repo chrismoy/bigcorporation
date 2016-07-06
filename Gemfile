@@ -17,6 +17,7 @@ gem 'jbuilder',                 '2.2.3'
 gem 'sdoc',                     '0.4.0', group: :doc
 gem 'pg',                       '0.17.1'
 gem 'figaro'
+gem 'inline_svg'
 
 group :development, :test do
 

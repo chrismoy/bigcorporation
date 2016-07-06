@@ -2,19 +2,21 @@
 
   .btn {
     &.btn-logo {
+      background-color: transparent;
       border-radius: $btn-radius;
-      left: $base-padding;
+      left: 0;
+      margin: $base-margin;
+      // padding: $base-padding $base-spacing;
+      padding: 0;
       position: absolute;
-      top: $base-padding;
-
-      &:hover {
-        color: $theme-blue;
-      }
+      top: 0;
+      width: 15rem;
     }
   }
 
   .nav-left {
     background-color: transparent;
+    box-shadow: 3px 0 2px rgba(0,0,0,0.1);
     height: 100%;
     padding: 0;
     position: relative;
@@ -46,26 +48,29 @@
           margin: $base-spacing 0;
           text-decoration: none;
           text-transform: uppercase;
-          transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          transition: all $transition-time cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
           a {
-            color: $light-gray;
+            color: $white;
             cursor: pointer;
             @include rem(font-size, $font-size);
+            @include rem(padding, 1.2rem 2rem 1rem);
             text-decoration: none;
-            @include transition(color);
+            // @include transition(color);
+
+            background-image: linear-gradient(to right, black 50%, white 50%);
+            background-size: 200% 100%;
+            transition: all .5s;
 
             &:hover:not(.active) {
               color: $gray;
+              background-position: -100% 0;
             }
 
             &.active {
-              color: $black;
-            }
-
-            span {
-              background-color: white;
-              padding: 10px 0;
+              background-color: $theme-blue;
+              background-image: none;
+              color: $white;
             }
           }
         }
@@ -101,13 +106,29 @@
         }
       }
     }
+  }
 
-    @each $size in $screen-sizes {
+  @each $size in $screen-sizes {
 
-      $viewport: nth($size, 1);
-      $modifier: nth($size, 2);
+    $viewport: nth($size, 1);
+    $modifier: nth($size, 2);
 
-      @media #{$viewport} {
+    @media #{$viewport} {
+
+      .btn {
+
+        &.btn-logo {
+
+          @if $modifier == lg {
+            margin: 0;
+            padding: $base-spacing;
+            width: 100%;
+          }
+        }
+      }
+
+      .nav-left {
+
         @include clearNav($modifier);
 
         &-bottom, &-top {
@@ -116,15 +137,6 @@
 
         &-left, &-right {
           @include rem(width, scale-navbar($navbar-width-vertical, $modifier));
-        }
-
-        @if $viewport != md {
-          padding: $base-padding;
-
-          .nav-wrapper {
-            border-color: $black;
-            border-radius: $btn-radius;
-          }
         }
       }
     }

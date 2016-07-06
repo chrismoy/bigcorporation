@@ -3,16 +3,16 @@
     %ul.nav-links
       %li.nav-link
         = link_to home_path, class: "#{'active' if action_name == 'home'}" do
-          %span Home
+          Home
       %li.nav-link 
         = link_to work_path, class: "#{'active' if action_name == 'work'}" do 
-          %span Work
+          Work
       %li.nav-link
         = link_to about_path, class: "#{'active' if action_name == 'about'}" do 
-          %span About
+          About
       %li.nav-link
         = link_to contact_path, class: "#{'active' if action_name == 'contact'}" do
-          %span Contact
+          Contact
     .company-info
       .company-card{ itemscope: true, itemtype: 'http://schema.org/Organization' }
         %p.title{ itemprop: 'name' }

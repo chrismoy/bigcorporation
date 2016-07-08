@@ -127,18 +127,19 @@ $portrait: "#{$screen} and (orientation: portrait)" !default;
 // Screen Ranges
 
 $sm-up: $screen !default;
-$sm-only: "#{$screen} and (max-width: #{$view-breakpoint-sm})" !default;
 $md-up: "#{$screen} and (min-width: #{lower-bound($view-range-md)})" !default;
 $md-only: "#{$screen} and (min-width: #{lower-bound($view-range-md)}) and (max-width:#{upper-bound($view-range-md)})" !default;
-$md-down: "#{$screen} and (max-width: #{upper-bound($view-range-md)})" !default;
+$md-down: "#{$screen} and (max-width: #{lower-bound($view-range-md)})" !default;
 $lg-up: "#{$screen} and (min-width: #{lower-bound($view-range-lg)})" !default;
 $lg-only: "#{$screen} and (min-width: #{lower-bound($view-range-lg)}) and (max-width:#{upper-bound($view-range-lg)})" !default;
-$lg-down: "#{$screen} and (max-width: #{upper-bound($view-range-lg)})" !default;
+$lg-down: "#{$screen} and (max-width: #{lower-bound($view-range-lg)})" !default;
 $xl-up: "#{$screen} and (min-width: #{lower-bound($view-range-xl)})" !default;
 $xl-only: "#{$screen} and (min-width: #{lower-bound($view-range-xl)}) and (max-width:#{upper-bound($view-range-xl)})" !default;
 
 $screen-sizes: ($md-up md, $lg-up lg, $xl-up xl);
-$screen-sizes-inverse: ($sm-only sm, $md-down md, $lg-down lg);
+$screen-sizes-inverse: ($md-down md, $lg-down lg);
+
+// @error $md-down, $md-up;
 
 // c. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -

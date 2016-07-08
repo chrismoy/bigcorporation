@@ -44,33 +44,35 @@
           $font-size: scale-font(map-get($font-sizes, h5), sm);
 
           font-weight: $font-weight-normal;
-          letter-spacing: 4px;
+          letter-spacing: 5px;
           margin: $base-spacing 0;
           text-decoration: none;
           text-transform: uppercase;
           transition: all $transition-time cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
           a {
-            color: $white;
+            color: $gray;
             cursor: pointer;
             @include rem(font-size, $font-size);
-            @include rem(padding, 1.2rem 2rem 1rem);
+            @include rem(padding, 1.2rem 0 1rem 2rem);
             text-decoration: none;
-            // @include transition(color);
 
-            background-image: linear-gradient(to right, black 50%, white 50%);
+            background-image: linear-gradient(to left, white 50%, $gray 50%);
+            background-position: -100% 0;
             background-size: 200% 100%;
-            transition: all .5s;
+            transition: all $transition-time * 2;
 
             &:hover:not(.active) {
-              color: $gray;
-              background-position: -100% 0;
+              color: $white;
+              background-position: 0 0;
+              padding-right: 2rem
             }
 
             &.active {
               background-color: $theme-blue;
               background-image: none;
               color: $white;
+              padding-right: 2rem;
             }
           }
         }

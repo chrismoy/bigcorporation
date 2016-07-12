@@ -114,14 +114,14 @@ App.Particles = {
   }
 }
 
-$(document).on('ready', function() {
-  if ($("#home").length) {
-    App.Particles.set( "home" );
-  }
-});
+// $(document).on('ready', function() {
+//   if ($("#home").length) {
+//     App.Particles.set( "home" );
+//   }
+// });
 
-$(document).on('page:load', function() {
-  if ($("#home").length) {
-    App.Particles.set( "home" );
-  }
-});
+// $(document).on('page:load', function() {
+//   if ($("#home").length) {
+//     App.Particles.set( "home" );
+//   }
+// });

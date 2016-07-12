@@ -5,7 +5,8 @@
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     %title
       = content_for?(:title) ? "#{yield(:title)} | Big Corp." : "Big Corporation"
-    -# place scripts here
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag "vendor/modernizr"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = favicon_link_tag 'favicon.png'
     = csrf_meta_tags
@@ -17,6 +18,3 @@
       = render partial: "shared/header"
 
     = render partial: "framework/buttons/hamburger", locals: { mobile_only: true }
-
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag "vendor/modernizr"

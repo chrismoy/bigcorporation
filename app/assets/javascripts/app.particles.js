@@ -119,3 +119,9 @@ $(document).on('ready', function() {
     App.Particles.set( "home" );
   }
 });
+
+$(document).on('page:load', function() {
+  if ($("#home").length) {
+    App.Particles.set( "home" );
+  }
+});

@@ -3,10 +3,8 @@
   .btn {
     &.btn-logo {
       background-color: transparent;
-      border-radius: $btn-radius;
       left: 0;
       margin: $base-margin;
-      // padding: $base-padding $base-spacing;
       padding: 0;
       position: absolute;
       top: 0;
@@ -18,14 +16,13 @@
     background-color: transparent;
     box-shadow: 3px 0 2px rgba(0,0,0,0.1);
     height: 100%;
+    left: 0;
     padding: 0;
     position: relative;
     text-align: left;
 
     .nav-wrapper {
       background-color: white;
-      border: $btn-radius solid white;
-      border-radius: 0;
       height: 100%;
       position: relative;
       width: 100%;
@@ -41,38 +38,68 @@
         width: 100%;
 
         .nav-link {
-          $font-size: scale-font(map-get($font-sizes, h5), sm);
+          $font-size: scale-font(map-get($font-sizes, h6), sm);
 
           font-weight: $font-weight-normal;
           letter-spacing: 5px;
           margin: $base-spacing 0;
           text-decoration: none;
           text-transform: uppercase;
-          transition: all $transition-time cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
           a {
             color: $gray;
             cursor: pointer;
             @include rem(font-size, $font-size);
+            outline: none;
             @include rem(padding, 1.2rem 0 1rem 2rem);
+            position: relative;
             text-decoration: none;
-
-            background-image: linear-gradient(to left, white 50%, $gray 50%);
-            background-position: -100% 0;
-            background-size: 200% 100%;
             transition: all $transition-time * 2;
+
+            &:after {
+              background-color: $gray;
+              content: '';
+              height: 100%;
+              left: 100px;
+              opacity: 0;
+              position: absolute;
+              top: 0;
+              transition: all $transition-time * 2;
+              width: 3px;
+            }
+
+            &:before {
+              background-color: $gray;
+              content: '';
+              height: 100%;
+              right: 0;
+              position: absolute;
+              top: 0;
+              transition: all $transition-time * 2;
+              width: 0;
+              z-index: -1;
+            }
 
             &:hover:not(.active) {
               color: $white;
-              background-position: 0 0;
-              padding-right: 2rem
+              padding-right: 2rem;
+
+              &:before {
+                width: 100%;
+              }
             }
+
 
             &.active {
               background-color: $theme-blue;
-              background-image: none;
               color: $white;
               padding-right: 2rem;
+
+              &:after {
+                background-color: $theme-blue;
+                left: -9px;
+                opacity: 1;
+              }
             }
           }
         }
@@ -84,9 +111,9 @@
 
       background-color: white;
       bottom: $base-padding;
-      left: 20%;
+      left: 0;
       position: absolute;
-      width: 60%;
+      width: 100%;
 
       .company-card {
         height: 100%;
@@ -133,12 +160,12 @@
 
         @include clearNav($modifier);
 
-        &-bottom, &-top {
-          @include rem(height, scale-navbar($navbar-height-horizontal, $modifier));
-        }
+        .nav-wrapper .nav-links .nav-link {
+          $font-size: scale-font(map-get($font-sizes, h6), $modifier);
 
-        &-left, &-right {
-          @include rem(width, scale-navbar($navbar-width-vertical, $modifier));
+          a {
+            @include rem(font-size, $font-size);
+          }
         }
       }
     }

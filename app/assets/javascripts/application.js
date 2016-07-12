@@ -8,5 +8,4 @@
 //= require app.turbolinks
 
 //= require app.menu
-//= require app.nav
 //= require app.particles

@@ -1,16 +1,16 @@
 %nav.nav.menu.nav-left.nav-fullLeft.show-lgUp
   .nav-wrapper
     %ul.nav-links
-      %li.nav-link
+      %li.nav-link.nav-link1
         = link_to home_path, class: "#{'active' if action_name == 'home'}" do
           Home
-      %li.nav-link 
+      %li.nav-link.nav-link2
         = link_to work_path, class: "#{'active' if action_name == 'work'}" do 
           Work
-      %li.nav-link
+      %li.nav-link.nav-link3
         = link_to about_path, class: "#{'active' if action_name == 'about'}" do 
           About
-      %li.nav-link
+      %li.nav-link.nav-link4
         = link_to contact_path, class: "#{'active' if action_name == 'contact'}" do
           Contact
     .company-info

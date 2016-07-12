@@ -114,7 +114,7 @@ App.Particles = {
   }
 }
 
-$(document).on('ready page:load', function() {
+$(document).on('ready', function() {
   if ($("#home").length) {
     App.Particles.set( "home" );
   }

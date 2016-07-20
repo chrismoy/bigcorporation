@@ -15,16 +15,18 @@
           Contact
     .company-info
       .company-card{ itemscope: true, itemtype: 'http://schema.org/Organization' }
-        %p.title{ itemprop: 'name' }
-          Big Corporation
-        %p.address{ :itemprop => 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress' }
-          %span{ itemprop: 'streetAddress' } 300 N Canal Street
-          %br
-          %span{ itemprop: 'addressLocality' } Chicago, 
-          %span{ itemprop: 'addressRegion' } IL, 
-          %span{ itemprop: 'postalCode' } 60606
-        %p.contact
-          %br
+        %p.title
+          Easy to find in
+          %span{ itemprop: "addressLocality", itemref: "bwAddress" } Chicago
+        %p.email
+          Email Us:
           %span{ itemprop: 'email' } info@bigcorp.io
-        / %p.copyright
-        /   Copyright © 2016
+        %p.phone
+          Call Us:
+          %span{ itemprop: 'telephone' } (847) 942-1853
+        %p.social
+          Follow Us On Social Media:
+          %span @bigcorpdigital
+        %p.address{ :itemprop => 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress', id: "bwAddress" }
+          Follow Us Home:
+          %span{ itemprop: 'streetAddress' } 300 N. Canal Street

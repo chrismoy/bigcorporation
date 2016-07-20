@@ -1,4 +1,4 @@
-var App = App || {};
+`var App = App || {};
 
 App.init = function() {
   new scrollReveal;
